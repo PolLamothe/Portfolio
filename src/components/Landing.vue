@@ -60,6 +60,7 @@
     }
     .SocialeButton{
         align-items: center;
+        cursor: pointer;
     }
     .invert{
         filter: invert(100%);

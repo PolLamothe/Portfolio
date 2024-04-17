@@ -144,7 +144,7 @@
         filter: none!important;
     }
     .skillActive{
-        background:linear-gradient(#db57ff,blue);
+        background-color:white!important;
     }
     #skillButtonDiv{
         display: flex;
