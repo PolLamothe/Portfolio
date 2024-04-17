@@ -32,11 +32,10 @@
         grid-column: 2;
         grid-row: 1;
         width: 30vw;
-        color: black;
+        color: white;
         font-family: Roboto;
         margin-left: 5vw;
         font-size: 20px;
-        background-color: lightgray;
         border-radius: 50px;
         padding: 1.5vw;
         height: fit-content;
