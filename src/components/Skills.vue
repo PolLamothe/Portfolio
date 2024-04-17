@@ -17,7 +17,7 @@
                 <p class="underTitle">Les technologies que je maitrise :</p>
                 <div id="techContent" class="contentDiv">
                     <div id="skillButtonDiv">
-                        <button v-for="kind in techKind" class="skillButton" :class="{skillActive : (kind == kindSelected)}" @click="changeKind(kind);this.$forceUpdate();"><img :src="'/src/assets/img/'+kind+'.png'"></button>
+                        <button v-for="kind in techKind" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'/src/assets/img/'+kind+'.png'"></button>
                     </div>
                     <div id="sideSkillDiv">
                         <p id="skillKindTitle">{{ kindSelected }}</p>
@@ -41,6 +41,7 @@
         for(var i = 0;i<$('.barContent').length;i++){
                 $($('.barContent')[i]).css("width",maxSize*$($('.barContent')[i]).attr("percent")+"vw")
         }
+        $('#'+kindSelected).addClass("skillActive")
     })
     var languages = ["JavaScript","HTML/CSS","Python","SQL","Golang","PHP"]
     var Data = {
@@ -78,21 +79,21 @@
             }
         }
     });
-
-    function changeKind(kind){
+    async function changeKind(update,kind){
         $("#sideSkillDiv").addClass("skillGone")
+        $('.skillActive').removeClass("skillActive")
+        $('#'+kind).addClass("skillActive")
+        await new Promise(r => setTimeout(r, 625))
         kindSelected = kind
+        update.$forceUpdate()
+        await new Promise(r => setTimeout(r, 625))
         $("#sideSkillDiv").removeClass("skillGone")
-        $("#sideSkillDiv").addClass("skillGone")
     }
 </script>
 
 <style scoped>
     .skillGone{
-        animation: skillGone 1s;
-    }
-    .skillCome{
-        animation: skillGone 1s reverse;
+        animation: skillGone 1.25s;
     }
     .invert{
         filter: invert(100%);
@@ -208,11 +209,14 @@
     }
 
     @keyframes skillGone {
-        from{
+        0%{
             transform: translateX(0%);
         }
-        to{
-            transform: translateX(100%);
+        50%{
+            transform: translateX(125%);
+        }
+        100%{
+            transform: translateX(0%);
         }
     }
 </style>
