@@ -5,13 +5,13 @@
 </template>
 
 <script setup>
-    let allButton = ["Accueil","A propos de moi","Compétences","Portfolio","Contact"]
+    let allButton = ["Accueil","A propos de moi","Compétences","Projets","Contact"]
 
     let idTable = {
         "Accueil":"Accueil",
         "A propos de moi":"me",
         "Compétences":"skill",
-        "Portfolio":"Portfolio",
+        "Projets":"projects",
         "Contact":"Contact"
     }
 

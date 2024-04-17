@@ -19,7 +19,7 @@
                     <div id="skillButtonDiv">
                         <button v-for="kind in techKind" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'/src/assets/img/'+kind+'.png'"></button>
                     </div>
-                    <div id="sideSkillDiv">
+                    <div id="sideSkillDiv" data-aos="fade-left">
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
                             <div v-for="element in kindContent[kindSelected]">
@@ -80,6 +80,9 @@
         }
     });
     async function changeKind(update,kind){
+        if($(".skillGone").length != 0 || kind == kindSelected){
+            return
+        }
         $("#sideSkillDiv").addClass("skillGone")
         $('.skillActive').removeClass("skillActive")
         $('#'+kind).addClass("skillActive")
@@ -92,6 +95,9 @@
 </script>
 
 <style scoped>
+    #tech{
+        height: 50vh;
+    }
     .skillGone{
         animation: skillGone 1.25s;
     }
@@ -145,6 +151,11 @@
         border-radius: 25px;
         border: none;
         transition-duration: 0.7s;
+        border: solid 1px white;
+        padding: 0.5vw;
+    }
+    .skillButton:hover{
+        transform: scale(1.1);
     }
     .skillButton img{
         width: 100%;
@@ -161,10 +172,10 @@
     }
     .barContent{
         height: 8px;
-        background-color: #465977;
+        background:linear-gradient(to left,#e173ff,blue);
     }
     .barAnimation{
-        animation: apparition 2.5s;
+        animation: apparition 2s;
     }
     .wrapper{
         margin-top: 10vh;
