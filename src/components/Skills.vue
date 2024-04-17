@@ -11,6 +11,7 @@
                         <div class="barContent" :percent="Data[language]"></div>
                     </div>
                 </div>
+                <img src="/src/assets/img/tech/Ethereum.png" id="Bitcoin">
             </div>
             </div>
             <div id="tech">
@@ -95,6 +96,13 @@
 </script>
 
 <style scoped>
+    #Bitcoin{
+        position: absolute;
+        width: 5vw;
+        margin-top: 5vw;
+        margin-left: 15vw;
+        transform: rotate(-10deg);
+    }
     #tech{
         height: 50vh;
     }
@@ -136,7 +144,7 @@
         filter: none!important;
     }
     .skillActive{
-        background-color: white!important;
+        background:linear-gradient(#db57ff,blue);
     }
     #skillButtonDiv{
         display: flex;

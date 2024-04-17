@@ -1,5 +1,7 @@
 <template>
     <div class="wrapperLanding">
+        <img src="../assets/img/tech/JavaScript.png" id="javascript">
+        <img src="../assets/img/tech/css.png" id="css">
         <div id="bigTextDiv">
             <h1 id="name">Pol Lamothe</h1>
             <h2 id="job">Dévelopeur</h2>
@@ -20,6 +22,20 @@
 </script>
 
 <style scoped>
+    #css{
+        position: absolute;
+        width: 6vw;
+        transform: rotate(5deg);
+        right: 5vw;
+        margin-top: 60vh;
+    }
+    #javascript{
+        position: absolute;
+        width: 8vw;
+        border-radius: 20px;
+        transform: rotate(-10deg);
+        margin-left: 5vw
+    }
     .SocialeButton:after {
     position: absolute;
     content: "";
@@ -55,7 +71,7 @@
     #SocialDiv a{
         text-decoration: none;
         border: solid 3px white;
-        font-size: 20px;
+        font-size: 22px;
         padding: 0.5vw;
         border-radius: 25px;
         font-family: "Jersey 20";

@@ -4,6 +4,7 @@
     <Me id="me" data-aos="fade-up" data-aos-delay="50"></Me>
     <Skills id="skill" data-aos="fade-up" data-aos-delay="50"></Skills>
     <Project id="projects" data-aos="fade-up"></Project>
+    <Contact id="Contact" data-aos="fade-up"></Contact>
 </template>
 
 <script setup>
@@ -12,6 +13,7 @@
     import Me from "./components/Me.vue"
     import Skills from "./components/Skills.vue"
     import Project from "./components/Project.vue"
+    import Contact from './components/Contact.vue'
 
     AOS.init();
 </script>

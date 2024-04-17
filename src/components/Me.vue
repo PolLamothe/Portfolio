@@ -1,5 +1,7 @@
 <template>
     <div class="wrapperMe">
+        <img src="/src/assets/img/tech/VueJS.png" id="vue">
+        <img src="/src/assets/img/tech/Linux.png" id="linux">
         <h1>À propos de moi</h1>
         <div id="content">
             <img src="../assets/img/me.jpg" id="picture">
@@ -12,6 +14,20 @@
 </script>
 
 <style scoped>
+    #linux{
+        position: absolute;
+        width: 6vw;
+        left: 4vw;
+        transform: rotate(10deg);
+        margin-top: 5vh;
+    }
+    #vue{
+        position: absolute;
+        width: 7vw;
+        right: 6vw;
+        transform: rotate(-7deg);
+        margin-top: 40vh;
+    }
     .wrapperMe{
         padding-top: 5vh;
     }
@@ -21,7 +37,13 @@
         font-family: Roboto;
         margin-bottom: 10vh;
     }
-
+    iframe{
+        grid-column: 2;
+        grid-row: 2;
+        width: 30vw;
+        height: 60vh;
+        margin-left: 10vw;
+    }
     #content{
         display: grid;
         width: fit-content;

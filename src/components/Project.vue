@@ -117,6 +117,7 @@
         position: relative;
         transition-duration: 0.5s;
         object-fit: cover;
+        border-radius: 30px;
     }
     #slider{
         margin-left: 5vw;
