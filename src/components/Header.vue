@@ -63,4 +63,10 @@
         transform: scale(1.2);
         color: lightgray;
     }
+
+    @media screen and (max-width: 700px) {
+        header{
+            display: none;
+        }
+    }
 </style>

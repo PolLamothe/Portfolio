@@ -114,4 +114,51 @@
         grid-column: 1;
         grid-row: 1/3;
     }
+    @media screen and (max-width: 700px) {
+        #vue{
+            width: 20vw;
+            top: 80vw;
+        }
+        #linux{
+            width: 22vw;
+            margin-top: 10vh;
+        }
+        #cv img{
+            width: 14vw;
+            height: 14vw;
+        }
+        #cv{
+            margin-left: 0px;
+            transform: none;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            margin-top: 2vh;
+        }
+        .formation{
+            font-size: 24px;
+        }
+        #main{
+            margin-bottom: 0px;
+        }
+        .wrapperMe{
+            padding-top: 2vh;
+        }
+        h1{
+            margin-bottom: 5vh;
+        }
+        #mainWrapper{
+            width: 70vw;
+            text-align: center;
+            gap: 1vh;
+        }
+        #content{
+            display: flex;
+            flex-direction: column;
+            width: 80vw;
+            align-items: center;
+        }
+        #picture{
+            width: 40vw;
+        }
+    }
 </style>

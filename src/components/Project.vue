@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <h1>Mes projets</h1>
-        <Splide id="slider" aria-label="My Favorite Images"  data-splide='{"perPage":3}'>
+        <Splide id="slider" aria-label="My Favorite Images"  data-splide='{"fixedWidth":"fit-content","gap":"5vw"}' :key="key">
             <SplideSlide v-for="project in projectsList" class="slideDiv">
                     <img :src="'./img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
                     <div class="slidePictureButton">
@@ -94,8 +94,8 @@
         top: 0px;
         flex-direction: column;
         align-items: center;
-        margin-left: 12.5vw;
-        margin-top: 7.5vw;
+        margin-left: 50%;
+        margin-top: 30%;
         transform: translate(-50%,-50%);
         width: fit-content;
         gap: 5vh;
@@ -110,7 +110,7 @@
         margin-bottom: 10vh;
     }
     img{
-        width: 25vw;
+        width: 30vw;
         aspect-ratio: 16/9;
         position: relative;
         transition-duration: 0.5s;
@@ -118,9 +118,9 @@
     }
     #slider{
         margin-left: 5vw;
-        width: 80vw;
         padding-left: 5vw;
         padding-right: 5vw;
+        height: fit-content;
     }
     .slide{
         display: flex;
@@ -129,5 +129,25 @@
     }
     .wrapper{
         margin-bottom: 10vh;
+    }
+    @media screen and (max-width: 700px) {
+        img{
+            width: 80vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }   
+        .splide__slide p{
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        img{
+            width: 50vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }   
+        .splide__slide p{
+            width: 80%;
+        }
     }
 </style>

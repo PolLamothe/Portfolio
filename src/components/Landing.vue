@@ -32,7 +32,7 @@
     #javascript{
         position: absolute;
         width: 8vw;
-        border-radius: 20px;
+        border-radius: 1.5vw;
         transform: rotate(-10deg);
         margin-left: 5vw
     }
@@ -120,5 +120,51 @@
         position: absolute;
         bottom: 0px;
         margin-left: 10vw;
+    }
+    @media screen and (max-width: 700px) {
+        .SocialeButton:hover{
+            transform: translateX(-50%)!important;
+        }
+        #css{
+            width: 13vw;
+        }
+        #javascript{
+            width: 15vw;
+            margin-top: 5vh;
+            margin-left: 10vw;
+        }
+        #SocialDiv{
+            flex-direction: column;
+            gap: 2vh;
+        }
+        #SocialDiv a{
+            width: 50vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            height: fit-content;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+        }
+        #SocialDiv a img{
+            width: 10vw;
+            height: 10vw;
+        }
+        .wrapperLanding{
+            height: fit-content;
+        }
+        #img1{
+            width: 60vw;
+            position: relative;
+            margin-top: 5vh;
+        }
+        #bigTextDiv{
+            transform: translateX(-50%);
+            width: fit-content;
+            padding-left: 0px;
+            margin-left: 50vw;
+        }
+        #name{
+            width: max-content;
+        }
     }
 </style>

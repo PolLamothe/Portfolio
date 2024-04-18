@@ -220,7 +220,6 @@
         font-size: 18px;
         width: 100%;
     }
-
     @keyframes apparition {
         from{
             transform: translateX(-100%);
@@ -235,10 +234,52 @@
             transform: translateX(0%);
         }
         50%{
-            transform: translateX(150%);
+            transform: translateX(40vw);
         }
         100%{
             transform: translateX(0%);
         }
+    }
+    @media screen and (max-width:700px) {
+        #Bitcoin{
+            width: 15vw;
+        }
+        #sideSkillDiv{
+            margin-top: 2vh;
+        }
+        #skillDetailsDiv img{
+            width: 15vw;
+        }
+        #tech{
+            height: 65vh;
+        }
+        #techContent{
+            flex-direction: column;
+        }
+        .skillButton{
+            height: fit-content;
+            width: 20vw;
+        }
+        #skillButtonDiv{
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        #content{
+            flex-direction: column;
+        }
+        .contentWrap{
+            width: 80vw;
+        }
+        @keyframes skillGone {
+        0%{
+            transform: translateX(0%);
+        }
+        50%{
+            transform: translateX(100vw);
+        }
+        100%{
+            transform: translateX(0%);
+        }
+    }
     }
 </style>
