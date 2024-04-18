@@ -1,18 +1,18 @@
 <template>
     <div class="wrapperLanding">
-        <img src="../assets/img/tech/JavaScript.png" id="javascript">
-        <img src="../assets/img/tech/css.png" id="css">
+        <img src="/img/tech/JavaScript.png" id="javascript">
+        <img src="/img/tech/css.png" id="css">
         <div id="bigTextDiv">
             <h1 id="name">Pol Lamothe</h1>
             <h2 id="job">Dévelopeur</h2>
             <div id="SocialDiv">
                 <a v-for="social in allSocial" :href="socialLink[social]" target="_blank" class="SocialeButton">
-                    <img :src="'/src/assets/img/social/'+social+'.png'" :class="{invert : social=='Github'}">
+                    <img :src="'/img/social/'+social+'.png'" :class="{invert : social=='Github'}">
                     <p>{{ social }}</p>
                 </a>
             </div>
         </div>
-        <img src="../assets/img/hero-devices.svg" id="img1">
+        <img src="/img/hero-devices.svg" id="img1">
     </div>
 </template>
 

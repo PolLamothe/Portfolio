@@ -1,10 +1,10 @@
 <template>
     <div class="wrapperMe">
-        <img src="/src/assets/img/tech/VueJS.png" id="vue">
-        <img src="/src/assets/img/tech/Linux.png" id="linux">
+        <img src="/img/tech/VueJS.png" id="vue">
+        <img src="/img/tech/Linux.png" id="linux">
         <h1>À propos de moi</h1>
         <div id="content">
-            <img src="../assets/img/me.jpg" id="picture">
+            <img src="/public/img/me.jpg" id="picture">
             <div id="mainWrapper" data-aos="fade-left" data-aos-delay="150">
                 <p id="main">Je suis un jeune passioné d'informatique de 17 ans. j'ai commencé l'informatique à 15 ans et depuis je ne cesse d'aprendre et de m'améliorer.</p>
                 <div id="formationwrapper">
@@ -12,7 +12,7 @@
                     <p class="formation" style="margin-top: 0px;font-size: 16px;">J'y étudie l'informatique générale avec une spécialisation pour l'ingénieurie logicielle</p>
                 </div>
             </div>
-            <a href="/CV.pdf" id="cv" target="_blank"><p>Mon CV</p><img src="/src/assets/img/cv.png"></a>
+            <a href="/CV.pdf" id="cv" target="_blank"><p>Mon CV</p><img src="/img/cv.png"></a>
         </div>
     </div>
 </template>

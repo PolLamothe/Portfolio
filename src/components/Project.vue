@@ -4,7 +4,7 @@
         <Splide id="slider" aria-label="My Favorite Images">
             <SplideSlide v-for="group in projectsList" class="slide">
                 <div v-for="project in group" class="slideDiv">
-                    <img :src="'/src/assets/img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
+                    <img :src="'/img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
                     <div class="slidePictureButton">
                         <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ link }}</a>
                     </div>

@@ -11,20 +11,20 @@
                             <div class="barContent" :percent="Data[language]"></div>
                         </div>
                     </div>
-                    <img src="/src/assets/img/tech/Ethereum.png" id="Bitcoin">
+                    <img src="/img/tech/Ethereum.png" id="Bitcoin">
                 </div>
             </div>
             <div id="tech" class="contentWrap">
                 <p class="underTitle">Les technologies que je maitrise :</p>
                 <div id="techContent" class="contentDiv">
                     <div id="skillButtonDiv">
-                        <button v-for="kind in techKind" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'/src/assets/img/'+kind+'.png'"></button>
+                        <button v-for="kind in techKind" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'/img/'+kind+'.png'"></button>
                     </div>
                     <div id="sideSkillDiv" data-aos="fade-left">
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
                             <div v-for="element in kindContent[kindSelected]">
-                                <img :src="'/src/assets/img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}">
+                                <img :src="'/img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}">
                                 <p>{{ element }}</p>
                             </div>
                         </div>
@@ -36,13 +36,14 @@
 </template>
 
 <script setup>
+    import { onMounted,ref  } from 'vue';
+    var kindSelected = ref("BackEnd")
     const maxSize = 20
-    import { onMounted  } from 'vue';
     onMounted(() => {
         for(var i = 0;i<$('.barContent').length;i++){
                 $($('.barContent')[i]).css("width",$($('.barContent')[i]).attr("percent")*100+"%")
         }
-        $('#'+kindSelected).addClass("skillActive")
+        $('#'+kindSelected.value).addClass("skillActive")
     })
     var languages = ["JavaScript","HTML/CSS","Python","SQL","Golang","PHP"]
     var Data = {
@@ -55,7 +56,6 @@
         "Flutter":0.7
     }
     var techKind = ["BackEnd","FrontEnd","Autres"]
-    var kindSelected = "BackEnd"
     const barNumber = Data.length
 
     var kindContent = {
@@ -80,16 +80,15 @@
             }
         }
     });
-    async function changeKind(update,kind){
-        if($(".skillGone").length != 0 || kind == kindSelected){
+    async function changeKind(updated,kind){
+        if($(".skillGone").length != 0 || kind == kindSelected.value){
             return
         }
         $("#sideSkillDiv").addClass("skillGone")
         $('.skillActive').removeClass("skillActive")
         $('#'+kind).addClass("skillActive")
         await new Promise(r => setTimeout(r, 625))
-        kindSelected = kind
-        update.$forceUpdate()
+        kindSelected.value = kind
         await new Promise(r => setTimeout(r, 625))
         $("#sideSkillDiv").removeClass("skillGone")
     }

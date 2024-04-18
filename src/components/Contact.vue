@@ -1,5 +1,5 @@
 <template>
-    <img src="/src/assets/img/tech/python.webp" id="python">
+    <img src="/img/tech/python.webp" id="python">
     <div class="wrapper">
         <h1>Me contacter</h1>
         <p><u>Téléphone:</u> 06 59 00 24 56</p>
