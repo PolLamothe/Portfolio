@@ -12,7 +12,7 @@
                     <p class="formation" style="margin-top: 0px;font-size: 16px;">J'y étudie l'informatique générale avec une spécialisation pour l'ingénieurie logicielle</p>
                 </div>
             </div>
-            <a href="/CV.pdf" id="cv" target="_blank"><p>Mon CV</p><img src="/img/cv.png"></a>
+            <a href="./CV.pdf" id="cv" download=""><p>Mon CV</p><img src="/img/cv.png"></a>
         </div>
     </div>
 </template>

@@ -18,13 +18,13 @@
                 <p class="underTitle">Les technologies que je maitrise :</p>
                 <div id="techContent" class="contentDiv">
                     <div id="skillButtonDiv">
-                        <button v-for="kind in techKind" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'/img/'+kind+'.png'"></button>
+                        <button v-for="kind in techKind" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'./img/'+kind+'.png'"></button>
                     </div>
                     <div id="sideSkillDiv" data-aos="fade-left">
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
                             <div v-for="element in kindContent[kindSelected]">
-                                <img :src="'/img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}">
+                                <img :src="'./img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}">
                                 <p>{{ element }}</p>
                             </div>
                         </div>

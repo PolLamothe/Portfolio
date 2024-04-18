@@ -7,7 +7,7 @@
             <h2 id="job">Dévelopeur</h2>
             <div id="SocialDiv">
                 <a v-for="social in allSocial" :href="socialLink[social]" target="_blank" class="SocialeButton">
-                    <img :src="'/img/social/'+social+'.png'" :class="{invert : social=='Github'}">
+                    <img :src="'./img/social/'+social+'.png'" :class="{invert : social=='Github'}">
                     <p>{{ social }}</p>
                 </a>
             </div>
