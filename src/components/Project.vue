@@ -81,7 +81,7 @@
     }
     .slidePictureButton a{
         width: 12vw;
-        background-color: rgb(166, 142, 98);
+        background-color: rgba(30,30,30,1);
         border: solid 2px white;
         font-size: 18px;
         padding: 0.5vw;
@@ -117,7 +117,6 @@
         position: relative;
         transition-duration: 0.5s;
         object-fit: cover;
-        border-radius: 30px;
     }
     #slider{
         margin-left: 5vw;

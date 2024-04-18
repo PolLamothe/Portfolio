@@ -2,19 +2,19 @@
     <div class="wrapper">
         <h1>Mes compétences</h1>
         <div id="content">
-            <div id="language">
-            <p class="underTitle">Les languages que je maitrise :</p>
-            <div id="languageContent" class="contentDiv">
-                <div v-for="language in languages">
-                    <p>{{language}}</p>
-                    <div class="bar">
-                        <div class="barContent" :percent="Data[language]"></div>
+            <div id="language" class="contentWrap">
+                <p class="underTitle">Les languages que je maitrise :</p>
+                <div id="languageContent" class="contentDiv">
+                    <div v-for="language in languages">
+                        <p>{{language}}</p>
+                        <div class="bar">
+                            <div class="barContent" :percent="Data[language]"></div>
+                        </div>
                     </div>
+                    <img src="/src/assets/img/tech/Ethereum.png" id="Bitcoin">
                 </div>
-                <img src="/src/assets/img/tech/Ethereum.png" id="Bitcoin">
             </div>
-            </div>
-            <div id="tech">
+            <div id="tech" class="contentWrap">
                 <p class="underTitle">Les technologies que je maitrise :</p>
                 <div id="techContent" class="contentDiv">
                     <div id="skillButtonDiv">
@@ -40,7 +40,7 @@
     import { onMounted  } from 'vue';
     onMounted(() => {
         for(var i = 0;i<$('.barContent').length;i++){
-                $($('.barContent')[i]).css("width",maxSize*$($('.barContent')[i]).attr("percent")+"vw")
+                $($('.barContent')[i]).css("width",$($('.barContent')[i]).attr("percent")*100+"%")
         }
         $('#'+kindSelected).addClass("skillActive")
     })
@@ -121,9 +121,8 @@
         gap: 2vw;
     }
     #skillDetailsDiv{
-        margin-top: 40%;
-        transform: translate(-50%,-50%);
         margin-left: 50%;
+        transform: translateX(-50%);
         display: flex;
         flex-direction: column;
         gap: 2.5vh;
@@ -173,7 +172,7 @@
         font-size: 18px;
     }
     .bar{
-        width: 20vw;
+        width: 100%;
         height: 8px;
         background-color: lightgray;
         overflow-x: hidden;
@@ -203,19 +202,24 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: lightgray;
         text-decoration: underline;
-        width: max-content;
+        width: fit-content;
         margin-bottom: 5vh;
+        text-align: center;
     }
     #content{
         display: flex;
         margin-left: 10vw;
         width: fit-content;
-        gap: 20vw;
+        gap: 15vw;
+    }
+    .contentWrap{
+        width: 30vw;
     }
     .contentDiv p{
         text-align: center;
         font-family: Roboto;
         font-size: 18px;
+        width: 100%;
     }
 
     @keyframes apparition {
@@ -232,7 +236,7 @@
             transform: translateX(0%);
         }
         50%{
-            transform: translateX(125%);
+            transform: translateX(150%);
         }
         100%{
             transform: translateX(0%);
