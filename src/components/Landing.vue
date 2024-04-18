@@ -96,6 +96,7 @@
     .wrapperLanding{
         height: 90vh;
         margin-top: 0px;
+        position: relative;
     }
     #bigTextDiv{
         position: relative;
