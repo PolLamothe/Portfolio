@@ -1,16 +1,14 @@
 <template>
     <div class="wrapper">
         <h1>Mes projets</h1>
-        <Splide id="slider" aria-label="My Favorite Images">
-            <SplideSlide v-for="group in projectsList" class="slide">
-                <div v-for="project in group" class="slideDiv">
+        <Splide id="slider" aria-label="My Favorite Images"  data-splide='{"perPage":3}'>
+            <SplideSlide v-for="project in projectsList" class="slideDiv">
                     <img :src="'./img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
                     <div class="slidePictureButton">
                         <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ link }}</a>
                     </div>
                     <h1>{{ projectTitle[project] }}</h1>
                     <p>{{ projectText[project] }}</p>
-                </div>
             </SplideSlide>
         </Splide>
     </div>
@@ -19,7 +17,7 @@
 <script setup>
     import '@splidejs/splide/dist/css/splide.min.css';
 
-    var projectsList = [["LochCrenn","Quadtree","InstinctIf"],["AIRPC","STI2D","WalletMiner"]]
+    var projectsList = ["LochCrenn","Quadtree","InstinctIf","AIRPC","STI2D","WalletMiner"]
 
     var projectsLink = {
         "LochCrenn":{"Site Web":"https://www.villalochcrenn.fr"},
