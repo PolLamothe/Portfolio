@@ -132,12 +132,16 @@
     }
     @media screen and (max-width: 700px) {
         img{
-            width: 80vw;
-            margin-left: 50%;
-            transform: translateX(-50%);
+            width: 80vw!important;
+            margin-left: 50%!important;
+            transform: translateX(-50%)!important;
         }   
         .splide__slide p{
             width: 80%;
+        }
+        .slideButton{
+            width: max-content!important;
+            padding: 2vw!important;
         }
     }
     @media screen and (max-width: 1200px) {
