@@ -129,6 +129,7 @@
     }
     .wrapper{
         margin-bottom: 10vh;
+        transition-duration: 0.5s;
     }
     @media screen and (max-width: 700px) {
         img{

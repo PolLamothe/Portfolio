@@ -251,7 +251,7 @@
             width: 15vw;
         }
         #tech{
-            height: 65vh;
+            height: fit-content;
         }
         #techContent{
             flex-direction: column;
