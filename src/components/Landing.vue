@@ -128,6 +128,9 @@
         margin-left: 10vw;
     }
     @media screen and (max-width: 700px) {
+        #job{
+            width: max-content;
+        }
         #logo{
             display: inherit;
         }
