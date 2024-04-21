@@ -21,16 +21,16 @@
     import '@splidejs/splide/dist/css/splide.min.css';
     import {ref} from "vue"
 
-    var projectsList = ["LochCrenn","Quadtree","InstinctIf","AIRPC","STI2D","WalletMiner"]
+    var projectsList = ["LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","STI2D","WalletMiner"]
 
-    var categories = ["Tous","Web","Autres"]
+    var categories = ["Tous","Site Web","Autres"]
 
     var currentCategorie = ref(categories[0])
 
     var categoriesContent = {
         "Tous":projectsList,
-        "Web":["LochCrenn","InstinctIf","AIRPC","STI2D"],
-        "Autres":["Quadtree","WalletMiner"]
+        "Site Web":["LochCrenn","InstinctIf","AIRPC","STI2D"],
+        "Autres":["NoteIf","Quadtree","WalletMiner"]
     }
 
     var projectsLink = {
@@ -39,7 +39,8 @@
         "Quadtree":{"Voir sur Gitlab":"https://gitlab.univ-nantes.fr/E239555L/quadtree-pol-mathieu"},
         "AIRPC":{"Site Web":"https://pollamothe.github.io/AIR-PC/"},
         "STI2D":{"Site Web":"https://pollamothe.github.io/STI2D/"},
-        "WalletMiner":{"Site Web":"https://github.com/PolLamothe/Wallet-Miner-BTC"}
+        "WalletMiner":{"Voir sur Github":"https://github.com/PolLamothe/Wallet-Miner-BTC"},
+        "NoteIf":{"Voir sur Github":"https://github.com/PolLamothe/NoteIf"}
         }
 
     var projectText = {
@@ -48,7 +49,8 @@
         "Quadtree":"Une jeux vidéo codé en Golang et utilisant la bibliothèque Ebiten",
         "AIRPC":"Un faux site web vitrine",
         "STI2D":"Un site web présentant la STI2D réalisé en Terminale",
-        "WalletMiner":"Un programme écrit en python servant à tester la sécurité de la blockchain Bitcoin"
+        "WalletMiner":"Un programme écrit en python servant à tester la sécurité de la blockchain Bitcoin",
+        "NoteIf":"Une extension google permettant aux étudiants de Nantes d'être avertis à la publication de note"
     }
 
     var projectTitle = {
@@ -57,7 +59,8 @@
         "Quadtree":"Project Quadtree",
         "AIRPC":"Air-PC",
         "STI2D":"Présentation STI2D",
-        "WalletMiner":"Bitcoin Wallet Miner"
+        "WalletMiner":"Bitcoin Wallet Miner",
+        "NoteIf":"NoteIf"
     }
 
     function changeCategorie(categorie){
