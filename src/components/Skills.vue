@@ -97,13 +97,18 @@
         if($(".skillGone").length != 0 || kind == kindSelected.value){
             return
         }
-        $("#sideSkillDiv").addClass("skillGone")
+        var monElement = $('#sideSkillDiv');
+        var offsetElement = monElement.offset();
+        var largeurElement = monElement.outerWidth();
+        var largeurEcran = $(window).width();
+        var distanceDroiteEcran = largeurEcran - (offsetElement.left);
+        $("#sideSkillDiv").css("transform","translateX("+distanceDroiteEcran*1+"px)")
         $('.skillActive').removeClass("skillActive")
         $('#'+kind).addClass("skillActive")
-        await new Promise(r => setTimeout(r, 625))
+        await new Promise(r => setTimeout(r, 300))
         kindSelected.value = kind
-        await new Promise(r => setTimeout(r, 625))
-        $("#sideSkillDiv").removeClass("skillGone")
+        await new Promise(r => setTimeout(r, 300))
+        $("#sideSkillDiv").css("transform","translateX(0%)")
     }
 </script>
 
@@ -125,9 +130,6 @@
     }
     #tech{
         height: 50vh;
-    }
-    .skillGone{
-        animation: skillGone 1.25s;
     }
     .invert{
         filter: invert(100%);
@@ -156,7 +158,7 @@
         display: flex;
     }
     #sideSkillDiv{
-        width: 30vw;
+        width: 50vw;
         margin-top: -2vh;
     }
     .skillActive img{
@@ -249,18 +251,6 @@
             transform: translateX(0%)
         }
     }
-
-    @keyframes skillGone {
-        0%{
-            transform: translateX(0%);
-        }
-        50%{
-            transform: translateX(40vw);
-        }
-        100%{
-            transform: translateX(0%);
-        }
-    }
     @media screen and (max-width:1200px) {
         #javascript{
             display: none;  
@@ -278,6 +268,7 @@
         }
         #sideSkillDiv{
             margin-top: 2vh;
+            width: 80vw;
         }
         #skillDetailsDiv img{
             width: 15vw;
@@ -302,16 +293,5 @@
         .contentWrap{
             width: 80vw;
         }
-        @keyframes skillGone {
-        0%{
-            transform: translateX(0%);
-        }
-        50%{
-            transform: translateX(100vw);
-        }
-        100%{
-            transform: translateX(0%);
-        }
-    }
     }
 </style>

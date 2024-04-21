@@ -1,7 +1,7 @@
 <template>
     <div class="wrapperLanding">
         <img src="/img/tech/css.png" id="css">
-        <img src="/public/logo.png" id="logo">
+        <img src="/public/img/logo_blanc_violet.png" id="logo">
         <div id="bigTextDiv">
             <h1 id="name">Pol Lamothe</h1>
             <h2 id="job">● Dévelopeur</h2>
