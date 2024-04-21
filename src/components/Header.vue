@@ -1,6 +1,6 @@
 <template>
     <header>
-        <img src="/logo_blanc.png">
+        <img src="/public/img/logo_blanc.png">
         <a :href="'#'+idTable[button]" v-for="button in allButton">{{ button }}</a>
     </header>
 </template>
