@@ -1,6 +1,7 @@
 <template>
     <div class="wrapperLanding">
         <img src="/img/tech/css.png" id="css">
+        <img src="/public/logo.png" id="logo">
         <div id="bigTextDiv">
             <h1 id="name">Pol Lamothe</h1>
             <h2 id="job">● Dévelopeur</h2>
@@ -21,6 +22,13 @@
 </script>
 
 <style scoped>
+    #logo{
+        width: 30vw;
+        margin-left: 50vw;
+        transform: translateX(-50%);
+        margin-top: 5vh;
+        display: none;
+    }
     @font-face {
         font-family: "Bauhaus";
         src: url("/public/font/bauhaus-93/Bauhaus-93-Regular.ttf");
@@ -120,6 +128,9 @@
         margin-left: 10vw;
     }
     @media screen and (max-width: 700px) {
+        #logo{
+            display: inherit;
+        }
         .SocialeButton:hover{
             transform: translateX(-50%)!important;
         }
@@ -154,12 +165,15 @@
             width: 60vw;
             position: relative;
             margin-top: 5vh;
+            bottom: 0px!important;
         }
         #bigTextDiv{
             transform: translateX(-50%);
             width: fit-content;
             padding-left: 0px;
             margin-left: 50vw;
+            margin-top: 5vh;
+            padding-top: 0px;
         }
         #name{
             width: max-content;

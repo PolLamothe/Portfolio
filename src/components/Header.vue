@@ -38,7 +38,6 @@
         margin-top: 0px;
         position: sticky;
         margin-bottom: 2.5vh;
-        padding-right: 25vw;
         top: 0;
         gap: 5vw;
         height: 10vh;
