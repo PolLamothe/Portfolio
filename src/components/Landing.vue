@@ -1,10 +1,9 @@
 <template>
     <div class="wrapperLanding">
-        <img src="/img/tech/JavaScript.png" id="javascript">
         <img src="/img/tech/css.png" id="css">
         <div id="bigTextDiv">
             <h1 id="name">Pol Lamothe</h1>
-            <h2 id="job">Dévelopeur</h2>
+            <h2 id="job">● Dévelopeur</h2>
             <div id="SocialDiv">
                 <a v-for="social in allSocial" :href="socialLink[social]" target="_blank" class="SocialeButton">
                     <img :src="'./img/social/'+social+'.png'" :class="{invert : social=='Github'}">
@@ -22,19 +21,17 @@
 </script>
 
 <style scoped>
+    @font-face {
+        font-family: "Bauhaus";
+        src: url("/public/font/bauhaus-93/Bauhaus-93-Regular.ttf");
+        font-weight: 400;
+    }
     #css{
         position: absolute;
         width: 6vw;
         transform: rotate(5deg);
         right: 5vw;
         margin-top: 60vh;
-    }
-    #javascript{
-        position: absolute;
-        width: 8vw;
-        border-radius: 1.5vw;
-        transform: rotate(-10deg);
-        margin-left: 5vw
     }
     .SocialeButton:after {
     position: absolute;
@@ -110,16 +107,16 @@
         margin: 0px;
     }
     #job{
-        background : -webkit-linear-gradient(red,blue);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 50px;
-        font-family: "Jersey 20";
+        font-family: "Bauhaus";
+        background-color: #7652fa;
     }
     #img1{
         width: 35vw;
         position: absolute;
-        bottom: 0px;
+        bottom: 7.5vh;
         margin-left: 10vw;
     }
     @media screen and (max-width: 700px) {

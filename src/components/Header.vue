@@ -1,5 +1,6 @@
 <template>
     <header>
+        <img src="/logo_blanc.png">
         <a :href="'#'+idTable[button]" v-for="button in allButton">{{ button }}</a>
     </header>
 </template>
@@ -27,12 +28,17 @@
 </script>
 
 <style scoped>
+    img{
+        height: 100%;
+    }
     header{
         display: flex;
         justify-content: center;
+        align-items: center;
         margin-top: 0px;
         position: sticky;
         margin-bottom: 2.5vh;
+        padding-right: 25vw;
         top: 0;
         gap: 5vw;
         height: 10vh;

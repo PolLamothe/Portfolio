@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper">
+        <img src="/img/tech/JavaScript.png" id="javascript">
         <h1>Mes compétences</h1>
         <div id="content">
             <div id="language" class="contentWrap">
@@ -107,6 +108,14 @@
 </script>
 
 <style scoped>
+    #javascript{
+        position: absolute;
+        width: 7vw;
+        transform: rotate(10deg) translateX(-50%);
+        border-radius: 1.1vw;
+        left: 47.5vw;
+        top: 20vh;
+    }
     #Bitcoin{
         position: absolute;
         width: 5vw;
@@ -185,7 +194,7 @@
     .bar{
         width: 100%;
         height: 8px;
-        background-color: lightgray;
+        background-color: rgb(70, 70, 70);
         overflow-x: hidden;
     }
     .barContent{
@@ -252,9 +261,20 @@
             transform: translateX(0%);
         }
     }
+    @media screen and (max-width:1200px) {
+        #javascript{
+            display: none;  
+        }
+    }
     @media screen and (max-width:700px) {
+        #javascript{
+            top: 20vh;
+            width: 13vw;
+            left: 5vw;
+        }
         #Bitcoin{
             width: 15vw;
+            right: 5vw;
         }
         #sideSkillDiv{
             margin-top: 2vh;

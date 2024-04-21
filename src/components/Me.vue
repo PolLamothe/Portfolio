@@ -76,7 +76,7 @@
         width: 7vw;
         right: 6vw;
         transform: rotate(-7deg);
-        margin-top: 40vh;
+        margin-top: 35vh;
     }
     .wrapperMe{
         padding-top: 5vh;
