@@ -38,7 +38,6 @@
 <script setup>
     import { onMounted,ref  } from 'vue';
     var kindSelected = ref("BackEnd")
-    const maxSize = 20
     onMounted(() => {
         for(var i = 0;i<$('.barContent').length;i++){
                 $($('.barContent')[i]).css("width",$($('.barContent')[i]).attr("percent")*100+"%")
@@ -92,6 +91,29 @@
         await new Promise(r => setTimeout(r, 625))
         $("#sideSkillDiv").removeClass("skillGone")
     }
+
+    var sources = []
+
+    for(let x = 0;x<techKind.length;x++){
+        let current = kindContent[techKind[x]]
+        for(let i = 0;i<current.length;i++){
+            sources.push("./img/tech/"+current[i]+".png")
+        }
+    }
+
+    console.log(techKind)
+
+    function preloadImages(sources) {
+        sources.forEach(source => {
+            const image = new Image();
+            image.src = source;
+            image.del
+        });
+    }
+
+    window.onload = function() {
+        preloadImages(sources);
+    };
 </script>
 
 <style scoped>
