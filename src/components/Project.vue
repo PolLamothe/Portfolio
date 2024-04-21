@@ -1,8 +1,11 @@
 <template>
     <div class="wrapper">
         <h1>Mes projets</h1>
+        <div id="filterDiv" class="filterdiv">
+            <button v-for="categorie in categories" :class="{currentCategorie : categorie == currentCategorie}" :id="'categorie_'+categorie" @click="changeCategorie(categorie)">{{ categorie }}</button>
+        </div>
         <Splide id="slider" aria-label="My Favorite Images"  data-splide='{"fixedWidth":"fit-content","gap":"5vw"}' :key="key">
-            <SplideSlide v-for="project in projectsList" class="slideDiv">
+            <SplideSlide v-for="project in categoriesContent[currentCategorie]" class="slideDiv">
                     <img :src="'./img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
                     <div class="slidePictureButton">
                         <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ link }}</a>
@@ -16,8 +19,19 @@
 
 <script setup>
     import '@splidejs/splide/dist/css/splide.min.css';
+    import {ref} from "vue"
 
     var projectsList = ["LochCrenn","Quadtree","InstinctIf","AIRPC","STI2D","WalletMiner"]
+
+    var categories = ["Tous","Web","Autres"]
+
+    var currentCategorie = ref(categories[0])
+
+    var categoriesContent = {
+        "Tous":projectsList,
+        "Web":["LochCrenn","InstinctIf","AIRPC","STI2D"],
+        "Autres":["Quadtree","WalletMiner"]
+    }
 
     var projectsLink = {
         "LochCrenn":{"Site Web":"https://www.villalochcrenn.fr"},
@@ -45,9 +59,39 @@
         "STI2D":"Présentation STI2D",
         "WalletMiner":"Bitcoin Wallet Miner"
     }
+
+    function changeCategorie(categorie){
+        $('.currentCategorie').removeClass("currentCategorie")
+        $('#categorie_'+categorie).addClass("currentCategorie")
+        currentCategorie.value = categorie
+    }
 </script>
 
 <style scoped>
+    .currentCategorie{
+        background-color: rgba(255,255,255,1)!important;
+        color: black!important;
+    }
+    #filterDiv button:hover{
+        background-color: rgba(255,255,255,0.5);
+    }
+    #filterDiv button{
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 0.5vw;
+        transition-duration: 0.3s;
+    }
+    .filterdiv{
+        position: relative;
+        margin-left: 12vw;
+        width: fit-content;
+        margin-bottom: 2vh;
+        display: flex;
+        gap: 1vw;
+    }
     .contain{
         object-fit: contain!important;
     }
@@ -64,6 +108,7 @@
     }
     .slideDiv{
         width: min-contentt;
+        transition-duration: 0.5s;
     }
     .slideDiv p{
         color: white;
@@ -144,6 +189,9 @@
             width: max-content!important;
             padding: 2vw!important;
         }
+        #filterDiv button{
+            padding: 4vw!important;
+        }
     }
     @media screen and (max-width: 1200px) {
         img{
@@ -153,6 +201,14 @@
         }   
         .splide__slide p{
             width: 80%;
+        }
+        #filterDiv button{
+            padding: 2vw;
+            margin-bottom: 2vh;
+        }
+        .filterdiv{
+            justify-content: space-around;
+            width: 80vw;
         }
     }
 </style>

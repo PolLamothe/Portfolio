@@ -71,7 +71,6 @@
 
     techKind.forEach((element) =>{
         for(let i = 0;i<kindContent[element].length;i++){
-            console.log(kindContent[element][i])
             allImages.value.push("./img/tech/"+kindContent[element][i]+".png")
         }
     })
