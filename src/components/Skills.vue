@@ -24,13 +24,16 @@
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
                             <div v-for="element in kindContent[kindSelected]">
-                                <img :src="'./img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}">
+                                <img :src="'./img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}" rel="preload">
                                 <p>{{ element }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+            <img v-for="elem in allImages" :src="elem" style="display: none;">
         </div>
     </div>
 </template>
@@ -43,6 +46,7 @@
                 $($('.barContent')[i]).css("width",$($('.barContent')[i]).attr("percent")*100+"%")
         }
         $('#'+kindSelected.value).addClass("skillActive")
+        allImages.value = null
     })
     var languages = ["JavaScript","HTML/CSS","Python","SQL","Golang","PHP"]
     var Data = {
@@ -62,6 +66,16 @@
         "FrontEnd":["VueJS","Jquery","Flutter"],
         "Autres":["Pandas","CyberSécurité","Blockchains"]
     }
+
+    var allImages = ref([])
+
+    techKind.forEach((element) =>{
+        for(let i = 0;i<kindContent[element].length;i++){
+            console.log(kindContent[element][i])
+            allImages.value.push("./img/tech/"+kindContent[element][i]+".png")
+        }
+    })
+
 
     $.fn.isInViewport = function() {
         var elementTop = $(this).offset().top;
@@ -91,29 +105,6 @@
         await new Promise(r => setTimeout(r, 625))
         $("#sideSkillDiv").removeClass("skillGone")
     }
-
-    var sources = []
-
-    for(let x = 0;x<techKind.length;x++){
-        let current = kindContent[techKind[x]]
-        for(let i = 0;i<current.length;i++){
-            sources.push("./img/tech/"+current[i]+".png")
-        }
-    }
-
-    console.log(techKind)
-
-    function preloadImages(sources) {
-        sources.forEach(source => {
-            const image = new Image();
-            image.src = source;
-            image.del
-        });
-    }
-
-    window.onload = function() {
-        preloadImages(sources);
-    };
 </script>
 
 <style scoped>
