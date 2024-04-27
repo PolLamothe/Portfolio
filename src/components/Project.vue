@@ -46,11 +46,11 @@
     var projectText = {
         "LochCrenn":"Un site web vitrine pour un maison de location saisonniere",
         "InstinctIf":"Un site de mini jeux",
-        "Quadtree":"Une jeux vidéo codé en Golang et utilisant la bibliothèque Ebiten",
+        "Quadtree":"Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
         "AIRPC":"Un faux site web vitrine",
         "STI2D":"Un site web présentant la STI2D réalisé en Terminale",
         "WalletMiner":"Un programme écrit en python servant à tester la sécurité de la blockchain Bitcoin",
-        "NoteIf":"Une extension google permettant aux étudiants de Nantes d'être avertis à la publication de note"
+        "NoteIf":"Une extension google permettant aux étudiants de Nantes d'être avertis de publications de notes"
     }
 
     var projectTitle = {
