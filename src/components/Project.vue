@@ -36,7 +36,7 @@
     var projectsLink = {
         "LochCrenn":{"Site Web":"https://www.villalochcrenn.fr"},
         "InstinctIf":{"Site Web":"https://pollamothe.github.io/Instinct-If/"},
-        "Quadtree":{"Voir sur Gitlab":"https://gitlab.univ-nantes.fr/E239555L/quadtree-pol-mathieu"},
+        "Quadtree":{"Voir sur Github":"https://github.com/PolLamothe/Quadtree"},
         "AIRPC":{"Site Web":"https://pollamothe.github.io/AIR-PC/"},
         "STI2D":{"Site Web":"https://pollamothe.github.io/STI2D/"},
         "WalletMiner":{"Voir sur Github":"https://github.com/PolLamothe/Wallet-Miner-BTC"},
