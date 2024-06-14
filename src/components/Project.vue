@@ -21,7 +21,7 @@
     import '@splidejs/splide/dist/css/splide.min.css';
     import {ref} from "vue"
 
-    var projectsList = ["LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","STI2D","WalletMiner"]
+    var projectsList = ["LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","STI2D","WalletMiner","PolyUno"]
 
     var categories = ["Tous","Site Web","Autres"]
 
@@ -30,7 +30,7 @@
     var categoriesContent = {
         "Tous":projectsList,
         "Site Web":["LochCrenn","InstinctIf","AIRPC","STI2D"],
-        "Autres":["NoteIf","Quadtree","WalletMiner"]
+        "Autres":["NoteIf","Quadtree","WalletMiner","PolyUno"]
     }
 
     var projectsLink = {
@@ -40,7 +40,8 @@
         "AIRPC":{"Site Web":"https://pollamothe.github.io/AIR-PC/"},
         "STI2D":{"Site Web":"https://pollamothe.github.io/STI2D/"},
         "WalletMiner":{"Voir sur Github":"https://github.com/PolLamothe/Wallet-Miner-BTC"},
-        "NoteIf":{"Voir sur Github":"https://github.com/PolLamothe/NoteIf"}
+        "NoteIf":{"Voir sur Github":"https://github.com/PolLamothe/NoteIf"},
+        "PolyUno":{"Voir sur Github":"https://github.com/PolLamothe/PolyUno"}
         }
 
     var projectText = {
@@ -50,7 +51,8 @@
         "AIRPC":"Un faux site web vitrine",
         "STI2D":"Un site web présentant la STI2D réalisé en Terminale",
         "WalletMiner":"Un programme écrit en python servant à tester la sécurité de la blockchain Bitcoin",
-        "NoteIf":"Une extension google permettant aux étudiants de Nantes d'être avertis de publications de notes"
+        "NoteIf":"Une extension google permettant aux étudiants de Nantes d'être avertis de publications de notes",
+        "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé"
     }
 
     var projectTitle = {
@@ -60,7 +62,8 @@
         "AIRPC":"Air-PC",
         "STI2D":"Présentation STI2D",
         "WalletMiner":"Bitcoin Wallet Miner",
-        "NoteIf":"NoteIf"
+        "NoteIf":"NoteIf",
+        "PolyUno":"PolyUno"
     }
 
     function changeCategorie(categorie){
