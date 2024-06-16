@@ -12,6 +12,9 @@
                     </div>
                     <h1>{{ projectTitle[project] }}</h1>
                     <p>{{ projectText[project] }}</p>
+                    <div class="techTagDiv">
+                        <p v-for="tech in projectTech[project]">{{ tech }}</p>
+                    </div>
             </SplideSlide>
         </Splide>
     </div>
@@ -66,6 +69,17 @@
         "PolyUno":"PolyUno"
     }
 
+    var projectTech = {
+        "LochCrenn":["HTML/CSS","JS","PHP"],
+        "InstinctIf":["HTML/CSS","JS"],
+        "Quadtree":["Golang","Réseaux"],
+        "AIRPC":["HTML/CSS"],
+        "STI2D":["HTML/CSS","JS"],
+        "WalletMiner":["Python"],
+        "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB"],
+        "PolyUno":["Python","Réseaux"]
+    }
+
     function changeCategorie(categorie){
         $('.currentCategorie').removeClass("currentCategorie")
         $('#categorie_'+categorie).addClass("currentCategorie")
@@ -74,6 +88,25 @@
 </script>
 
 <style scoped>
+    .techTagDiv{
+        display: flex;
+        width: fit-content;
+        gap: 1vw;
+        height: fit-content;
+        bottom: 0px;
+        position: absolute;
+        padding-left: 3vw;
+    }
+    .techTagDiv p {
+        font-size: 15px!important;
+        background-color: lightgray;
+        color: black !important;
+        width: max-content !important;
+        padding: 0.25vw;
+        margin: 0px !important;
+        transform: none!important;
+
+    }
     .currentCategorie{
         background-color: rgba(255,255,255,1)!important;
         color: black!important;
@@ -113,7 +146,7 @@
         opacity: 1;
     }
     .slideDiv{
-        width: min-contentt;
+        width: min-content;
         transition-duration: 0.5s;
     }
     .slideDiv p{
@@ -171,7 +204,8 @@
         margin-left: 5vw;
         padding-left: 5vw;
         padding-right: 5vw;
-        height: fit-content;
+        padding-bottom: 2vw;
+        height: max-content;
     }
     .slide{
         display: flex;
@@ -215,6 +249,13 @@
         .filterdiv{
             justify-content: space-around;
             width: 80vw;
+        }
+        .techTagDiv{
+            position: relative;
+            margin-bottom: 5vh;;
+        }
+        .techTagDiv p{
+            padding: 1vw;
         }
     }
 </style>
