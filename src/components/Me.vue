@@ -6,7 +6,7 @@
         <div id="content">
             <img src="/public/img/me.jpg" id="picture">
             <div id="mainWrapper" data-aos="fade-left" data-aos-delay="150">
-                <p id="main">Je suis un jeune passioné d'informatique de 17 ans. j'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.</p>
+                <p id="main">Je suis un jeune passioné d'informatique de 18 ans. j'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.</p>
                 <div id="formationwrapper">
                     <p class="formation" style="margin-bottom: 0.1vh;">Formation : BUT Info1/Polytech Nantes</p><br>
                     <p class="formation" style="margin-top: 0px;font-size: 16px;">J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle</p>
