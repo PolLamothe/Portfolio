@@ -8,8 +8,9 @@
             <div id="mainWrapper" data-aos="fade-left" data-aos-delay="150">
                 <p id="main">Je suis un jeune passioné d'informatique de 18 ans. j'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.</p>
                 <div id="formationwrapper">
-                    <p class="formation" style="margin-bottom: 0.1vh;">Formation : BUT Info1/Polytech Nantes</p><br>
-                    <p class="formation" style="margin-top: 0px;font-size: 16px;">J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle</p>
+                    <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">Formation : BUT Info1/Polytech Nantes</p><br>
+                    <img src="/img/Polytech.png" style="border: solid 0.5vw white;width: 15vw;margin-left: 50%;transform: translateX(-50%);margin-bottom: 2vh;border-radius: 10px;">
+                    <p class="formation" style="margin-top: 0px;font-size: 17px;text-align: center;">J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle</p>
                 </div>
             </div>
             <a href="./CV.pdf" id="cv"><p>Mon CV</p><img src="/img/cv.png"></a>
@@ -104,6 +105,7 @@
         color: white;
         font-family: Roboto;
         font-size: 18px;
+        text-align: center;
     }
     #name{
         font-size: 25px;
