@@ -1,14 +1,23 @@
 <template>
-    <a class="wrapper" href="https://github.com/PolLamothe/Portfolio" target="_blank">
-        <img src="/public/img/social/Github.png">
-        <p>Github</p>
-    </a>
+    <div id="global">
+        <Language></Language>
+        <a class="wrapper" href="https://github.com/PolLamothe/Portfolio" target="_blank">
+            <img src="/public/img/social/Github.png">
+            <p>Github</p>
+        </a>
+    </div>
 </template>
 
 <script setup>
+    import Language from "./Language.vue"
 </script>
 
 <style scoped>
+    #global{
+        position: sticky;
+        display: flex;
+        bottom: 2vw;
+    }
     p{
         color: white;
         text-decoration: underline;
@@ -23,22 +32,21 @@
     .wrapper{
         display: flex;
         align-items: center;
-        position: sticky;
         gap: 1vw;
         bottom: 2vh;
-        left: 100vw;
         margin-right: 3vw;
         width: fit-content;
         cursor: pointer;
+        float: right;
+        position: absolute;
+        right: 0px;
     }
     @media screen and (max-width: 700px) {
        img{
         width: 4vh;
        } 
-       .wrapper{
-        position: inherit;
-        margin-left: 90vw;
-        transform: translateX(-100%);
+       #global{
+        bottom: 0px;
        }
     }
 </style>
