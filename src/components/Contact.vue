@@ -1,6 +1,6 @@
 <template>
     <img src="/img/tech/python.webp" id="python">
-    <div class="wrapper">
+    <div class="wrapper" id="Contact">
         <h1>Me contacter</h1>
         <p><u>Téléphone:</u> 06 59 00 24 56</p>
         <p><u>Email:</u> lamothepol@gmail.com</p>

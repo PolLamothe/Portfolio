@@ -4,7 +4,7 @@
     <Me id="me" data-aos="fade-up" data-aos-delay="50"></Me>
     <Skills id="skill" data-aos="fade-up" data-aos-delay="50"></Skills>
     <Project id="projects" data-aos="fade-up"></Project>
-    <Contact id="Contact" data-aos="fade-up"></Contact>
+    <Contact id="contact" data-aos="fade-up"></Contact>
     <Github></Github>
 </template>
 
