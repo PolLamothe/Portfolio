@@ -9,7 +9,7 @@
                 <p id="main">Je suis un jeune passioné d'informatique de 18 ans. j'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.</p>
                 <div id="formationwrapper">
                     <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">Formation : BUT Info1/Polytech Nantes</p><br>
-                    <img src="/img/Polytech.png" style="border: solid 0.5vw white;width: 15vw;margin-left: 50%;transform: translateX(-50%);margin-bottom: 2vh;border-radius: 10px;">
+                    <img src="/img/Polytech.png" id="schoolPicture">
                     <p class="formation" style="margin-top: 0px;font-size: 17px;text-align: center;">J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle</p>
                 </div>
             </div>
@@ -22,6 +22,14 @@
 </script>
 
 <style scoped>
+    #schoolPicture{
+        border: solid 0.5vw white;
+        width: 15vw;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 2vh;
+        border-radius: 10px;
+    }
     #mainWrapper{
         grid-column: 2;
         grid-row: 1;
@@ -117,6 +125,9 @@
         grid-row: 1/3;
     }
     @media screen and (max-width: 700px) {
+        #schoolPicture{
+            width: 50vw;
+        }
         #vue{
             width: 20vw;
             top: 80vw;
