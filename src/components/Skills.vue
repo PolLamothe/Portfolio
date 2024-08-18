@@ -1,10 +1,10 @@
 <template>
     <div class="wrapper">
         <img src="/img/tech/JavaScript.png" id="javascript">
-        <h1>Mes compétences</h1>
+        <h1>{{ text["title"][props.language] }}</h1>
         <div id="content">
             <div id="language" class="contentWrap">
-                <p class="underTitle">Les languages que je maitrise :</p>
+                <p class="underTitle">{{ text["underTitle1"][props.language] }}</p>
                 <div id="languageContent" class="contentDiv">
                     <div v-for="language in languages">
                         <p>{{language}}</p>
@@ -16,15 +16,15 @@
                 </div>
             </div>
             <div id="tech" class="contentWrap">
-                <p class="underTitle">Les technologies que je maitrise :</p>
+                <p class="underTitle">{{ text["underTitle2"][props.language] }}</p>
                 <div id="techContent" class="contentDiv">
                     <div id="skillButtonDiv">
-                        <button v-for="kind in techKind" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'./img/'+kind+'.png'"></button>
+                        <button v-for="kind in techKind[props.language]" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'./img/'+imageConvert[kind]+'.png'"></button>
                     </div>
                     <div id="sideSkillDiv" data-aos="fade-left">
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
-                            <div v-for="element in kindContent[kindSelected]">
+                            <div v-for="element in kindContent[props.language][kindSelected]">
                                 <img :src="'./img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}" rel="preload">
                                 <p>{{ element }}</p>
                             </div>
@@ -41,6 +41,24 @@
 
 <script setup>
     import { onMounted,ref  } from 'vue';
+
+    const props = defineProps({"language":String})
+
+    const text = {
+        "title":{
+            "French":"Mes compétences",
+            "English":"My skills"
+        },
+        "underTitle1":{
+            "French":"Les languages que je maitrise :",
+            "English":"The language i'v learned"
+        },
+        "underTitle2":{
+            "French":"Les technologies que je maitrise :",
+            "English":"The tech i'v learned"
+        }
+    }
+
     var kindSelected = ref("BackEnd")
     onMounted(() => {
         for(var i = 0;i<$('.barContent').length;i++){
@@ -49,8 +67,8 @@
         $('#'+kindSelected.value).addClass("skillActive")
         allImages.value = null
     })
-    var languages = ["JavaScript","HTML/CSS","Python","SQL","Golang","PHP"]
-    var Data = {
+    const languages = ["JavaScript","HTML/CSS","Python","SQL","Golang","PHP"]
+    const Data = {
         "HTML/CSS":0.9,
         "JavaScript":0.9,
         "Python":0.8,
@@ -59,23 +77,32 @@
         "PHP":0.7,
         "Flutter":0.7
     }
-    var techKind = ["BackEnd","FrontEnd","Autres"]
+    const techKind = {
+        "French":["BackEnd","FrontEnd","Autres"],
+        "English":["BackEnd","FrontEnd","Others"]
+    }
     const barNumber = Data.length
 
     var kindContent = {
+        "French":{
         "BackEnd":["NodeJS","Nginx","MongoDB","Linux"],
         "FrontEnd":["VueJS","Jquery","Flutter"],
-        "Autres":["Pandas","CyberSécurité","Blockchains"]
+        "Autres":["Pandas","CyberSécurité","Blockchains"]},
+        "English":{
+        "BackEnd":["NodeJS","Nginx","MongoDB","Linux"],
+        "FrontEnd":["VueJS","Jquery","Flutter"],
+        "Others":["Pandas","CyberSecurity","Blockchains"]}
     }
 
+    var imageConvert = {"BackEnd":"BackEnd","FrontEnd":"FrontEnd","Others":"Autres","Autres":"Autres"}
+
     var allImages = ref([])
-
-    techKind.forEach((element) =>{
-        for(let i = 0;i<kindContent[element].length;i++){
-            allImages.value.push("./img/tech/"+kindContent[element][i]+".png")
+    for(let i = 0;i<techKind[props.language].length;i++){
+        let element = techKind[props.language][i]
+        for(let i = 0;i<kindContent[props.language][element].length;i++){
+            allImages.value.push("./img/tech/"+kindContent[props.language][element][i]+".png")
         }
-    })
-
+    }
 
     $.fn.isInViewport = function() {
         var elementTop = $(this).offset().top;

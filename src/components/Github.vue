@@ -1,6 +1,6 @@
 <template>
     <div id="global">
-        <Language></Language>
+        <Language @language="(language)=>{emit('language',language)}"></Language>
         <a class="wrapper" href="https://github.com/PolLamothe/Portfolio" target="_blank">
             <img src="/public/img/social/Github.png">
             <p>Github</p>
@@ -10,6 +10,8 @@
 
 <script setup>
     import Language from "./Language.vue"
+    
+    const emit = defineEmits(['language'])
 </script>
 
 <style scoped>

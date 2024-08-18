@@ -2,23 +2,47 @@
     <div class="wrapperMe">
         <img src="/img/tech/VueJS.png" id="vue">
         <img src="/img/tech/Linux.png" id="linux">
-        <h1>À propos de moi</h1>
+        <h1>{{text["title"][props.language]}}</h1>
         <div id="content">
             <img src="/public/img/me.jpg" id="picture">
             <div id="mainWrapper" data-aos="fade-left" data-aos-delay="150">
-                <p id="main">Je suis un jeune passioné d'informatique de 18 ans. j'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.</p>
+                <p id="main">{{text["presentation"][props.language]}}</p>
                 <div id="formationwrapper">
-                    <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">Formation : BUT Info1/Polytech Nantes</p><br>
+                    <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">{{text["formation"][props.language]}} : BUT Info1/Polytech Nantes</p><br>
                     <img src="/img/Polytech.png" id="schoolPicture">
-                    <p class="formation" style="margin-top: 0px;font-size: 17px;text-align: center;">J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle</p>
+                    <p class="formation" style="margin-top: 0px;font-size: 17px;text-align: center;">{{text["schoolDetail"][props.language]}}</p>
                 </div>
             </div>
-            <a href="./CV.pdf" id="cv"><p>Mon CV</p><img src="/img/cv.png"></a>
+            <a href="./CV.pdf" id="cv"><p>{{text["CV"][props.language]}}</p><img src="/img/cv.png"></a>
         </div>
     </div>
 </template>
 
 <script setup>
+    const props = defineProps(["language"])
+
+    const text = {
+        "title":{
+            "French":"À propos de moi",
+            "English":"About me"
+        },
+        "presentation":{
+            "French":"Je suis un jeune passioné d'informatique de 18 ans. j'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.",
+            "English":"I am a young passionate about computer of 18 years old, I started to learn at 15 years old and since, i'v never stoped learning and improve my skills"
+        },
+        "formation":{
+            "French":"Formation",
+            "English":"College"
+        },
+        "schoolDetail":{
+            "French":"J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle",
+            "English":"I study global computer science with a specialisation for software engineering"
+        },
+        "CV":{
+            "French":"Mon CV",
+            "English":"My CV"
+        }
+    }
 </script>
 
 <style scoped>

@@ -4,7 +4,7 @@
         <img src="/public/img/logo_blanc_violet.png" id="logo">
         <div id="bigTextDiv">
             <h1 id="name">Pol Lamothe</h1>
-            <h2 id="job">● Dévelopeur</h2>
+            <h2 id="job">● {{job[props.language]}}</h2>
             <div id="SocialDiv">
                 <a v-for="social in allSocial" :href="socialLink[social]" target="_blank" class="SocialeButton">
                     <img :src="'./img/social/'+social+'.png'" :class="{invert : social=='Github'}">
@@ -17,7 +17,13 @@
 </template>
 
 <script setup>
+    const props = defineProps(["language"])
+
     var allSocial = ["Github","RootMe","Linkedin"]
+    let job = {
+        "French":"Dévelopeur",
+        "English":"Developer"
+    }
     var socialLink = {"Github":"https://github.com/PolLamothe","RootMe":"https://www.root-me.org/Pol-724719?lang=fr#f12c79541abdb20fe556c1eb0472cead","Linkedin":"https://www.linkedin.com/in/pol-lamothe-075585286/"}
 </script>
 

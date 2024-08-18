@@ -1,12 +1,17 @@
 <template>
     <header>
         <img src="/public/img/logo_blanc.png">
-        <a :href="'#'+idTable[button]" v-for="button in allButton">{{ button }}</a>
+        <a :href="'#'+idTable[button]" v-for="button in allButton[props.language]">{{ button }}</a>
     </header>
 </template>
 
 <script setup>
-    let allButton = ["Accueil","A propos de moi","Compétences","Projets","Contact"]
+    const props = defineProps(["language"])
+
+    let allButton = {
+        "French":["Accueil","A propos de moi","Compétences","Projets","Contact"],
+        "English":["Home","About me","Skills","Projects","Contact"]
+    }
 
     let idTable = {
         "Accueil":"Accueil",

@@ -9,6 +9,7 @@
 import {ref} from "vue"
 var currentFlag = ref("English")
 var initale = {"English":"ENG","French":"FR"}
+const emit = defineEmits(['language'])
 function movingClicked(){
     let movingButton = document.getElementById("movingButton")
     let text = document.getElementById("text")
@@ -17,6 +18,7 @@ function movingClicked(){
     }else{
         currentFlag.value = "English"
     }
+    emit("language",currentFlag.value)
     text.style.left = null
     text.style.right = null
     if(currentFlag.value == "French"){
