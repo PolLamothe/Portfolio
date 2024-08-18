@@ -6,9 +6,8 @@ body{
 }
 
 html{
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
-  body {
-    overflow:visible;
-    overflow-x: hidden;
-  }
+body {
+  overflow-x: clip;
+}
