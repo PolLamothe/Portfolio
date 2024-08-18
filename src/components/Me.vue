@@ -40,7 +40,7 @@
         },
         "CV":{
             "French":"Mon CV",
-            "English":"My CV"
+            "English":"My resume"
         }
     }
 </script>
