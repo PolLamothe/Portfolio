@@ -10,4 +10,5 @@ html{
 }
   body {
     overflow:visible;
+    overflow-x: hidden;
   }
