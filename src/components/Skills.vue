@@ -25,7 +25,7 @@
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
                             <div v-for="element in kindContent[props.language][kindSelected]">
-                                <img :src="'./img/tech/'+element+'.png'" :class="{invert: element == 'CyberSécurité'}" rel="preload">
+                                <img :src="'./img/tech/'+imageConvert[element]+'.png'" :class="{invert: element == 'CyberSécurité'}" rel="preload">
                                 <p>{{ element }}</p>
                             </div>
                         </div>
@@ -94,7 +94,23 @@
         "Others":["Pandas","CyberSecurity","Blockchains"]}
     }
 
-    var imageConvert = {"BackEnd":"BackEnd","FrontEnd":"FrontEnd","Others":"Autres","Autres":"Autres"}
+    var imageConvert = {
+    "BackEnd":"BackEnd",
+    "FrontEnd":"FrontEnd",
+    "Others":"Autres",
+    "Autres":"Autres",
+    "NodeJS":"NodeJS",
+    "Nginx":"Nginx",
+    "MongoDB":"MongoDB",
+    "Linux":"Linux",
+    "VueJS":"VueJS",
+    "Jquery":"Jquery",
+    "Flutter":"Flutter",
+    "Pandas":"Pandas",
+    "CyberSecurity":"CyberSécurité",
+    "CyberSécurité":"CyberSécurité",
+    "Blockchains":"Blockchains"
+    }
 
     var allImages = ref([])
     for(let i = 0;i<techKind[props.language].length;i++){

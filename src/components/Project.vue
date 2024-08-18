@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
-        <h1>Mes projets</h1>
+        <h1>{{ text["title"][props.language] }}</h1>
         <div id="filterDiv" class="filterdiv">
-            <button v-for="categorie in categories" :class="{currentCategorie : categorie == currentCategorie}" :id="'categorie_'+categorie" @click="changeCategorie(categorie)">{{ categorie }}</button>
+            <button v-for="categorie in categories[props.language]" :class="{currentCategorie : categorie == currentCategorie}" :id="'categorie_'+categorie" @click="changeCategorie(categorie)">{{ categorie }}</button>
         </div>
         <Splide id="slider" aria-label="My Favorite Images"  data-splide='{"fixedWidth":"fit-content","gap":"5vw"}' :key="key">
             <SplideSlide v-for="project in categoriesContent[currentCategorie]" class="slideDiv">
@@ -11,9 +11,9 @@
                         <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ link }}</a>
                     </div>
                     <h1>{{ projectTitle[project] }}</h1>
-                    <p>{{ projectText[project] }}</p>
+                    <p>{{ projectText[props.language][project] }}</p>
                     <div class="techTagDiv">
-                        <p v-for="tech in projectTech[project]">{{ tech }}</p>
+                        <p v-for="tech in projectTech[props.language][project]">{{ tech }}</p>
                     </div>
             </SplideSlide>
         </Splide>
@@ -24,17 +24,31 @@
     import '@splidejs/splide/dist/css/splide.min.css';
     import {ref} from "vue"
 
+    const props = defineProps({"language":String})
+
+    const text = {
+        "title":{
+            "French":"Mes projets",
+            "English":"My projects"
+        }
+    }
+
     var projectsList = ["LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","STI2D","WalletMiner","PolyUno"]
 
-    var categories = ["Tous","Site Web","Autres"]
-
-    var currentCategorie = ref(categories[0])
-
-    var categoriesContent = {
-        "Tous":projectsList,
-        "Site Web":["LochCrenn","InstinctIf","AIRPC","STI2D"],
-        "Autres":["NoteIf","Quadtree","WalletMiner","PolyUno"]
+    var categories = {
+        "French":["Tous","Site Web","Autres"],
+        "English":["All","Website","Others"]
     }
+
+    var currentCategorie = ref(categories[props.language][0])
+
+    var categoriesContent = {}
+
+    Object.keys(categories).forEach(element => {
+        categoriesContent[categories[element][0]] = projectsList
+        categoriesContent[categories[element][1]] = ["LochCrenn","InstinctIf","AIRPC","STI2D"]
+        categoriesContent[categories[element][2]] =["NoteIf","Quadtree","WalletMiner","PolyUno"]
+    });
 
     var projectsLink = {
         "LochCrenn":{"Site Web":"https://www.villalochcrenn.fr"},
@@ -48,14 +62,26 @@
         }
 
     var projectText = {
-        "LochCrenn":"Un site web vitrine pour un maison de location saisonniere",
-        "InstinctIf":"Un site de mini jeux",
-        "Quadtree":"Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
-        "AIRPC":"Un faux site web vitrine",
-        "STI2D":"Un site web présentant la STI2D réalisé en Terminale",
-        "WalletMiner":"Un programme écrit en python servant à tester la sécurité de la blockchain Bitcoin",
-        "NoteIf":"Une extension google permettant aux étudiants de Nantes d'être avertis de publications de notes",
-        "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé"
+        "French":{
+            "LochCrenn":"Un site web vitrine pour la location saisonniere d'une maison",
+            "InstinctIf":"Un site de mini jeux",
+            "Quadtree":"Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
+            "AIRPC":"Un faux site web vitrine",
+            "STI2D":"Un site web présentant la STI2D, réalisé en Terminale",
+            "WalletMiner":"Un programme écrit en Python servant à tester la sécurité de la blockchain Bitcoin",
+            "NoteIf":"Une extension pour navigateur web permettant aux étudiants de Nantes d'être avertis de publications de notes",
+            "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé"
+        },
+        "English":{
+            "LochCrenn":"A showcase site for a seasonal rental house",
+            "InstinctIf":"A mini-game site",
+            "Quadtree":"A video game made in Golang using the Ebiten library",
+            "AIRPC":"A fake shocase site",
+            "STI2D":"A web site presenting the STI2D, made in high school",
+            "WalletMiner":"A program made in Python that show the security of the Bitcoin blockchain",
+            "NoteIf":"A browser extension that allow Nantes'student to be warned at the publishment of new grade",
+            "PolyUno":"A Uno game working in networks in a decentralised way"
+        }
     }
 
     var projectTitle = {
@@ -70,14 +96,26 @@
     }
 
     var projectTech = {
-        "LochCrenn":["HTML/CSS","JS","PHP"],
-        "InstinctIf":["HTML/CSS","JS"],
-        "Quadtree":["Golang","Réseaux"],
-        "AIRPC":["HTML/CSS"],
-        "STI2D":["HTML/CSS","JS"],
-        "WalletMiner":["Python"],
-        "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB"],
-        "PolyUno":["Python","Réseaux"]
+        "French":{
+            "LochCrenn":["HTML/CSS","JS","PHP"],
+            "InstinctIf":["HTML/CSS","JS"],
+            "Quadtree":["Golang","Réseaux"],
+            "AIRPC":["HTML/CSS"],
+            "STI2D":["HTML/CSS","JS"],
+            "WalletMiner":["Python"],
+            "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB"],
+            "PolyUno":["Python","Réseaux"]
+        },
+        "English":{
+            "LochCrenn":["HTML/CSS","JS","PHP"],
+            "InstinctIf":["HTML/CSS","JS"],
+            "Quadtree":["Golang","Networks"],
+            "AIRPC":["HTML/CSS"],
+            "STI2D":["HTML/CSS","JS"],
+            "WalletMiner":["Python"],
+            "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB"],
+            "PolyUno":["Python","Networks"]
+        }
     }
 
     function changeCategorie(categorie){
