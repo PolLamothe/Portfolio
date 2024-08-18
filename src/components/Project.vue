@@ -8,7 +8,7 @@
             <SplideSlide v-for="project in categoriesContent[currentCategorie]" class="slideDiv">
                     <img :src="'./img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
                     <div class="slidePictureButton">
-                        <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ link }}</a>
+                        <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ projectsButton[project][props.language] }}</a>
                     </div>
                     <h1>{{ projectTitle[project] }}</h1>
                     <p>{{ projectText[props.language][project] }}</p>
@@ -50,7 +50,7 @@
         categoriesContent[categories[element][2]] =["NoteIf","Quadtree","WalletMiner","PolyUno"]
     });
 
-    var projectsLink = {
+    const projectsLink = {
         "LochCrenn":{"Site Web":"https://www.villalochcrenn.fr"},
         "InstinctIf":{"Site Web":"https://pollamothe.github.io/Instinct-If/"},
         "Quadtree":{"Voir sur Github":"https://github.com/PolLamothe/Quadtree"},
@@ -59,9 +59,20 @@
         "WalletMiner":{"Voir sur Github":"https://github.com/PolLamothe/Wallet-Miner-BTC"},
         "NoteIf":{"Voir sur Github":"https://github.com/PolLamothe/NoteIf"},
         "PolyUno":{"Voir sur Github":"https://github.com/PolLamothe/PolyUno"}
-        }
+    }
 
-    var projectText = {
+    const projectsButton = {
+        "LochCrenn":{"French" : "Site Web","English":"Website"},
+        "InstinctIf":{"French" : "Site Web","English":"Website"},
+        "Quadtree":{"French" : "Voir sur Github","English":"See on Github"},
+        "AIRPC":{"French" : "Site Web","English":"Website"},
+        "STI2D":{"French" : "Site Web","English":"Website"},
+        "WalletMiner":{"French" : "Voir sur Github","English":"See on Github"},
+        "NoteIf":{"French" : "Voir sur Github","English":"See on Github"},
+        "PolyUno":{"French" : "Voir sur Github","English":"See on Github"}
+    }
+
+    const projectText = {
         "French":{
             "LochCrenn":"Un site web vitrine pour la location saisonniere d'une maison",
             "InstinctIf":"Un site de mini jeux",

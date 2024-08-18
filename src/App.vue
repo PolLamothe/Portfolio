@@ -4,7 +4,7 @@
     <Me id="me" data-aos="fade-up" data-aos-delay="50" :language="languageValue"></Me>
     <Skills id="skill" data-aos="fade-up" data-aos-delay="50" :language="languageValue"></Skills>
     <Project id="projects" data-aos="fade-up" :language="languageValue"></Project>
-    <Contact id="contact" data-aos="fade-up"></Contact>
+    <Contact id="contact" data-aos="fade-up" :language="languageValue"></Contact>
     <Github @language="(arg)=>{languageValue = arg}"></Github>
 </template>
 

@@ -18,6 +18,11 @@
         "A propos de moi":"me",
         "Compétences":"skill",
         "Projets":"projects",
+        "Contact":"Contact",
+        "Home":"Accueil",
+        "About me":"me",
+        "Skills":"skill",
+        "Projects":"projects",
         "Contact":"Contact"
     }
 
