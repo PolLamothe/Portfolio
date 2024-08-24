@@ -17,10 +17,6 @@ app.use(cookieParser());
 
 const fonction = require("./function/function.js")
 
-app.get("/",async(req,res)=>{
-    res.send(await fonction.getToken())
-})
-
 require("./function/get.js")(app,fonction)
 require("./function/post.js")(app,fonction)
 

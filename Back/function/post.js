@@ -1,3 +1,4 @@
+const { error } = require('console');
 
 
 module.exports = function(app,fonction){
@@ -12,6 +13,23 @@ module.exports = function(app,fonction){
             }
         }catch(e){
             console.log(e)
+            res.status(500)
+            res.send()
+        }
+    })
+    app.post("/createPost",async(req,res)=>{
+        try{
+            if(req.cookies.token == await fonction.getToken()){
+                if(req.body.title == undefined || req.body.title == "" || req.body.content == undefined || req.body.content == ""){
+                    throw error("empty input")
+                }
+                await fonction.createNewPost(req.body.title,req.body.content)
+                res.send()
+            }
+        }catch(e){
+            console.log(e)
+            res.status(500)
+            res.send()
         }
     })
 }
