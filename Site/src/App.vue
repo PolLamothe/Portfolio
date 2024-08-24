@@ -1,4 +1,5 @@
 <template>
+    <link href="src/assets/css/background.css" rel="stylesheet">
     <Header :language="languageValue"></Header>
     <Landing id="Accueil" :language="languageValue"></Landing>
     <Me id="me" data-aos="fade-up" data-aos-delay="50" :language="languageValue"></Me>
@@ -25,5 +26,5 @@
     AOS.init();
 </script>
 
-<style>
+<style scoped>
 </style>

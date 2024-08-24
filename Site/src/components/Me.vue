@@ -4,7 +4,7 @@
         <img src="/img/tech/Linux.png" id="linux">
         <h1>{{text["title"][props.language]}}</h1>
         <div id="content">
-            <img src="/public/img/me.jpg" id="picture">
+            <img src="/img/me.jpg" id="picture">
             <div id="mainWrapper" data-aos="fade-left" data-aos-delay="150">
                 <p id="main">{{text["presentation"][props.language]}}</p>
                 <div id="formationwrapper">

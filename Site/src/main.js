@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from "./App.vue"
+import Blog from "./Blog.vue"
+import Main from "./Main.vue"
 import * as VueRouter from 'vue-router'
 import VueSplide from '@splidejs/vue-splide';
 
@@ -7,15 +9,20 @@ const router = VueRouter.createRouter({
     history: VueRouter.createWebHistory(),
     routes : [
         {
-            path : '/accueil',
+            path : '/',
             name : 'Accueil',
             component : App
+        },
+        {
+            path : '/blog',
+            name : 'Blog',
+            component : Blog
         }
     ]
 })
 
 
-const app = createApp(App)
+const app = createApp(Main)
 app.use(VueSplide)
-app.use(router).mount("#app")
-app.mount('app')
+app.use(router)
+app.mount('#app')
