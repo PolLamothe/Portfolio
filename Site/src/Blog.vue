@@ -1,7 +1,10 @@
 <template>
     <div id="topWrapper">
         <h1 style="font-family: Roboto;padding-left: 5vw;">{{ text["title"][languageValue] }}</h1>
-        <button id="adminButton" @click="login = true">Admin Mode</button>
+        <div id="adminWrapper">
+            <p v-if="loginState">{{ text["loginMessage"][languageValue] }}</p>
+            <button id="adminButton" @click="login = true">Admin Mode</button>
+        </div>
     </div>
     <div id="languageWrapper">
         <Language @language="(arg)=>{languageValue = arg}"></Language>
@@ -13,18 +16,23 @@
                 <input type="password" id="passwordInput">
             </div>
             <button @click="validatePassword()">{{ text["loginButton"][languageValue] }}</button>
+            <img src="/public/img/cross.png" @click="login = false">
         </div>
     </div>
 </template>
 
 <script setup>
 import Language from './components/Language.vue';
-import {ref} from "vue"
+import {onMounted, ref} from "vue"
 import axios from "axios"
+import Cookies from 'js-cookie';
 
 const emit = defineEmits(['language'])
 
 const languageValue = ref("English")
+
+var loginState = ref(false)
+var login = ref(false)
 
 const text = {
     "title":{
@@ -38,6 +46,14 @@ const text = {
     "loginButton":{
         "English":"Validate",
         "French":"Valider"
+    },
+    "wrongLogin":{
+        "English":"Wrong password",
+        "French":"Mauvais mot de passe"
+    },
+    "loginMessage":{
+        "English":"You are connected as admin",
+        "English":"Vous êtes connecté en tant qu'admin"
     }
 }
 
@@ -48,17 +64,54 @@ if(window.location.hostname == "localhost"){
     url = window.location.protocol+"//"+window.location.hostname+"/portfolio/backend"
 }
 
+onMounted(async ()=>{
+    if(Cookies.get("token") != undefined){
+        axios.get(url+"/checkToken",{withCredentials : true}).then((response)=>{
+        loginState.value = true
+        }).catch(e=>{
+            Cookies.remove("token")
+        })
+    }
+})
+
 async function validatePassword(){
-    axios({"url":url+"/login",
+    const response = await axios({"url":url+"/login",
     "method":"POST",
     "data":{"password":document.getElementById("passwordInput").value}
-    })
+    },
+    {withCredentials:true})
+    if(response.status != 200){
+        alert(text["wrongLogin"][languageValue.value])
+    }else{
+        loginState.value = true
+        login.value = false
+        Cookies.set("token",response.data,{
+            secure:true,
+        })
+    }
 } 
 
-var login = ref(false)
 </script>
 
 <style scoped>
+    #adminWrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: Roboto;
+        gap: 2vw;
+    }
+    #passwordWrapper img:hover{
+        background-color: lightgray;
+    }
+    #passwordWrapper img{
+        width: 5vw;
+        position: absolute;
+        top: 2vh;
+        left: 2vw;
+        cursor: pointer;
+        border-radius: 50%;
+    }
     #passwordWrapper button{
         background-color: lightgreen;
         font-family: Roboto;

@@ -5,13 +5,13 @@ module.exports = function(app,fonction){
     app.post("/login",async (req,res)=>{
         try{
             if(crypto.createHash('sha256').update(req.body.password).digest('hex') != await fonction.getPassword()){
-                console.log("wrong password")
+                res.status(401)
+                res.send()
             }else{
-                console.log("good password")
+                res.send(await fonction.getToken())
             }
         }catch(e){
             console.log(e)
-            console.log(req.body)
         }
     })
 }
