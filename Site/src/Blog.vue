@@ -30,7 +30,9 @@
             </div>
         </div>
     </div>
-    <ProstPreview v-for="post in allPosts" :title="post.title" :content="post.content" :date="post.date"></ProstPreview>
+    <div id="postWrapper" v-else>
+        <ProstPreview v-for="post in allPosts" :title="post.title" :content="post.content" :date="post.date"></ProstPreview>
+    </div>
 </template>
 
 <script setup>
@@ -144,6 +146,9 @@ async function validatePassword(){
 </script>
 
 <style scoped>
+    #postWrapper{
+        margin-top: 5vh;
+    }
     #contentDiv input{
         width: 40%;
         font-size: 16px;
