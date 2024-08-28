@@ -1,4 +1,4 @@
-module.exports = function(app,fonction){
+module.exports = function(app,fonction,converter){
     app.get("/checkToken",async (req,res)=>{
         try{
             if(req.cookies.token != await fonction.getToken()){
@@ -23,6 +23,15 @@ module.exports = function(app,fonction){
     app.get("/getPostData/:ID",async (req,res)=>{
         try{
             res.send(await fonction.getPostsData(req.params["ID"]))
+        }catch(e){
+            res.status(500)
+            res.send()
+            console.log(e)
+        }
+    })
+    app.get("/getPostContent/:ID",async (req,res)=>{
+        try{
+            res.send(converter.makeHtml((await fonction.getPostsData(req.params["ID"])).content))
         }catch(e){
             res.status(500)
             res.send()

@@ -20,7 +20,7 @@
             <img src="/public/img/cross.png" @click="login = false" class="exitCross">
         </div>
     </div>
-    <div v-if="createPostState" class="passwordDiv">
+    <div v-else-if="createPostState" class="passwordDiv">
         <div class="passwordWrapper">
             <img src="/public/img/cross.png" @click="createPostState = false" class="exitCross">
             <div id="contentDiv">
