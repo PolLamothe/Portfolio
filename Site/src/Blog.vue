@@ -262,4 +262,9 @@ async function validatePassword(){
         position: absolute;
         bottom: 0px;
     }
+    @media screen and (max-width: 700px){
+        .passwordInputWrapper{
+            flex-direction: column;
+        }
+    }
 </style>
