@@ -1,8 +1,11 @@
 <template>
     <div id="wrapper">
-        <button id="homeButton" @click="goToHome()">Accueil</button>
+        <button id="homeButton" @click="goToHome()">{{ text["HomeButton"][languageValue] }}</button>
         <h1>{{ title }}</h1>
         <div v-html="content"></div>
+    </div>
+    <div id="language">
+        <Language @language="(arg)=>{languageValue = arg}"></Language>
     </div>
 </template>
 
@@ -10,6 +13,7 @@
 import {onMounted, ref} from "vue"
 import axios from "axios"
 import { useRoute } from 'vue-router'
+import Language from "./components/Language.vue";
 
 const route = useRoute()
 
@@ -22,6 +26,14 @@ if(window.location.hostname == "localhost"){
 
 let title = ref(null)
 let content = ref(null)
+let languageValue = ref("English")
+
+const text = {
+    "HomeButton" : {
+        "English":"Home",
+        "French":"Accueil"
+    }
+}
 
 onMounted(async()=>{
     title.value = (await axios.get(url+"/getPostData/"+ route.params.ID)).data.title
@@ -34,6 +46,10 @@ function goToHome(){
 </script>
 
 <style scoped>
+    #language{
+        position: absolute;
+        bottom: 0px;
+    }
     #homeButton{
         font-size: 24px;
         position: absolute;
