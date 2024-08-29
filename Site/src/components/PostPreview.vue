@@ -25,7 +25,7 @@
         transform: translateX(-50%);
         border-radius: 30px;
         cursor: pointer;
-        font-family: Roboto;
         padding-left: 5vw;
+        font-family: Roboto;
     }
 </style>

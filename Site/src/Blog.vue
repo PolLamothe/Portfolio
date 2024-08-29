@@ -31,7 +31,7 @@
         </div>
     </div>
     <div id="postWrapper" v-else>
-        <ProstPreview v-for="post in allPosts" :title="post.title" :content="post.content" :date="post.date"></ProstPreview>
+        <ProstPreview v-for="post in allPosts" :title="post.title" :content="post.content" :date="post.date" @click="redirectToPost(post._id)"></ProstPreview>
     </div>
 </template>
 
@@ -108,6 +108,10 @@ onMounted(async ()=>{
     }
     allPosts.value = await getAllPosts()
 })
+
+function redirectToPost(id){
+    window.location='/post/'+id
+}
 
 async function getAllPosts(){
     var result = []
