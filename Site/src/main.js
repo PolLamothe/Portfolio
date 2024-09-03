@@ -7,7 +7,7 @@ import * as VueRouter from 'vue-router'
 import VueSplide from '@splidejs/vue-splide';
 
 const router = VueRouter.createRouter({
-    history: VueRouter.createWebHistory(),
+    history: VueRouter.createWebHistory("/portfolio/"),
     routes : [
         {
             path : '/',

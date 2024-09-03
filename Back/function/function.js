@@ -49,10 +49,17 @@ async function getPostsData(ID){
     return await collection.findOne({"_id":new ObjectId(ID)})
 }
 
+async function deletePost(ID){
+    const client = await getClient()
+    var collection = client.db(DBName).collection('Posts')
+    await collection.deleteOne({"_id":new ObjectId(ID)})
+}
+
 module.exports = {
     getToken,
     getPassword,
     createNewPost,
     getAllPostsID,
-    getPostsData
+    getPostsData,
+    deletePost
 }

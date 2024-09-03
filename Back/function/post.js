@@ -32,4 +32,19 @@ module.exports = function(app,fonction){
             res.send()
         }
     })
+    app.post("/deletePost/:ID",async (req,res)=>{
+        try{
+            if(req.cookies.token == await fonction.getToken()){
+                await fonction.deletePost(req.params.ID)
+                res.send()
+            }else{
+                res.status(401)
+                res.send()
+            }
+        }catch(e){
+            console.log(e)
+            res.status(500)
+            res.send()
+        }
+    })
 }

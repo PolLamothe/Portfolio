@@ -31,7 +31,7 @@
         </div>
     </div>
     <div id="postWrapper" v-else>
-        <ProstPreview v-for="post in allPosts" :title="post.title" :content="post.content" :date="post.date" @click="redirectToPost(post._id)"></ProstPreview>
+        <ProstPreview v-for="post in allPosts" :title="post.title" :content="post.content" :date="post.date" :id="post._id" @click="(e)=>{redirectToPost(post._id,e)}" @postDeleted="updatePost()"></ProstPreview>
     </div>
 </template>
 
@@ -109,8 +109,14 @@ onMounted(async ()=>{
     allPosts.value = await getAllPosts()
 })
 
-function redirectToPost(id){
-    window.location='/post/'+id
+async function redirectToPost(id,event){
+    if(event.target.tagName != "BUTTON"){
+        window.location='/post/'+id
+    }
+}
+
+async function updatePost(){
+    allPosts.value = await getAllPosts()
 }
 
 async function getAllPosts(){
@@ -119,6 +125,7 @@ async function getAllPosts(){
     for(let i = 0;i<reponse.data.length;i++){
         result.push((await axios.get(url+"/getPostData/"+reponse.data[i].toString())).data)
     }
+    console.log(result)
     return result
 }
 
@@ -129,6 +136,7 @@ async function createPost(){
     }
     await axios.post(url+"/createPost",{"title":document.getElementById("titleInput").value,"content":document.getElementById("contentInput").value},{withCredentials : true,})
     createPostState.value = false
+    updatePost()
 }
 
 async function validatePassword(){
