@@ -6,7 +6,7 @@
         </div>
         <Splide id="slider" aria-label="My Favorite Images"  data-splide='{"fixedWidth":"fit-content","gap":"5vw"}' :key="key">
             <SplideSlide v-for="project in categoriesContent[currentCategorie]" class="slideDiv">
-                    <img :src="'./img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
+                    <img :src="'/img/project/'+project+'.png'" class="slideImg" :class="{contain : project == 'WalletMiner'}">
                     <div class="slidePictureButton">
                         <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ projectsButton[project][props.language] }}</a>
                     </div>

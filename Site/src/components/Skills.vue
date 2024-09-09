@@ -19,13 +19,13 @@
                 <p class="underTitle">{{ text["underTitle2"][props.language] }}</p>
                 <div id="techContent" class="contentDiv">
                     <div id="skillButtonDiv">
-                        <button v-for="kind in techKind[props.language]" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'./img/'+imageConvert[kind]+'.png'"></button>
+                        <button v-for="kind in techKind[props.language]" class="skillButton" :id="kind" @click="changeKind(this,kind)"><img :src="'/img/'+imageConvert[kind]+'.png'"></button>
                     </div>
                     <div id="sideSkillDiv" data-aos="fade-left">
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
                             <div v-for="element in kindContent[props.language][kindSelected]">
-                                <img :src="'./img/tech/'+imageConvert[element]+'.png'" :class="{invert: element == 'CyberSécurité'}" rel="preload">
+                                <img :src="'/img/tech/'+imageConvert[element]+'.png'" :class="{invert: element == 'CyberSécurité'}" rel="preload">
                                 <p>{{ element }}</p>
                             </div>
                         </div>
@@ -67,15 +67,15 @@
         $('#'+kindSelected.value).addClass("skillActive")
         allImages.value = null
     })
-    const languages = ["JavaScript","HTML/CSS","Python","SQL","Golang","PHP"]
+    const languages = ["JavaScript","HTML/CSS","Python","Kotlin","SQL","Golang"]
     const Data = {
         "HTML/CSS":0.9,
         "JavaScript":0.9,
         "Python":0.8,
-        "SQL":0.75,
+        "Kotlin":0.8,
+        "SQL":0.8,
         "Golang":0.75,
-        "PHP":0.7,
-        "Flutter":0.7
+        "Flutter":0.7,
     }
     const techKind = {
         "French":["BackEnd","FrontEnd","Autres"],
