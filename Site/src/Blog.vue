@@ -8,7 +8,7 @@
         </div>
     </div>
     <div id="languageWrapper">
-        <Language @language="(arg)=>{languageValue = arg}" style="z-index: 10;"></Language>
+        <Language @language="(arg)=>{languageValue = arg}" style="z-index: 10;" :language="languageValue"></Language>
     </div>
     <div v-if="login" class="passwordDiv">
         <div class="passwordWrapper" id="passwordWrapper">
@@ -45,6 +45,10 @@ import ProstPreview from "./components/PostPreview.vue"
 const emit = defineEmits(['language'])
 
 const languageValue = ref("English")
+
+if(navigator.language == "fr"){
+    languageValue.value = "French"
+}
 
 var loginState = ref(false)
 var login = ref(false)

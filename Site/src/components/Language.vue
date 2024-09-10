@@ -6,10 +6,16 @@
 </template>
 
 <script setup>
-import {ref} from "vue"
+import {onMounted, ref} from "vue"
+const props = defineProps(["language"])
 var currentFlag = ref("English")
 var initale = {"English":"ENG","French":"FR"}
 const emit = defineEmits(['language'])
+onMounted(()=>{
+    if(props.language != "English"){
+        movingClicked()
+    }
+})
 function movingClicked(){
     let movingButton = document.getElementById("movingButton")
     let text = document.getElementById("text")

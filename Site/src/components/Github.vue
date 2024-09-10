@@ -1,6 +1,6 @@
 <template>
     <div id="global">
-        <Language @language="(language)=>{emit('language',language)}"></Language>
+        <Language @language="(language)=>{emit('language',language)}" :language="props.language"></Language>
         <a class="wrapper" href="https://github.com/PolLamothe/Portfolio" target="_blank">
             <img src="/public/img/social/Github.png">
             <p>Github</p>
@@ -12,6 +12,7 @@
     import Language from "./Language.vue"
     
     const emit = defineEmits(['language'])
+    const props = defineProps(["language"])
 </script>
 
 <style scoped>
