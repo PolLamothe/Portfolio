@@ -8,7 +8,7 @@
             <div id="mainWrapper" data-aos="fade-left" data-aos-delay="150">
                 <p id="main">{{text["presentation"][props.language]}}</p>
                 <div id="formationwrapper">
-                    <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">{{text["formation"][props.language]}} : BUT Info1/Polytech Nantes</p><br>
+                    <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">{{text["formation"][props.language]}} : BUT Info2/Polytech Nantes</p><br>
                     <img src="/img/Polytech.png" id="schoolPicture">
                     <p class="formation" style="margin-top: 0px;font-size: 17px;text-align: center;">{{text["schoolDetail"][props.language]}}</p>
                 </div>
@@ -32,7 +32,7 @@
         },
         "formation":{
             "French":"Formation",
-            "English":"College"
+            "English":"Education"
         },
         "schoolDetail":{
             "French":"J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle",
