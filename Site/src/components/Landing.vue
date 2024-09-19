@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapperLanding">
-        <img src="/img/tech/css.png" id="css">
+    <div class="wrapperLanding" ref="wrapper">
+        <img src="/img/tech/css.png" id="css" ref="css">
         <img src="/img/logo_blanc_violet.png" id="logo">
         <div id="bigTextDiv">
             <h1 id="name">Pol Lamothe</h1>
@@ -17,7 +17,25 @@
 </template>
 
 <script setup>
+    import { ref } from 'vue';
+
+    var css = ref(null);
+    var wrapper = ref(null);
+
     const props = defineProps(["language"])
+    
+    window.addEventListener('scroll', function() {
+        if(window.pageYOffset+window.innerHeight < wrapper.value.offsetTop)return
+        var windowHeight = window.innerHeight;
+        var scrollArea = windowHeight-wrapper.value.offsetTop
+        var scrollTop = window.pageYOffset || window.scrollTop;
+        var scrollPercent = (scrollTop+windowHeight-wrapper.value.offsetTop-wrapper.value.offsetHeight)/(windowHeight+wrapper.value.offsetHeight)*10
+
+        if(window.pageYOffset+window.innerHeight >= wrapper.value.offsetTop+css.value.offsetTop){
+            css.value.style.marginTop = 20 + scrollPercent*5 + "vh";
+            css.value.style.right = 5 - scrollPercent + "vw";
+        }
+    });
 
     var allSocial = ["Github","RootMe","Linkedin"]
     let job = {
@@ -45,7 +63,7 @@
         width: 6vw;
         transform: rotate(5deg);
         right: 5vw;
-        margin-top: 60vh;
+        margin-top: 20vh;
     }
     .SocialeButton:after {
     position: absolute;

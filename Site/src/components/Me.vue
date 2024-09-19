@@ -1,7 +1,7 @@
 <template>
-    <div class="wrapperMe">
-        <img src="/img/tech/VueJS.png" id="vue">
-        <img src="/img/tech/Linux.png" id="linux">
+    <div class="wrapperMe" ref="wrapper">
+        <img src="/img/tech/VueJS.png" id="vue" ref="vue">
+        <img src="/img/tech/Linux.png" id="linux" ref="linux">
         <h1>{{text["title"][props.language]}}</h1>
         <div id="content">
             <img src="/img/me.jpg" id="picture">
@@ -19,7 +19,30 @@
 </template>
 
 <script setup>
+    import { ref } from 'vue';
+
     const props = defineProps(["language"])
+
+    var vue = ref(null);
+    var linux = ref(null);
+    var wrapper = ref(null);
+    
+    window.addEventListener('scroll', function() {
+        if(window.pageYOffset+window.innerHeight < wrapper.value.offsetTop)return
+        var windowHeight = window.innerHeight;
+        var scrollArea = windowHeight-wrapper.value.offsetTop
+        var scrollTop = window.pageYOffset || window.scrollTop;
+        var scrollPercent = (scrollTop+windowHeight-wrapper.value.offsetTop)/(windowHeight+wrapper.value.offsetHeight)*10
+
+        if(window.pageYOffset+window.innerHeight >= wrapper.value.offsetTop+vue.value.offsetTop){
+            vue.value.style.marginTop = 20 - scrollPercent + "vh";
+            vue.value.style.right = 6 - scrollPercent + "vw";
+        }
+        if(window.pageYOffset+window.innerHeight >= wrapper.value.offsetTop+linux.value.offsetTop){
+            linux.value.style.marginTop = 5 + scrollPercent*4 + "vh";
+            linux.value.style.left = 4 + scrollPercent*0.5 + "vw";
+        }
+    });
 
     const text = {
         "title":{
@@ -109,7 +132,7 @@
         width: 7vw;
         right: 6vw;
         transform: rotate(-7deg);
-        margin-top: 35vh;
+        margin-top: 20vh;
     }
     .wrapperMe{
         padding-top: 5vh;

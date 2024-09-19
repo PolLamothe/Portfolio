@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapper">
-        <img src="/img/tech/JavaScript.png" id="javascript">
+    <div class="wrapper" ref="wrapper">
+        <img src="/img/tech/JavaScript.png" id="javascript" ref="javascript">
         <h1>{{ text["title"][props.language] }}</h1>
         <div id="content">
             <div id="language" class="contentWrap">
@@ -12,7 +12,7 @@
                             <div class="barContent" :percent="Data[language]"></div>
                         </div>
                     </div>
-                    <img src="/img/tech/Ethereum.png" id="Bitcoin">
+                    <img src="/img/tech/Ethereum.png" id="Bitcoin" ref="ethereum">
                 </div>
             </div>
             <div id="tech" class="contentWrap">
@@ -136,6 +136,29 @@
             }
         }
     });
+
+    var wrapper = ref(null);
+    var ethereum = ref(null);
+    var javascript = ref(null);
+    
+    window.addEventListener('scroll', function() {
+        if(window.pageYOffset+window.innerHeight < wrapper.value.offsetTop)return
+        var windowHeight = window.innerHeight;
+        var scrollArea = windowHeight-wrapper.value.offsetTop
+
+        var scrollTop = window.pageYOffset || window.scrollTop
+        var scrollPercent = (scrollTop+windowHeight-wrapper.value.offsetTop)/(windowHeight+wrapper.value.offsetHeight)*10
+        
+        if(window.pageYOffset+window.innerHeight >= wrapper.value.offsetTop+ethereum.value.offsetTop){
+            ethereum.value.style.marginTop = 2 + scrollPercent + "vw";
+            ethereum.value.style.left = 10 + scrollPercent + "vw";
+        }
+        if(window.pageYOffset+window.innerHeight >= wrapper.value.offsetTop+javascript.value.offsetTop){
+            javascript.value.style.top = 30 - scrollPercent*3 + "vh";
+            javascript.value.style.transform = "rotate("+(10-scrollPercent*3)+"deg) translateX(-50%)";
+        }
+    });
+
     async function changeKind(updated,kind){
         if($(".skillGone").length != 0 || kind == kindSelected.value){
             return
@@ -162,13 +185,13 @@
         transform: rotate(10deg) translateX(-50%);
         border-radius: 1.1vw;
         left: 47.5vw;
-        top: 20vh;
+        top: 30vh;
     }
     #Bitcoin{
         position: absolute;
         width: 5vw;
-        margin-top: 5vw;
-        margin-left: 15vw;
+        margin-top: 2vw;
+        margin-left: 10vw;
         transform: rotate(-10deg);
     }
     #tech{
