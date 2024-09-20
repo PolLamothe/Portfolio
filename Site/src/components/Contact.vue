@@ -1,9 +1,11 @@
 <template>
-    <img src="/img/tech/python.webp" id="python">
-    <div class="wrapper" id="Contact">
-        <h1>{{ text["title"][props.language] }}</h1>
-        <p><u>{{ text["phone"][props.language] }}:</u> 06 59 00 24 56</p>
-        <p><u>Email:</u> lamothepol@gmail.com</p>
+    <div>
+        <img src="/img/tech/python.webp" id="python">
+        <div class="wrapper" id="Contact">
+            <h1>{{ text["title"][props.language] }}</h1>
+            <p><u>{{ text["phone"][props.language] }}:</u> 06 59 00 24 56</p>
+            <p><u>Email:</u> lamothepol@gmail.com</p>
+        </div>
     </div>
 </template>
 
