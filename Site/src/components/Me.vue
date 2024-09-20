@@ -35,8 +35,8 @@
         var scrollPercent = (scrollTop+windowHeight-wrapper.value.offsetTop)/(windowHeight+wrapper.value.offsetHeight)*10
 
         if(window.pageYOffset+window.innerHeight >= wrapper.value.offsetTop+vue.value.offsetTop){
-            vue.value.style.marginTop = 20 - scrollPercent + "vh";
-            vue.value.style.right = 6 - scrollPercent + "vw";
+            vue.value.style.marginTop = 50 - scrollPercent + "vh";
+            vue.value.style.right = 8 - scrollPercent + "vw";
         }
         if(window.pageYOffset+window.innerHeight >= wrapper.value.offsetTop+linux.value.offsetTop){
             linux.value.style.marginTop = 5 + scrollPercent*4 + "vh";
@@ -130,9 +130,9 @@
     #vue{
         position: absolute;
         width: 7vw;
-        right: 6vw;
+        right: 8vw;
         transform: rotate(-7deg);
-        margin-top: 20vh;
+        margin-top: 50vh;
     }
     .wrapperMe{
         padding-top: 5vh;
