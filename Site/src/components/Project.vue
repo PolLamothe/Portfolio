@@ -87,7 +87,7 @@
             "LochCrenn":"A showcase site for a seasonal rental house",
             "InstinctIf":"A mini-game site",
             "Quadtree":"A video game made in Golang using the Ebiten library",
-            "AIRPC":"A fake shocase site",
+            "AIRPC":"A fake showcase site",
             "STI2D":"A web site presenting the STI2D, made in high school",
             "WalletMiner":"A program made in Python that show the security of the Bitcoin blockchain",
             "NoteIf":"A browser extension that allow Nantes'student to be warned at the publishment of new grade",
@@ -109,23 +109,23 @@
     var projectTech = {
         "French":{
             "LochCrenn":["HTML/CSS","JS","PHP"],
-            "InstinctIf":["HTML/CSS","JS"],
+            "InstinctIf":["HTML/CSS","JS","Equipe"],
             "Quadtree":["Golang","Réseaux"],
             "AIRPC":["HTML/CSS"],
             "STI2D":["HTML/CSS","JS"],
             "WalletMiner":["Python"],
-            "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB"],
-            "PolyUno":["Python","Réseaux"]
+            "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB","Equipe"],
+            "PolyUno":["Python","Réseaux","Equipe"]
         },
         "English":{
             "LochCrenn":["HTML/CSS","JS","PHP"],
-            "InstinctIf":["HTML/CSS","JS"],
+            "InstinctIf":["HTML/CSS","JS","Team"],
             "Quadtree":["Golang","Networks"],
             "AIRPC":["HTML/CSS"],
             "STI2D":["HTML/CSS","JS"],
             "WalletMiner":["Python"],
-            "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB"],
-            "PolyUno":["Python","Networks"]
+            "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB","Team"],
+            "PolyUno":["Python","Networks","Team"]
         }
     }
 
