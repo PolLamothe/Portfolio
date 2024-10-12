@@ -10,7 +10,7 @@
                     <div class="slidePictureButton">
                         <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ projectsButton[project][props.language] }}</a>
                     </div>
-                    <h1>{{ projectTitle[project] }}</h1>
+                    <h1>{{ projectTitle[props.language][project] }}</h1>
                     <p>{{ projectText[props.language][project] }}</p>
                     <div class="techTagDiv">
                         <p v-for="tech in projectTech[props.language][project]">{{ tech }}</p>
@@ -33,7 +33,7 @@
         }
     }
 
-    var projectsList = ["LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","STI2D","WalletMiner","PolyUno"]
+    var projectsList = ["IADétecteurDeNombre","LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","WalletMiner","PolyUno"]
 
     var categories = {
         "French":["Tous","Site Web","Autres"],
@@ -46,8 +46,8 @@
 
     Object.keys(categories).forEach(element => {
         categoriesContent[categories[element][0]] = projectsList
-        categoriesContent[categories[element][1]] = ["LochCrenn","InstinctIf","AIRPC","STI2D"]
-        categoriesContent[categories[element][2]] =["NoteIf","Quadtree","WalletMiner","PolyUno"]
+        categoriesContent[categories[element][1]] = ["LochCrenn","InstinctIf","AIRPC"]
+        categoriesContent[categories[element][2]] =["IADétecteurDeNombre","NoteIf","Quadtree","WalletMiner","PolyUno"]
     });
 
     const projectsLink = {
@@ -55,10 +55,10 @@
         "InstinctIf":{"Site Web":"https://pollamothe.github.io/Instinct-If/"},
         "Quadtree":{"Voir sur Github":"https://github.com/PolLamothe/Quadtree"},
         "AIRPC":{"Site Web":"https://pollamothe.github.io/AIR-PC/"},
-        "STI2D":{"Site Web":"https://pollamothe.github.io/STI2D/"},
         "WalletMiner":{"Voir sur Github":"https://github.com/PolLamothe/Wallet-Miner-BTC"},
         "NoteIf":{"Voir sur Github":"https://github.com/PolLamothe/NoteIf"},
-        "PolyUno":{"Voir sur Github":"https://github.com/PolLamothe/PolyUno"}
+        "PolyUno":{"Voir sur Github":"https://github.com/PolLamothe/PolyUno"},
+        "IADétecteurDeNombre":{"Voir sur Github":"https://github.com/PolLamothe/Perceptron-Scratch"},
     }
 
     const projectsButton = {
@@ -66,10 +66,10 @@
         "InstinctIf":{"French" : "Site Web","English":"Website"},
         "Quadtree":{"French" : "Voir sur Github","English":"See on Github"},
         "AIRPC":{"French" : "Site Web","English":"Website"},
-        "STI2D":{"French" : "Site Web","English":"Website"},
         "WalletMiner":{"French" : "Voir sur Github","English":"See on Github"},
         "NoteIf":{"French" : "Voir sur Github","English":"See on Github"},
-        "PolyUno":{"French" : "Voir sur Github","English":"See on Github"}
+        "PolyUno":{"French" : "Voir sur Github","English":"See on Github"},
+        "IADétecteurDeNombre" : {"French" : "Voir sur Github","English":"See on Github"},
     }
 
     const projectText = {
@@ -78,32 +78,45 @@
             "InstinctIf":"Un site de mini jeux",
             "Quadtree":"Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
             "AIRPC":"Un faux site web vitrine",
-            "STI2D":"Un site web présentant la STI2D, réalisé en Terminale",
             "WalletMiner":"Un programme écrit en Python servant à tester la sécurité de la blockchain Bitcoin",
             "NoteIf":"Une extension pour navigateur web permettant aux étudiants de Nantes d'être avertis de publications de notes",
-            "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé"
+            "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé",
+            "IADétecteurDeNombre" : "Une IA codé en Python from scratch qui sert à détecter des nombres dessinés",
         },
         "English":{
             "LochCrenn":"A showcase site for a seasonal rental house",
             "InstinctIf":"A mini-game site",
             "Quadtree":"A video game made in Golang using the Ebiten library",
             "AIRPC":"A fake showcase site",
-            "STI2D":"A web site presenting the STI2D, made in high school",
             "WalletMiner":"A program made in Python that show the security of the Bitcoin blockchain",
             "NoteIf":"A browser extension that allow Nantes'student to be warned at the publishment of new grade",
-            "PolyUno":"A Uno game working in networks in a decentralised way"
+            "PolyUno":"A Uno game working in networks in a decentralised way",
+            "IADétecteurDeNombre":"An IA made in Python from scratch wich detect drawn numbers"
         }
     }
 
     var projectTitle = {
-        "LochCrenn":"Villa Loch Crenn",
-        "InstinctIf":"Instinct-If",
-        "Quadtree":"Project Quadtree",
-        "AIRPC":"Air-PC",
-        "STI2D":"Présentation STI2D",
-        "WalletMiner":"Bitcoin Wallet Miner",
-        "NoteIf":"NoteIf",
-        "PolyUno":"PolyUno"
+        "French":{
+            "LochCrenn":"Villa Loch Crenn",
+            "InstinctIf":"Instinct-If",
+            "Quadtree":"Projet Quadtree",
+            "AIRPC":"Air-PC",
+            "WalletMiner":"Bitcoin Wallet Miner",
+            "NoteIf":"NoteIf",
+            "PolyUno":"PolyUno",
+            "IADétecteurDeNombre" : "IA Détecteur De Nombre",
+        },
+        "English":{
+            "LochCrenn":"Villa Loch Crenn",
+            "InstinctIf":"Instinct-If",
+            "Quadtree":"Project Quadtree",
+            "AIRPC":"Air-PC",
+            "WalletMiner":"Bitcoin Wallet Miner",
+            "NoteIf":"NoteIf",
+            "PolyUno":"PolyUno",
+            "IADétecteurDeNombre" : "Number Detection AI",
+        }
+       
     }
 
     var projectTech = {
@@ -112,20 +125,20 @@
             "InstinctIf":["HTML/CSS","JS","Equipe"],
             "Quadtree":["Golang","Réseaux"],
             "AIRPC":["HTML/CSS"],
-            "STI2D":["HTML/CSS","JS"],
             "WalletMiner":["Python"],
             "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB","Equipe"],
-            "PolyUno":["Python","Réseaux","Equipe"]
+            "PolyUno":["Python","Réseaux","Equipe"],
+            "IADétecteurDeNombre" : ["Python","IA","Math"]
         },
         "English":{
             "LochCrenn":["HTML/CSS","JS","PHP"],
             "InstinctIf":["HTML/CSS","JS","Team"],
             "Quadtree":["Golang","Networks"],
             "AIRPC":["HTML/CSS"],
-            "STI2D":["HTML/CSS","JS"],
             "WalletMiner":["Python"],
             "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB","Team"],
-            "PolyUno":["Python","Networks","Team"]
+            "PolyUno":["Python","Networks","Team"],
+            "IADétecteurDeNombre" : ["Python","AI","Math"]
         }
     }
 
