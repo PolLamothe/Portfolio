@@ -3,8 +3,10 @@
         <img src="/img/tech/css.png" id="css" ref="css">
         <img src="/img/logo_blanc_violet.png" id="logo">
         <div id="bigTextDiv">
-            <h1 id="name">Pol Lamothe</h1>
-            <h2 id="job">● {{job[props.language]}}</h2>
+            <div id="titleDiv">
+                <h1 id="name">Pol Lamothe</h1>
+                <h2 id="job">● {{job[props.language]}}</h2>
+            </div>
             <div id="SocialDiv">
                 <a v-for="social in allSocial" :href="socialLink[social]" target="_blank" class="SocialeButton">
                     <img :src="'/img/social/'+social+'.png'" :class="{invert : social=='Github'}">
@@ -46,6 +48,15 @@
 </script>
 
 <style scoped>
+    @keyframes typing {
+        0% { width: 0 }
+        25% { width: 100%}
+        75%{width: 100%;}
+        100%{width: 0}
+    }
+    #titleDiv{
+        width: fit-content;
+    }
     #logo{
         width: 30vw;
         margin-left: 50vw;
@@ -131,12 +142,17 @@
         position: relative;
         padding-top: 20vh;
         padding-left: 50vw;
+        width: fit-content;
     }
     #name{  
         color: white;
         font-family: Roboto;
         font-size: 55px;
-        margin: 0px;
+        overflow: hidden;
+        border-right: .15em solid #7652fa;
+        white-space: nowrap;
+        width: fit-content;
+        animation: typing 8s infinite;
     }
     #job{
         -webkit-background-clip: text;
