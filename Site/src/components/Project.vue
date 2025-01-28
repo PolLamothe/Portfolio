@@ -33,7 +33,7 @@
         }
     }
 
-    var projectsList = ["PhysicSimulator","IADetecteurDeNombre","LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","PolyUno"]
+    var projectsList = ["PhysicSimulator","IADetecteurDeNombre","Laurelin","LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","PolyUno"]
 
     var categories = {
         "French":["Tous","Site Web","Autres"],
@@ -46,7 +46,7 @@
 
     Object.keys(categories).forEach(element => {
         categoriesContent[categories[element][0]] = projectsList
-        categoriesContent[categories[element][1]] = ["PhysicSimulator","LochCrenn","InstinctIf","AIRPC"]
+        categoriesContent[categories[element][1]] = ["PhysicSimulator","Laurelin","LochCrenn","InstinctIf","AIRPC"]
         categoriesContent[categories[element][2]] =["IADetecteurDeNombre","NoteIf","Quadtree","PolyUno"]
     });
 
@@ -58,7 +58,8 @@
         "NoteIf":{"Voir sur Github":"https://github.com/PolLamothe/NoteIf"},
         "PolyUno":{"Voir sur Github":"https://github.com/PolLamothe/PolyUno"},
         "IADetecteurDeNombre":{"Voir sur Github":"https://github.com/PolLamothe/Perceptron-Scratch"},
-        "PhysicSimulator":{"Site Web":"https://pollamothe.github.io/Collision-Simulator/"}
+        "PhysicSimulator":{"Site Web":"https://pollamothe.github.io/Collision-Simulator/"},
+        "Laurelin" : {"Voir sur Gitlab" : "https://gitlab.univ-nantes.fr/E235508M/laurelin"},
     }
 
     const projectsButton = {
@@ -69,7 +70,8 @@
         "NoteIf":{"French" : "Voir sur Github","English":"See on Github"},
         "PolyUno":{"French" : "Voir sur Github","English":"See on Github"},
         "IADetecteurDeNombre" : {"French" : "Voir sur Github","English":"See on Github"},
-        "PhysicSimulator" : {"French" : "Site Web", "English" : "Website"}
+        "PhysicSimulator" : {"French" : "Site Web", "English" : "Website"},
+        "Laurelin" : {"French" : "Voir sur Gitlab", "English" : "See on Gitlab"}
     }
 
     const projectText = {
@@ -80,8 +82,9 @@
             "AIRPC":"Un faux site web vitrine",
             "NoteIf":"Une extension pour navigateur web permettant aux étudiants de Nantes d'être avertis de publications de notes",
             "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé",
-            "IADetecteurDeNombre" : "Une IA codé en Python from scratch qui sert à détecter des nombres dessinés",
-            "PhysicSimulator" : "Un simulateur de collision codé en Javascript"
+            "IADetecteurDeNombre" : "Une IA codée en Python from scratch qui sert à détecter des nombres dessinés",
+            "PhysicSimulator" : "Un simulateur de collision codé en Javascript",
+            "Laurelin":"Un projet de site e-commerce de semestre 3 de BUT informatique",
         },
         "English":{
             "LochCrenn":"A showcase site for a seasonal rental house",
@@ -91,7 +94,8 @@
             "NoteIf":"A browser extension that allow Nantes'student to be warned at the publishment of new grade",
             "PolyUno":"A Uno game working in networks in a decentralised way",
             "IADetecteurDeNombre":"An IA made in Python from scratch wich detect drawn numbers",
-            "PhysicSimulator" : "A collision simulator made in Javascript"
+            "PhysicSimulator" : "A collision simulator made in Javascript",
+            "Laurelin" : "An e-commerce site project for semester 3 of BUT IT",
         }
     }
 
@@ -104,7 +108,8 @@
             "NoteIf":"NoteIf",
             "PolyUno":"PolyUno",
             "IADetecteurDeNombre" : "IA Détecteur De Nombre",
-            "PhysicSimulator" : "Simulateur de collision"
+            "PhysicSimulator" : "Simulateur de collision",
+            "Laurelin" : "Laurelin"
         },
         "English":{
             "LochCrenn":"Villa Loch Crenn",
@@ -114,7 +119,8 @@
             "NoteIf":"NoteIf",
             "PolyUno":"PolyUno",
             "IADetecteurDeNombre" : "Number Detection AI",
-            "PhysicSimulator" : "Collision simulator"
+            "PhysicSimulator" : "Collision simulator",
+            "Laurelin" : "Laurelin",
         }
        
     }
@@ -128,7 +134,8 @@
             "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB","Equipe"],
             "PolyUno":["Python","Réseaux","Equipe"],
             "IADetecteurDeNombre" : ["Python","IA","Math"],
-            "PhysicSimulator" : ["JS","HTML/CSS","Math"]
+            "PhysicSimulator" : ["JS","HTML/CSS","Math"],
+            "Laurelin" : ["HTML/CSS","JS/VueJS","PHP/Laravel","SQL","Equipe"],
         },
         "English":{
             "LochCrenn":["HTML/CSS","JS","PHP"],
@@ -138,7 +145,8 @@
             "NoteIf":["HTML/CSS","JS","NodeJS","MongoDB","Team"],
             "PolyUno":["Python","Networks","Team"],
             "IADetecteurDeNombre" : ["Python","AI","Math"],
-            "PhysicSimulator" : ["JS","HTML/CSS","Math"]
+            "PhysicSimulator" : ["JS","HTML/CSS","Math"],
+            "Laurelin" : ["HTML/CSS","JS/VueJS","PHP/Laravel","SQL","Team"],
         }
     }
 

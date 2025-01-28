@@ -67,15 +67,15 @@
         $('#'+kindSelected.value).addClass("skillActive")
         allImages.value = null
     })
-    const languages = ["JavaScript","HTML/CSS","Python","Kotlin","SQL","Golang"]
+    const languages = ["HTML/CSS","JavaScript","Python","Kotlin","SQL","Golang","PHP"]
     const Data = {
-        "HTML/CSS":0.9,
+        "HTML/CSS":1,
         "JavaScript":0.9,
-        "Python":0.8,
+        "Python":0.9,
         "Kotlin":0.8,
         "SQL":0.8,
         "Golang":0.75,
-        "Flutter":0.7,
+        "PHP":0.75,
     }
     const techKind = {
         "French":["BackEnd","FrontEnd","Autres"],

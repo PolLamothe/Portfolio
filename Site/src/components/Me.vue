@@ -50,8 +50,8 @@
             "English":"About me"
         },
         "presentation":{
-            "French":"Je suis un jeune passioné d'informatique de 18 ans. J'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.",
-            "English":"I am a young passionate about computer of 18 years old, I started to learn at 15 years old and since, i'v never stoped learning and improve my skills"
+            "French":"Je suis un jeune de 18 ans passioné d'informatique. J'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.",
+            "English":"I am a young passionate about computer of 18 years old, I started to learn at 15 years old and since, i'v never stoped learning and improving my skills"
         },
         "formation":{
             "French":"Formation",
