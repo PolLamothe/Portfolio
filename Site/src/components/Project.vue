@@ -57,7 +57,7 @@
         "AIRPC":{"Site Web":"https://pollamothe.github.io/AIR-PC/"},
         "NoteIf":{"Voir sur Github":"https://github.com/PolLamothe/NoteIf"},
         "PolyUno":{"Voir sur Github":"https://github.com/PolLamothe/PolyUno"},
-        "IADetecteurDeNombre":{"Voir sur Github":"https://github.com/PolLamothe/Perceptron-Scratch"},
+        "IADetecteurDeNombre":{"Site Web":"https://pollamothe.fr/IA"},
         "PhysicSimulator":{"Site Web":"https://pollamothe.github.io/Collision-Simulator/"},
         "Laurelin" : {"Voir sur Gitlab" : "https://gitlab.univ-nantes.fr/E235508M/laurelin"},
     }
@@ -69,7 +69,7 @@
         "AIRPC":{"French" : "Site Web","English":"Website"},
         "NoteIf":{"French" : "Voir sur Github","English":"See on Github"},
         "PolyUno":{"French" : "Voir sur Github","English":"See on Github"},
-        "IADetecteurDeNombre" : {"French" : "Voir sur Github","English":"See on Github"},
+        "IADetecteurDeNombre" : {"French" : "Site Web","English":"Website"},
         "PhysicSimulator" : {"French" : "Site Web", "English" : "Website"},
         "Laurelin" : {"French" : "Voir sur Gitlab", "English" : "See on Gitlab"}
     }
