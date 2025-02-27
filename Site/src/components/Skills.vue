@@ -25,7 +25,7 @@
                         <p id="skillKindTitle">{{ kindSelected }}</p>
                         <div id="skillDetailsDiv">
                             <div v-for="element in kindContent[props.language][kindSelected]">
-                                <img :src="'/img/tech/'+imageConvert[element]+'.png'" :class="{invert: element == 'CyberSécurité'}" rel="preload">
+                                <img :src="'/img/tech/'+imageConvert[element]+'.png'" :class="{invert: element == 'CyberSécurité' || element == 'Machine Learning'}" rel="preload">
                                 <p>{{ element }}</p>
                             </div>
                         </div>
@@ -85,13 +85,13 @@
 
     var kindContent = {
         "French":{
-        "BackEnd":["NodeJS","Nginx","MongoDB","Linux"],
+        "BackEnd":["NodeJS","Laravel","Nginx","MongoDB","Linux"],
         "FrontEnd":["VueJS","Jquery","Flutter"],
-        "Autres":["Pandas","CyberSécurité","Blockchains"]},
+        "Autres":["Machine Learning","CyberSécurité","Blockchains"]},
         "English":{
-        "BackEnd":["NodeJS","Nginx","MongoDB","Linux"],
+        "BackEnd":["NodeJS","Laravel","Nginx","MongoDB","Linux"],
         "FrontEnd":["VueJS","Jquery","Flutter"],
-        "Others":["Pandas","CyberSecurity","Blockchains"]}
+        "Others":["Machine Learning","CyberSecurity","Blockchains"]}
     }
 
     var imageConvert = {
@@ -109,7 +109,9 @@
     "Pandas":"Pandas",
     "CyberSecurity":"CyberSécurité",
     "CyberSécurité":"CyberSécurité",
-    "Blockchains":"Blockchains"
+    "Blockchains":"Blockchains",
+    "Laravel" : "Laravel",
+    "Machine Learning" : "MachineLearning"
     }
 
     var allImages = ref([])

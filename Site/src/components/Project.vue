@@ -82,7 +82,7 @@
             "AIRPC":"Un faux site web vitrine",
             "NoteIf":"Une extension pour navigateur web permettant aux étudiants de Nantes d'être avertis de publications de notes",
             "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé",
-            "IADetecteurDeNombre" : "Une IA codée en Python from scratch qui sert à détecter des nombres dessinés",
+            "IADetecteurDeNombre" : "Un projet de création d'IA from scratch avec diverses implémentations dans du machine learning",
             "PhysicSimulator" : "Un simulateur de collision codé en Javascript",
             "Laurelin":"Un projet de site e-commerce de semestre 3 de BUT informatique",
         },
@@ -93,7 +93,7 @@
             "AIRPC":"A fake showcase site",
             "NoteIf":"A browser extension that allow Nantes'student to be warned at the publishment of new grade",
             "PolyUno":"A Uno game working in networks in a decentralised way",
-            "IADetecteurDeNombre":"An IA made in Python from scratch wich detect drawn numbers",
+            "IADetecteurDeNombre":"A project to create AI from scratch with various implementations in machine learning",
             "PhysicSimulator" : "A collision simulator made in Javascript",
             "Laurelin" : "An e-commerce site project for semester 3 of BUT IT",
         }
@@ -107,7 +107,7 @@
             "AIRPC":"Air-PC",
             "NoteIf":"NoteIf",
             "PolyUno":"PolyUno",
-            "IADetecteurDeNombre" : "IA Détecteur De Nombre",
+            "IADetecteurDeNombre" : "Réseaux de neurones artificiels",
             "PhysicSimulator" : "Simulateur de collision",
             "Laurelin" : "Laurelin"
         },
@@ -118,7 +118,7 @@
             "AIRPC":"Air-PC",
             "NoteIf":"NoteIf",
             "PolyUno":"PolyUno",
-            "IADetecteurDeNombre" : "Number Detection AI",
+            "IADetecteurDeNombre" : "Neural networks",
             "PhysicSimulator" : "Collision simulator",
             "Laurelin" : "Laurelin",
         }
