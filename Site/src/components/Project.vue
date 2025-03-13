@@ -6,15 +6,16 @@
         </div>
         <Splide id="slider" aria-label="My Favorite Images"  data-splide='{"fixedWidth":"fit-content","gap":"5vw"}' :key="key">
             <SplideSlide v-for="project in categoriesContent[currentCategorie]" class="slideDiv">
-                    <img :src="'/img/project/'+project+'.png'" class="slideImg">
-                    <div class="slidePictureButton">
-                        <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ projectsButton[project][props.language] }}</a>
-                    </div>
-                    <h1>{{ projectTitle[props.language][project] }}</h1>
-                    <p>{{ projectText[props.language][project] }}</p>
-                    <div class="techTagDiv">
-                        <p v-for="tech in projectTech[props.language][project]">{{ tech }}</p>
-                    </div>
+                <img src="/img/medal.png" id="yellowStar" v-if="project == projectsList[0]">
+                <img :src="'/img/project/'+project+'.png'" class="slideImg">
+                <div class="slidePictureButton">
+                    <a v-for="link in Object.keys(projectsLink[project])" class="slideButton" :href="projectsLink[project][link]" target="_blank">{{ projectsButton[project][props.language] }}</a>
+                </div>
+                <h1>{{ projectTitle[props.language][project] }}</h1>
+                <p>{{ projectText[props.language][project] }}</p>
+                <div class="techTagDiv">
+                    <p v-for="tech in projectTech[props.language][project]">{{ tech }}</p>
+                </div>
             </SplideSlide>
         </Splide>
     </div>
@@ -33,7 +34,7 @@
         }
     }
 
-    var projectsList = ["PhysicSimulator","IADetecteurDeNombre","Laurelin","LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","PolyUno"]
+    var projectsList = ["IADetecteurDeNombre","PhysicSimulator","Laurelin","LochCrenn","InstinctIf","NoteIf","Quadtree","AIRPC","PolyUno"]
 
     var categories = {
         "French":["Tous","Site Web","Autres"],
@@ -107,7 +108,7 @@
             "AIRPC":"Air-PC",
             "NoteIf":"NoteIf",
             "PolyUno":"PolyUno",
-            "IADetecteurDeNombre" : "Réseaux de neurones artificiels",
+            "IADetecteurDeNombre" : "Réseaux de neurones artificiels - Mon meilleur projet",
             "PhysicSimulator" : "Simulateur de collision",
             "Laurelin" : "Laurelin"
         },
@@ -118,7 +119,7 @@
             "AIRPC":"Air-PC",
             "NoteIf":"NoteIf",
             "PolyUno":"PolyUno",
-            "IADetecteurDeNombre" : "Neural networks",
+            "IADetecteurDeNombre" : "Artificial neural networks - My best project",
             "PhysicSimulator" : "Collision simulator",
             "Laurelin" : "Laurelin",
         }
@@ -158,6 +159,14 @@
 </script>
 
 <style scoped>
+    #yellowStar{
+        position: absolute;
+        z-index: 5;
+        height: fit-content;
+        width: fit-content;
+        width: 5vw;
+        aspect-ratio: 1/1;
+    }
     .techTagDiv{
         display: flex;
         width: fit-content;
@@ -284,6 +293,10 @@
         transition-duration: 0.5s;
     }
     @media screen and (max-width: 700px) {
+        #yellowStar{
+            width: 10vw !important;
+            margin-left: 8vw !important;
+        }
         img{
             width: 80vw!important;
             margin-left: 50%!important;
@@ -301,6 +314,10 @@
         }
     }
     @media screen and (max-width: 1200px) {
+        #yellowStar{
+            margin-left: 13vh;
+            width: 6vh !important;
+        }
         img{
             width: 50vw;
             margin-left: 50%;
