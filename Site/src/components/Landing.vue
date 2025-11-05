@@ -41,7 +41,7 @@
 
     var allSocial = ["Github","RootMe","Linkedin"]
     let job = {
-        "French":"Dévelopeur",
+        "French":"Développeur",
         "English":"Developer"
     }
     var socialLink = {"Github":"https://github.com/PolLamothe","RootMe":"https://www.root-me.org/Pol-724719?lang=fr#f12c79541abdb20fe556c1eb0472cead","Linkedin":"https://www.linkedin.com/in/pol-lamothe-075585286/"}
