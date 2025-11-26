@@ -3,17 +3,18 @@
         <div id="activitesDeco">
 
         </div>
-        <div v-for="card in Object.keys(cards)" :id="'card'+card" class="card">
-            <div class="imgWrapper">
-                <img :src="'/svg/'+cards[card].icon+'.svg'" :style="cards[card].style">
+        <template v-for="(card,index) in Object.keys(cards)" :id="'card'+card" class="card">
+            <div class="card":id="'card'+card" :style="{'grid-column': index+1}">
+
             </div>
-            <div class="activitesNameWrapper">
+            <img :src="'/svg/'+cards[card].icon+'.svg'" :style="[{'grid-column': index+1}, cards[card].style]">
+            <div class="activitesNameWrapper" :style="{'grid-column': index+1}">
                 <div class="activitesNameDeco"></div>
                 <p class="activitesName">{{ cards[card].name }}</p>
                 <div class="activitesNameDeco"></div>
             </div>
-            <p class="activitiesPresentation">COUCOU</p>
-        </div>
+            <p class="activitiesPresentation" :style="{'grid-column': index+1}">{{ cards[card].presentation }}</p>
+        </template>
     </div>
 </template>
 
@@ -25,44 +26,55 @@
     const cards = ref({
         "1":{
             icon : "developer",
-            name : "Développeur"
+            name : "Développeur",
+            presentation : "Je crée des applications modernes et efficaces, en explorant différentes technologies pour transformer des idées en solutions utiles et soignées."
         },
         "2":{
             icon : "diploma",
-            style : "filter : invert(100%)",
-            name : "Étudiant"
+            style : {"filter" : "invert(100%)"},
+            name : "Étudiant",
+            presentation : "Étudiant en cycle ingénieur, je développe une approche rigoureuse de l’informatique et j’apprends à concevoir des solutions fiables et innovantes."
         },
         "3":{
             icon : "data_dashboard",
-            style : "filter : invert(100%)",
-            name : "Intelligence Artificielle"
+            style : {"filter" : "invert(100%)"},
+            name : "Intelligence Artificielle",
+            presentation : "Passionné d’IA, j’expérimente avec des modèles, réseaux de neurones et projets de vision pour comprendre et créer des systèmes intelligents."
         }
     })
 </script>
 
 <style scoped>
+    #activitiesWrapper img{
+        grid-row: 1;
+        width: 3vw;
+    }
     #activitesDeco{
         background-color: rgba(20,20,20,.5);
         backdrop-filter: blur(6.85px);
-        width: 110%;
-        height: 50%;
+        width: 110%;;
         position: absolute;
-        z-index: 1;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        bottom: 1vh;
+        z-index: 0;
+        top: 0;
+        bottom: 0;
         border-radius: 25px;
+        grid-row: 3/4;
     }
     .activitiesPresentation{
         color: white;
         font-family: roboto;
         z-index: 2;
         margin-top: 2vh;
+        text-align: justify;
+        grid-row: 3;
+        width: 90%;
     }
     .activitesNameWrapper{
         display: flex;
         align-items: center;
         gap: .5vw;
+        grid-row: 2;
+        width: max-content;
     }
     .activitesNameDeco{
         width: 1.5vw;
@@ -82,27 +94,29 @@
         padding: .3vw;
         margin-top: 2vh;
     }
-    .card img{
-        width: 100%;
-        height: 100%;
-    }
     #activitiesWrapper{
         margin-left: 50%;
         transform: translateX(-50%);
-        width: fit-content;
-        display: flex;
+        width: max-content;
+        display: grid;  
         gap: 1vw;
         margin-top: 20vh;
-        height: fit-content;
         position: relative;
+        height: fit-content;
+        place-items: center;
+        grid-template-columns: repeat(3, minmax(0, 20vw));
     }
     .card{
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom: 1vh;
         border-radius: 1vw;
-        width: 16vw;
-        height: 19vh;
+        grid-row: 1/5;
+        grid-column: 1;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
     }
     #card3{
         background-color: #FF6E7B;

@@ -132,8 +132,8 @@
         justify-content: right;
         position: relative;
         padding: 0px;
-        border-radius: 1vw;
-        min-height: 5vh;
+        border-radius: 4vw;
+        min-height: 4vh;
         min-width: 12vw;
     }
     #linkWrapper{
