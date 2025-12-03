@@ -6,6 +6,8 @@
     <Header :language="languageValue"></Header>
     <Landing></Landing>
     <Activities></Activities>
+    <Formation></Formation>
+    <Experience></Experience>
 </template>
 
 <script setup>
@@ -14,6 +16,8 @@
     import Header from "./components/Header.vue"
     import Landing from "./components/Landing.vue"
     import Activities from "./components/Activities.vue"
+    import Formation from "./components/Formation.vue"
+    import Experience from "./components/Experience.vue"
 
     const emit = defineEmits(['language'])
     
