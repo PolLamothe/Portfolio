@@ -44,6 +44,7 @@
         margin-left: 50%;
         transform: translateX(-50%);
         background-color: rgba(0,0,0,.4);
+        backdrop-filter: blur(6px);
         height: fit-content;
         z-index: 10;
         border-radius: 40px;

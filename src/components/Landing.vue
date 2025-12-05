@@ -49,8 +49,7 @@
         height: 100vh;
         width: 100vh;
         z-index: -1;
-        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 255, 255, 0.23) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-        backdrop-filter: blur(6.85px);        
+        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 255, 255, 0.23) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
         margin-top: 90vh;
     }
     #buttonWrapper button:hover{
@@ -68,8 +67,7 @@
         transition-duration: .3s;
     }
     #buttonWrapper{
-        background-color: rgba(10,10,10,.5);
-        backdrop-filter: blur(6.85px);        
+        background-color: rgba(10,10,10,.5);     
         width: fit-content;
         display: flex;
         gap: 1vw;

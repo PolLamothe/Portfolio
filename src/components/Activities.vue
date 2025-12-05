@@ -51,7 +51,7 @@
     }
     #activitesDeco{
         background-color: rgba(20,20,20,.5);
-        backdrop-filter: blur(6.85px);
+        backdrop-filter: blur(6px);
         width: 110%;;
         position: absolute;
         z-index: 0;

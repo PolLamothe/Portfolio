@@ -51,7 +51,8 @@
         color: white;
     }
     .description{
-        width: 15vw;
+        width: 100%;
+        text-align: justify;
         color: rgba(255,255,255,.75);
     }
     .itemWrapper{
@@ -71,6 +72,7 @@
         width: fit-content;
         padding: 1vw;
         border-radius: 1vw;
+        width: 25vw;
     }
     #icon{
         width: 1.5vw;
