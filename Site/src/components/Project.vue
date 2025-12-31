@@ -77,11 +77,11 @@
 
     const projectText = {
         "French":{
-            "LochCrenn":"Un site web vitrine pour la location saisonniere d'une maison",
+            "LochCrenn":"Un site web vitrine pour la location saisonnière d'une maison",
             "InstinctIf":"Un site de mini jeux",
             "Quadtree":"Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
             "AIRPC":"Un faux site web vitrine",
-            "NoteIf":"Une extension pour navigateur web permettant aux étudiants de Nantes d'être avertis de publications de notes",
+            "NoteIf":"Une extension pour navigateur web permettant aux étudiants de Nantes d'être avertis de la publication de leurs notes",
             "PolyUno":"Un jeu de Uno fonctionnant en réseau de façon décentralisé",
             "IADetecteurDeNombre" : "Un projet de création d'IA from scratch avec diverses implémentations dans du machine learning",
             "PhysicSimulator" : "Un simulateur de collision codé en Javascript",
@@ -92,11 +92,11 @@
             "InstinctIf":"A mini-game site",
             "Quadtree":"A video game made in Golang using the Ebiten library",
             "AIRPC":"A fake showcase site",
-            "NoteIf":"A browser extension that allow Nantes'student to be warned at the publishment of new grade",
-            "PolyUno":"A Uno game working in networks in a decentralised way",
+            "NoteIf":"A browser extension that allows students in Nantes to be notified when new grades are published.",
+            "PolyUno":"A decentralized networked Uno game",
             "IADetecteurDeNombre":"A project to create AI from scratch with various implementations in machine learning",
             "PhysicSimulator" : "A collision simulator made in Javascript",
-            "Laurelin" : "An e-commerce site project for semester 3 of BUT IT",
+            "Laurelin" : "An e-commerce site project for semester 3 of BUT in Computer Science",
         }
     }
 

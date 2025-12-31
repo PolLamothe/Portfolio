@@ -8,7 +8,7 @@
             <div id="mainWrapper" data-aos="fade-left" data-aos-delay="150">
                 <p id="main">{{text["presentation"][props.language]}}</p>
                 <div id="formationwrapper">
-                    <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">{{text["formation"][props.language]}} : BUT Info2/Polytech Nantes</p><br>
+                    <p class="formation" style="margin-bottom: 0.1vh;font-size: 22px;">{{text["formation"][props.language]}} : Polytech Nantes</p><br>
                     <img src="/img/Polytech.png" id="schoolPicture">
                     <p class="formation" style="margin-top: 0px;font-size: 17px;text-align: center;">{{text["schoolDetail"][props.language]}}</p>
                 </div>
@@ -50,8 +50,8 @@
             "English":"About me"
         },
         "presentation":{
-            "French":"Je suis un jeune de 19 ans passioné d'informatique. J'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.",
-            "English":"I am a young passionate about computer of 19 years old, I started to learn at 15 years old and since, i'v never stoped learning and improving my skills"
+            "French":"Je suis un étudiant de 19 ans passionné par l'informatique. J'ai commencé l'informatique à 15 ans et depuis je ne cesse d'apprendre et de m'améliorer.",
+            "English":"I am a 19-year-old student passionate about computer science. I started to learn at 15 years old and since, I've never stopped learning and improving my skills"
         },
         "formation":{
             "French":"Formation",
@@ -59,7 +59,7 @@
         },
         "schoolDetail":{
             "French":"J'y étudie l'informatique générale avec une spécialisation pour l'ingénierie logicielle",
-            "English":"I study global computer science with a specialisation for software engineering"
+            "English":"I study general computer science with a specialisation for software engineering"
         },
         "CV":{
             "French":"Mon CV",

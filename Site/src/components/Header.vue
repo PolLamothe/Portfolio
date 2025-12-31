@@ -9,13 +9,13 @@
     const props = defineProps(["language"])
 
     let allButton = {
-        "French":["Accueil","A propos de moi","Compétences","Projets","Contact"],
+        "French":["Accueil","À propos de moi","Compétences","Projets","Contact"],
         "English":["Home","About me","Skills","Projects","Contact"]
     }
 
     let idTable = {
         "Accueil":"Accueil",
-        "A propos de moi":"me",
+        "À propos de moi":"me",
         "Compétences":"skill",
         "Projets":"projects",
         "Contact":"Contact",

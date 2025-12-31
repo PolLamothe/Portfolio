@@ -50,12 +50,12 @@
             "English":"My skills"
         },
         "underTitle1":{
-            "French":"Les languages que je maitrise :",
-            "English":"The language i have learnt"
+            "French":"Les langages que je maîtrise :",
+            "English":"The languages I have mastered"
         },
         "underTitle2":{
-            "French":"Les technologies que je maitrise :",
-            "English":"The tech i have learnt"
+            "French":"Les technologies que je maîtrise :",
+            "English":"The technologies I use"
         }
     }
 
