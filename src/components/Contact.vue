@@ -1,6 +1,6 @@
 <template>
     <div id="contact">
-        <div v-for="element in data" class="localWrapper">
+        <div v-for="element in data" :key="element[0]" class="localWrapper" @click="handleClick(element)">
             <img :src="'/'+element[1]" :style="element[2] ? 'filter : invert(100%)' : ''">
             <p>{{ element[0] }}</p>
         </div>
@@ -11,8 +11,14 @@
     const data = [
         ["06 29 00 24 56","img/phone.png",true],
         ["lamothepol@gmail.com","svg/mail.svg",true],
-        ["Pol Lamothe","img/social/Linkedin.png",false]
+        ["Pol Lamothe","img/social/Linkedin.png",false,"https://www.linkedin.com/in/pol-lamothe/"]
     ]
+
+    const handleClick = (element) => {
+        if (element.length > 3) {
+            window.open(element[3])
+        }
+    }
 </script>
 
 <style scoped>

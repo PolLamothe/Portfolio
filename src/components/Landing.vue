@@ -17,7 +17,7 @@
                 <div id="circle3"></div>
             </div>
             <div id="linkWrapper">
-                <button v-for="link in linkButtons"><p>{{ link  }}</p><img :src="'/img/social/'+link+'.png'"></img></button>
+                <button v-for="link in linkButtons" @click="handleClick(link)"><p>{{ link[0]  }}</p><img :src="'/img/social/'+link[0]+'.png'"></img></button>
             </div>
         </div>
         <div id="circle4" class="circle"></div>
@@ -27,7 +27,7 @@
 <script setup>
     const props = defineProps(["currentSection","language"]);
     
-    const linkButtons = ["Linkedin","Github","Leetcode"]
+    const linkButtons = [["Linkedin","https://www.linkedin.com/in/pol-lamothe/"],["Github","https://github.com/PolLamothe"],["Leetcode","https://leetcode.com/u/PolLamothe/"]]
 
     const texts = {
         French: {
@@ -40,6 +40,10 @@
             cv: "CV",
             contact: "Contact"
         }
+    }
+
+    const handleClick = (element) => {
+        window.open(element[1])
     }
 </script>
 
