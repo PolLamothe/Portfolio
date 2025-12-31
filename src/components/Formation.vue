@@ -16,13 +16,13 @@
     let data = {
         "Polytech Nantes" : {
             "date" : "sept 2023 - juin 2028",
-            "description" : "Diplôme d'ingénieur en Informatique",
+            "description" : "Étudiant en cycle ingénieur en informatique",
             "name" : "Polytech Nantes",
             "image" : "polytech.ico"
         },
         "IUT de Nantes" : {
             "date" : "sept 2023 - juin 2025",
-            "description" : "BUT en Informatique parcours Réalisation d’applications - Parcours élève ingénieur Polytech (PEIP D)",
+            "description" : "BUT Informatique parcours Réalisation d’applications - Parcours élève ingénieur Polytech (PEIP D)",
             "name" : "IUT de Nantes",
             "image" : "IUT.png"
         },
@@ -63,7 +63,7 @@
         margin-top: 1.5vw;
     }
     .itemWrapper img{
-        width: 2.5vw;
+        width: 3vw;
         background-color: white;
         border-radius: .5vw;
     }
@@ -73,6 +73,7 @@
         padding: 1vw;
         border-radius: 1vw;
         width: 25vw;
+        height: 40vw;
     }
     #icon{
         width: 1.5vw;

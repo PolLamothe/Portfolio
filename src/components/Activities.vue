@@ -51,7 +51,7 @@
     }
     #activitesDeco{
         background-color: rgba(20,20,20,.5);
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(15px);
         width: 110%;;
         position: absolute;
         z-index: 0;
@@ -100,7 +100,7 @@
         width: max-content;
         display: grid;  
         gap: 1vw;
-        margin-top: 20vh;
+        margin-top: 5vw;
         position: relative;
         height: fit-content;
         place-items: center;

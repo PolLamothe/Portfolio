@@ -22,13 +22,13 @@
         },
         "Stage" : {
             "date" : "avril 2025 - juin 2025 - 10 semaines",
-            "description" : "Participation à la refonte technologique d’un système de suivi d’équipements agricoles : intégration de nouvelles technologies, amélioration des performances, de la fiabilité et de l’ergonomie des interfaces. Contribution à l’ optimisation de l’architecture pour en faciliter la maintenance, l’évolutivité et la documentation.",
+            "description" : "Participation à la refonte technologique d’un système de suivi d’équipements agricoles",
             "name" : "Stagiaire",
             "image" : "mieres.jpg"
         },
         "Freelance" : {
             "date" : "juillet 2024 - 1 mois",
-            "description" : "Création d’ un programme de contrôle d’ un bot d’achat et de vente d’objets virtuels. Ce projet a nécessité une bonne compréhension du besoin du client ainsi qu’une grande fiabilité afin de ne pas entraîner de perte monétaire",
+            "description" : "Création d’ un programme de contrôle d’ un bot d’achat et de vente d’objets virtuels.",
             "name" : "Freelance",
             "image" : "js.png"
         }
@@ -68,11 +68,12 @@
         border-radius: .5vw;
     }
     #wrapper{
-        background: rgba(88,31,37,.4);
+        background: rgb(117, 41, 49);
         width: fit-content;
         padding: 1vw;
         border-radius: 1vw;
         width: 25vw;
+        height: 40vw;
     }
     #icon{
         width: 1.5vw;

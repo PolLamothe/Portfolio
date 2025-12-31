@@ -161,14 +161,14 @@
     h1{
         font-family: "Climate Crisis", sans-serif;
         color : #FFE2AA;
-        font-size: 100px;
+        font-size: 80px;
         margin-top: 0px;
         width: max-content;
     }
     p{
         color : lightgray;
         font-family: Roboto;
-        font-size: 24px;
+        font-size: 20px;
         text-align: justify;
     }
 </style>
