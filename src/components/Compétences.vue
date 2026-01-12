@@ -2,18 +2,19 @@
     <h1>Mes Compétences</h1>
     <div id="globalWrapper">
         <div v-for="categorie in Object.keys(skills)" class="globalWrapper">
-        <div style="display: flex;flex-direction: row;align-items: center;gap: 1vw;">
-            <p class="categorieTitle">{{ categorie }}</p>
-            <div class="titleDecoration"></div>
-        </div>  
-        <div class="categorieWrapper">
-            <div class="elementDecoration"></div>
-            <div v-for="element in skills[categorie]" class="elementWrapper">
-                <img :src="'/img/tech/'+element+'.png'">
-                <p>{{ element }}</p>
+            <div style="display: flex;flex-direction: row;align-items: center;gap: 1vw;">
+                <p class="categorieTitle">{{ categorie }}</p>
+                <div class="titleDecoration"></div>
+            </div>  
+            <div class="categorieWrapper">
+                <div class="elementDecoration"></div>
+                <div v-for="element in skills[categorie]" class="elementWrapper">
+                    <img :src="'/img/tech/'+element+'.png'">
+                    <p>{{ element }}</p>
+                </div>
             </div>
         </div>
-    </div>
+        <div id="circle1"></div>
     </div>
 </template>
 <script setup>
@@ -25,6 +26,17 @@ const skills = {
 }
 </script>
 <style scoped>
+    #circle1{
+        position: absolute;
+        border-radius: 50%;
+        display: inline-block;
+        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 255, 255, 0.23) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
+        width: 50vw;
+        height: 50vw;
+        top: 50%;
+        transform: rotate(120deg);
+        z-index: -1;
+    }
     #globalWrapper{
         width: fit-content;
         margin-left: 50vw;

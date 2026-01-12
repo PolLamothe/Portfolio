@@ -8,6 +8,7 @@
     <Activities></Activities>
     <Parcours></Parcours>
     <Compétences></Compétences>
+    <Projects></Projects>
 </template>
 
 <script setup>
@@ -18,6 +19,7 @@
     import Activities from "./components/Activities.vue"
     import Parcours from "./components/Parcours.vue"
     import Compétences from "./components/Compétences.vue"
+    import Projects from "./components/Projects.vue"
 
     const emit = defineEmits(['language'])
     
