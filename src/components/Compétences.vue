@@ -85,6 +85,7 @@ const skills = {
         flex-direction: column;
         gap: 1vw;
         font-size: 20px;
+        align-items: center;
     }
     .elementDecoration{
         background-color: #FF7C77;

@@ -5,17 +5,17 @@
     <link href="/css/background.css" rel="stylesheet">
     <Header :language="languageValue" :currentSection="currentSection"></Header>
     <div ref="landingSection">
-        <Landing></Landing>
+        <Landing :language="languageValue"></Landing>
     </div>
-    <Activities></Activities>
+    <Activities :language="languageValue"></Activities>
     <div ref="parcoursSection">
-        <Parcours></Parcours>
+        <Parcours :language="languageValue"></Parcours>
     </div>
     <div ref="competencesSection">
-        <Compétences></Compétences>
+        <Compétences :language="languageValue"></Compétences>
     </div>
     <div ref="projectsSection">
-        <Projects></Projects>
+        <Projects :language="languageValue"></Projects>
     </div>
 </template>
 
