@@ -7,6 +7,7 @@
     <Landing></Landing>
     <Activities></Activities>
     <Parcours></Parcours>
+    <Compétences></Compétences>
 </template>
 
 <script setup>
@@ -16,6 +17,7 @@
     import Landing from "./components/Landing.vue"
     import Activities from "./components/Activities.vue"
     import Parcours from "./components/Parcours.vue"
+    import Compétences from "./components/Compétences.vue"
 
     const emit = defineEmits(['language'])
     

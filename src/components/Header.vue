@@ -17,6 +17,7 @@
     let idTable = {
         "Accueil":"Accueil",
         "Études/Expériences":"studyExperiences",
+        "À propos de moi":"me",
         "Compétences":"skill",
         "Projets":"projects",
         "Home":"Accueil",

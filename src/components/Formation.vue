@@ -73,7 +73,6 @@
         padding: 1vw;
         border-radius: 1vw;
         width: 25vw;
-        height: 40vw;
     }
     #icon{
         width: 1.5vw;

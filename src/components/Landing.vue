@@ -118,6 +118,8 @@
     }
     #linkWrapper button img{
         height: 4vh;
+        background-color: white;
+        border-radius: 50%;
     }
     #linkWrapper button{
         background-color: rgba(255,255,255,.3);
