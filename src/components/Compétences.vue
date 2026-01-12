@@ -1,20 +1,22 @@
 <template>
-    <h1>Mes Compétences</h1>
-    <div id="globalWrapper">
-        <div v-for="categorie in Object.keys(skills)" class="globalWrapper">
-            <div style="display: flex;flex-direction: row;align-items: center;gap: 1vw;">
-                <p class="categorieTitle">{{ categorie }}</p>
-                <div class="titleDecoration"></div>
-            </div>  
-            <div class="categorieWrapper">
-                <div class="elementDecoration"></div>
-                <div v-for="element in skills[categorie]" class="elementWrapper">
-                    <img :src="'/img/tech/'+element+'.png'">
-                    <p>{{ element }}</p>
+    <div id="compétences">
+         <h1>Mes Compétences</h1>
+        <div id="globalWrapper">
+            <div v-for="categorie in Object.keys(skills)" class="globalWrapper">
+                <div style="display: flex;flex-direction: row;align-items: center;gap: 1vw;">
+                    <p class="categorieTitle">{{ categorie }}</p>
+                    <div class="titleDecoration"></div>
+                </div>  
+                <div class="categorieWrapper">
+                    <div class="elementDecoration"></div>
+                    <div v-for="element in skills[categorie]" class="elementWrapper">
+                        <img :src="'/img/tech/'+element+'.png'">
+                        <p>{{ element }}</p>
+                    </div>
                 </div>
             </div>
+            <div id="circle1"></div>
         </div>
-        <div id="circle1"></div>
     </div>
 </template>
 <script setup>

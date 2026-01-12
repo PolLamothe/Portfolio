@@ -1,5 +1,5 @@
 <template>
-    <div id="landingWrapper">
+    <div id="accueil">
         <div id="textWrapper" class="slideLeftAnimation">
             <h1>Pol<br>Lamothe</h1>
             <p>Je suis un passionné d’informatique de 19 ans. Depuis mes débuts à 15 ans, je ne cesse d’apprendre, d’expérimenter et de progresser dans ce domaine qui me motive chaque jour.</p>
@@ -151,7 +151,7 @@
         position: relative;
         height: max-content;
     }
-    #landingWrapper{
+    #accueil{
         width: 90vw;
         margin-left: 50%;
         margin-top: 15vh;

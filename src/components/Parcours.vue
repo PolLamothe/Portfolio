@@ -1,5 +1,5 @@
 <template>
-    <div id="parcoursWrapper">
+    <div id="studyExperiences">
         <h1>Mon parcours</h1>
         <Formation></Formation>
         <Experience></Experience>
@@ -35,7 +35,7 @@ import Experience from './Experience.vue';
         position: absolute;
         top: 0px;
     }
-    #parcoursWrapper{
+    #studyExperiences{
         display: flex;
         flex-direction: row;
         align-items: center;

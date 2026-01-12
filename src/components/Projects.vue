@@ -1,23 +1,23 @@
 <template>
-<div id="wrapper">
-    <div class="titleWrapper">
-        <button @click="go('<')" style="padding-right: .7vw;"><img src="/img/arrow.svg" style="transform: rotate(180deg);"></button>
-        <h1>Projets</h1>
-        <button @click="go('>')" style="padding-left: .7vw;"><img src="/img/arrow.svg"></button>
-    </div>
-    <Splide id="slider" ref="splide" data-splide='{"fixedWidth":"fit-content","gap":"5vw"}' :key="key">
-            <SplideSlide class="splideElement" v-for="project in projects">
-                <p class="projectName">{{ project.name }}</p>
-                <p class="projectDescription">{{ project.description }}</p>
-                <div class="secondWrapper">
-                    <div class="stackWrapper">
-                        <p v-for="element in project.stack">{{ element }}</p>
+    <div id="projects">
+        <div class="titleWrapper">
+            <button @click="go('<')" style="padding-right: .7vw;"><img src="/img/arrow.svg" style="transform: rotate(180deg);"></button>
+            <h1>Projets</h1>
+            <button @click="go('>')" style="padding-left: .7vw;"><img src="/img/arrow.svg"></button>
+        </div>
+        <Splide id="slider" ref="splide" data-splide='{"fixedWidth":"fit-content","gap":"5vw","arrows": false}' :key="key">
+                <SplideSlide class="splideElement" v-for="project in projects">
+                    <p class="projectName">{{ project.name }}</p>
+                    <p class="projectDescription">{{ project.description }}</p>
+                    <div class="secondWrapper">
+                        <div class="stackWrapper">
+                            <p v-for="element in project.stack">{{ element }}</p>
+                        </div>
+                        <img :src="'/img/project/'+project.img+'.png'">
                     </div>
-                    <img :src="'/img/project/'+project.img+'.png'">
-                </div>
-            </SplideSlide>
-    </Splide>
-</div>
+                </SplideSlide>
+        </Splide>
+    </div>
 </template>
 
 <script setup>
@@ -157,7 +157,7 @@
         width: 80vw;
         margin-top: 3vw;
     }
-    #wrapper{
+    #projects{
         display: flex;
         flex-direction: column;
         align-items: center;
