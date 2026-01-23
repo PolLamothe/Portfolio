@@ -17,6 +17,7 @@
     <div ref="projectsSection">
         <Projects :language="languageValue"></Projects>
     </div>
+    <Contact></Contact>
 </template>
 
 <script setup>
@@ -28,6 +29,7 @@
     import Parcours from "./components/Parcours.vue"
     import Compétences from "./components/Compétences.vue"
     import Projects from "./components/Projects.vue"
+    import Contact from "./components/Contact.vue"
 
     const emit = defineEmits(['language'])
     

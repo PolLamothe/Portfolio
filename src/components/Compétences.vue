@@ -58,7 +58,6 @@ const skills = {
     .categorieTitle{
         font-size: 24px;
         color: #FFE2AA;
-        font-family: Roboto;
     }
     .elementWrapper img{
         width: 4vw;
@@ -73,7 +72,6 @@ const skills = {
     }
     .elementWrapper{
         color: white;
-        font-family: Roboto;
         text-align: center;
         backdrop-filter: blur(50px);
         background: rgba(0,0,0,.3);

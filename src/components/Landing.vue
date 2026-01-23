@@ -1,7 +1,8 @@
 <template>
     <div id="accueil">
         <div id="textWrapper" class="slideLeftAnimation">
-            <h1>Pol<br>Lamothe</h1>
+            <h1 id="prenom">POL</h1>
+            <h1 id="nom">LAMOTHE</h1>
             <p>Je suis un passionné d’informatique de 19 ans. Depuis mes débuts à 15 ans, je ne cesse d’apprendre, d’expérimenter et de progresser dans ce domaine qui me motive chaque jour.</p>
             <div id="buttonWrapper">
                 <button>CV</button>
@@ -44,7 +45,23 @@
         animation-name: SlideLeftAnimation;
         animation-duration: 1s;
     }
-
+    @font-face { 
+        font-family: 'HelveticaNeue';
+        src: url('/font/helvetica-neue-5/HelveticaNeueUltraLight.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    #prenom{
+        font-family: "HelveticaNeue";
+        color: white;
+        margin-bottom: 0px;
+    }
+    #nom{
+        font-family: "Climate Crisis";
+        background: linear-gradient(to right, #FFE2AA, rgba(255, 226, 170, 0.2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
     #circle4{
         height: 100vh;
         width: 100vh;
@@ -169,7 +186,6 @@
     }
     p{
         color : lightgray;
-        font-family: Roboto;
         font-size: 20px;
         text-align: justify;
     }

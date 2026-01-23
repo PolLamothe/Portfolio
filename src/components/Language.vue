@@ -43,7 +43,6 @@ function movingClicked(){
     margin:0px;
     margin-top: 2.5vw;
     transform: translateY(-50%);
-    font-family: Roboto;
     font-weight: bold;
 }
 #globalButton{

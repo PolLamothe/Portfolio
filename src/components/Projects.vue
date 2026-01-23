@@ -114,7 +114,6 @@
         position: absolute;
         color: white;
         background-color: #FF8C6C;
-        font-family: Roboto;
         border: none;
         border-radius: 2vw;
         font-size: 18px;
@@ -154,7 +153,6 @@
     .stackWrapper p{
         color: white;
         background-color: #FF8C6C;
-        font-family: Roboto;
         padding: .5vw;
         width: fit-content;
         border-radius: 1vw;
@@ -175,12 +173,10 @@
         width: fit-content;
     }
     .projectDescription{
-        font-family: Roboto;
         color: gray;
         font-size: 18px;
     }
     .projectName{
-        font-family: Roboto;
         color: white;
         margin-top: 0px;
         font-size: 24px;

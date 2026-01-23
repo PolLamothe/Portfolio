@@ -10,3 +10,6 @@ html{
 body {
   overflow-x: clip;
 }
+p, a{
+  font-family: "Sansation";
+}

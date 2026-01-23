@@ -62,7 +62,6 @@
     }
     .activitiesPresentation{
         color: white;
-        font-family: roboto;
         z-index: 2;
         margin-top: 2vh;
         text-align: justify;

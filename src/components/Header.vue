@@ -92,7 +92,6 @@
 
     a{
         color: lightgray;
-        font-family: Roboto;
         font-size: 20px;
         border-radius: 30px;
         padding: 10px;

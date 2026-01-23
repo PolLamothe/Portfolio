@@ -36,9 +36,6 @@
 </script>
 
 <style scoped>
-    p{
-        font-family: Roboto;
-    }
     .itemWrapper div{
         align-items: center;
         gap: 1vw    ;
