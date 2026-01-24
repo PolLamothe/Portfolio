@@ -2,11 +2,11 @@
     <div id="projects">
         <div class="titleWrapper">
             <button @click="go('<')" style="padding-right: .7vw;"><img src="/img/arrow.svg" style="transform: rotate(180deg);"></button>
-            <h1>Projets</h1>
+            <h1>{{ currentContent.title }}</h1>
             <button @click="go('>')" style="padding-left: .7vw;"><img src="/img/arrow.svg"></button>
         </div>
         <Splide id="slider" ref="splide" data-splide='{"fixedWidth":"fit-content","gap":"5vw","arrows": false}' :key="key">
-                <SplideSlide class="splideElement" v-for="project in projects">
+                <SplideSlide class="splideElement" v-for="project in currentProjects">
                     <p class="projectName">{{ project.name }}</p>
                     <p class="projectDescription">{{ project.description }}</p>
                     <div class="secondWrapper">
@@ -14,7 +14,7 @@
                             <p v-for="element in project.stack">{{ element }}</p>
                         </div>
                         <div class="imageWrapper">
-                            <a :href="project.link" target="_blank"><button>En savoir plus</button></a>
+                            <a :href="project.link" target="_blank"><button>{{ currentContent.button }}</button></a>
                             <img :src="'/img/project/'+project.img+'.png'">
                         </div>
                     </div>
@@ -25,7 +25,9 @@
 
 <script setup>
     import '@splidejs/splide/dist/css/splide.min.css';
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue';
+
+    const props = defineProps(["language"]);
 
     const splide = ref();
     
@@ -35,71 +37,157 @@
         }
     };
 
-    const projects = [
-        {
-            name : "Réseaux de neurones artificiels",
-            img : "IADetecteurDeNombre",
-            description : "Un projet de création d'lA from scratch avec diverses implémentations dans du machine learning",
-            stack : ["Python","IA","Math"],
-            link : "https://pollamothe.fr/IA"
+    const content = {
+        French: {
+            title: "Projets",
+            button: "En savoir plus"
         },
-        {
-            name : "Simulateur de collisions",
-            img : "PhysicSimulator",
-            description : "Un similateur de collisions codé en Javascript",
-            stack : ["JS","HTML/CSS","Math"],
-            link : "https://pollamothe.github.io/Collision-Simulator/"
-        },
-        {
-            name : "Laurelin",
-            img : "Laurelin",
-            description : "Un site de e-commerce pour une marque fictive",
-            stack : ["PHP/Laravel","HTML/CSS","JS/VueJS","SQL","Équipe"],
-            link : "https://gitlab.univ-nantes.fr/E235508M/laurelin"
-        },
-        {
-            name : "Villa Loch Crenn",
-            img : "LochCrenn",
-            description : "Un site web vitrine pour la location saisonnière d’une maison",
-            stack : ["HTML/CSS","JS","PHP"],
-            link : "https://www.villalochcrenn.fr"
-        },
-        {
-            name : "Instinct-If",
-            img : "InstinctIf",
-            description : "Un site de mini jeux",
-            stack : ["HTML/CSS","JS"],
-            link : "https://pollamothe.github.io/Instinct-If/"
-        },
-        {
-            name : "Note If",
-            img : "NoteIf",
-            description : "Une extension pour navigateur web permettant aux étudiants de Nantes d’être avertis de publications de notes",
-            stack : ["HTML/CSS","NodeJS","MongoDB","Équipe"],
-            link : "https://github.com/PolLamothe/NoteIf"
-        },
-        {
-            name : "Projet Quadtree",
-            img : "Quadtree",
-            description : "Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
-            stack : ["Golang","Réseaux"],
-            link : "https://github.com/PolLamothe/Quadtree"
-        },
-        {
-            name : "Air-PC",
-            img : "AIRPC",
-            description : "Un site web vitrine victif de vente d'ordinateur",
-            stack : ["HTML/CSS"],
-            link : "https://pollamothe.github.io/AIR-PC/"
-        },
-        {
-            name : "PolyUno",
-            img : "PolyUno",
-            description : "Un jeu Uno fonctionnant en réseau de façon décentralisé",
-            stack : ["Python","Réseaux","Équipe"],
-            link : "https://github.com/PolLamothe/PolyUno"
+        English: {
+            title: "Projects",
+            button: "Learn more"
         }
-    ]
+    };
+
+    const currentContent = computed(() => {
+        return content[props.language] || content.French;
+    });
+
+    const projectsData = {
+        French: [
+            {
+                name : "Réseaux de neurones artificiels",
+                img : "IADetecteurDeNombre",
+                description : "Un projet de création d'lA from scratch avec diverses implémentations dans du machine learning",
+                stack : ["Python","IA","Math"],
+                link : "https://pollamothe.fr/IA"
+            },
+            {
+                name : "Simulateur de collisions",
+                img : "PhysicSimulator",
+                description : "Un similateur de collisions codé en Javascript",
+                stack : ["JS","HTML/CSS","Math"],
+                link : "https://pollamothe.github.io/Collision-Simulator/"
+            },
+            {
+                name : "Laurelin",
+                img : "Laurelin",
+                description : "Un site de e-commerce pour une marque fictive",
+                stack : ["PHP/Laravel","HTML/CSS","JS/VueJS","SQL","Équipe"],
+                link : "https://github.com/PolLamothe/Laurelin"
+            },
+            {
+                name : "Villa Loch Crenn",
+                img : "LochCrenn",
+                description : "Un site web vitrine pour la location saisonnière d’une maison",
+                stack : ["HTML/CSS","JS","PHP"],
+                link : "https://www.villalochcrenn.fr"
+            },
+            {
+                name : "Instinct-If",
+                img : "InstinctIf",
+                description : "Un site de mini jeux",
+                stack : ["HTML/CSS","JS"],
+                link : "https://pollamothe.github.io/Instinct-If/"
+            },
+            {
+                name : "Note If",
+                img : "NoteIf",
+                description : "Une extension pour navigateur web permettant aux étudiants de Nantes d’être avertis de publications de notes",
+                stack : ["HTML/CSS","NodeJS","MongoDB","Équipe"],
+                link : "https://github.com/PolLamothe/NoteIf"
+            },
+            {
+                name : "Projet Quadtree",
+                img : "Quadtree",
+                description : "Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
+                stack : ["Golang","Réseaux"],
+                link : "https://github.com/PolLamothe/Quadtree"
+            },
+            {
+                name : "Air-PC",
+                img : "AIRPC",
+                description : "Un site web vitrine victif de vente d'ordinateur",
+                stack : ["HTML/CSS"],
+                link : "https://pollamothe.github.io/AIR-PC/"
+            },
+            {
+                name : "PolyUno",
+                img : "PolyUno",
+                description : "Un jeu Uno fonctionnant en réseau de façon décentralisé",
+                stack : ["Python","Réseaux","Équipe"],
+                link : "https://github.com/PolLamothe/PolyUno"
+            }
+        ],
+        English: [
+            {
+                name : "Artificial Neural Networks",
+                img : "IADetecteurDeNombre",
+                description : "An AI creation project from scratch with various machine learning implementations",
+                stack : ["Python","AI","Math"],
+                link : "https://pollamothe.fr/IA"
+            },
+            {
+                name : "Collision Simulator",
+                img : "PhysicSimulator",
+                description : "A collision simulator coded in Javascript",
+                stack : ["JS","HTML/CSS","Math"],
+                link : "https://pollamothe.github.io/Collision-Simulator/"
+            },
+            {
+                name : "Laurelin",
+                img : "Laurelin",
+                description : "An e-commerce site for a fictional brand",
+                stack : ["PHP/Laravel","HTML/CSS","JS/VueJS","SQL","Team"],
+                link : "https://github.com/PolLamothe/Laurelin"
+            },
+            {
+                name : "Villa Loch Crenn",
+                img : "LochCrenn",
+                description : "A showcase website for a seasonal house rental",
+                stack : ["HTML/CSS","JS","PHP"],
+                link : "https://www.villalochcrenn.fr"
+            },
+            {
+                name : "Instinct-If",
+                img : "InstinctIf",
+                description : "A mini-games website",
+                stack : ["HTML/CSS","JS"],
+                link : "https://pollamothe.github.io/Instinct-If/"
+            },
+            {
+                name : "Note If",
+                img : "NoteIf",
+                description : "A web browser extension allowing Nantes students to be notified of grade publications",
+                stack : ["HTML/CSS","NodeJS","MongoDB","Team"],
+                link : "https://github.com/PolLamothe/NoteIf"
+            },
+            {
+                name : "Quadtree Project",
+                img : "Quadtree",
+                description : "A video game coded in Golang using the Ebiten library",
+                stack : ["Golang","Network"],
+                link : "https://github.com/PolLamothe/Quadtree"
+            },
+            {
+                name : "Air-PC",
+                img : "AIRPC",
+                description : "A fictional showcase website for computer sales",
+                stack : ["HTML/CSS"],
+                link : "https://pollamothe.github.io/AIR-PC/"
+            },
+            {
+                name : "PolyUno",
+                img : "PolyUno",
+                description : "A Uno game running on a decentralized network",
+                stack : ["Python","Network","Team"],
+                link : "https://github.com/PolLamothe/PolyUno"
+            }
+        ]
+    };
+
+    const currentProjects = computed(() => {
+        return projectsData[props.language] || projectsData.French;
+    });
 </script>
 
 <style scoped>

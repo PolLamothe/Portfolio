@@ -3,7 +3,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
     <link href="/css/background.css" rel="stylesheet">
-    <Header :language="languageValue" :currentSection="currentSection"></Header>
+    <Header :currentSection="currentSection" :language="languageValue" @changeLanguage="(l) => languageValue = l"></Header>
     <div ref="landingSection">
         <Landing :language="languageValue"></Landing>
     </div>
@@ -33,10 +33,7 @@
 
     const emit = defineEmits(['language'])
     
-    const languageValue = ref("English")
-    if(navigator.language == "fr"){
-        languageValue.value = "French"
-    }
+    const languageValue = ref("French")
     AOS.init();
 
     const currentSection = ref('accueil');

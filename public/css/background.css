@@ -1,7 +1,18 @@
-body{
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
     background: linear-gradient(to right, rgba(0, 0, 200, 0.15), transparent 25%), linear-gradient( rgba(88, 31, 37, 1), rgba(149, 57, 32, 1));
-    min-height: 100vh;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
-}    
+    /* On enlève background-attachment: fixed car position: fixed fait le travail */
+}
+
+body {
+    min-height: 100vh;
+    /* Retirez les propriétés de background d'ici */
+}

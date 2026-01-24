@@ -3,10 +3,10 @@
         <div id="textWrapper" class="slideLeftAnimation">
             <h1 id="prenom">POL</h1>
             <h1 id="nom">LAMOTHE</h1>
-            <p>Je suis un passionné d’informatique de 19 ans. Depuis mes débuts à 15 ans, je ne cesse d’apprendre, d’expérimenter et de progresser dans ce domaine qui me motive chaque jour.</p>
+            <p>{{ texts[language].description }}</p>
             <div id="buttonWrapper">
-                <button>CV</button>
-                <button>Contact</button>
+                <a href="./CV.pdf" target="_blank"><button id="buttonCV">{{ texts[language].cv }}</button></a>
+                <a href="#contact"><button id="buttonContact">{{ texts[language].contact }}</button></a>
             </div>
         </div>
         <div id="rightWrapper">
@@ -25,11 +25,22 @@
 </template>
 
 <script setup>
-    import { ref } from "vue"
-
-    const emit = defineEmits(['language'])
+    const props = defineProps(["currentSection","language"]);
     
     const linkButtons = ["Linkedin","Github","Leetcode"]
+
+    const texts = {
+        French: {
+            description: "Je suis un passionné d’informatique de 19 ans. Depuis mes débuts à 15 ans, je ne cesse d’apprendre, d’expérimenter et de progresser dans ce domaine qui me motive chaque jour.",
+            cv: "CV",
+            contact: "Contact"
+        },
+        English: {
+            description: "I am a 19-year-old computer science enthusiast. Since starting at 15, I never stopped learning, experimenting, and progressing in this field that drives me every day.",
+            cv: "CV",
+            contact: "Contact"
+        }
+    }
 </script>
 
 <style scoped>
@@ -70,18 +81,36 @@
         margin-top: 90vh;
     }
     #buttonWrapper button:hover{
-        background-color: rgba(255,255,255,0.3);
-        border: solid 2px transparent;
+        background-color: rgba(255,255,255,.1)!important;
     }
     #buttonWrapper button{
         color: white;
-        border: solid 2px white;
+        border: none;
         background: transparent;
         font-size:24px;
         padding: .5vw 2vw .5vw 2vw;
         border-radius: 2vw;
         cursor: pointer;
         transition-duration: .3s;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2))!important;
+    }
+    #buttonContact{
+        border: solid 2px transparent;
+        position: relative;
+    }
+    #buttonContact::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 2vw;
+        padding: 2px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.3), white);
+        -webkit-mask: 
+           linear-gradient(#fff 0 0) content-box, 
+           linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
     }
     #buttonWrapper{
         background-color: rgba(10,10,10,.5);     
@@ -89,7 +118,7 @@
         display: flex;
         gap: 1vw;
         border-radius: 2vw;
-        padding: .5vw;
+        padding: .25vw;
     }
     #circle3{
         width: 15vw;
@@ -169,11 +198,11 @@
         height: max-content;
     }
     #accueil{
-        width: 90vw;
+        width: 65vw;
         margin-left: 50%;
         margin-top: 15vh;
         transform: translateX(-50%);
-        justify-content: space-around;
+        justify-content: space-between;
         display: flex;
         align-items: center;
     }

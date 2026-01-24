@@ -1,21 +1,32 @@
 <template>
     <header>
-        <div class="bubble" :style="bubbleStyle"></div>
-        <a
-            :href="'#' + idTable[button]"
-            v-for="(button, index) in allButton[props.language]"
-            :key="index"
-            :ref="el => { if (el) linkElements[index] = el }"
-            :class="{ active: props.currentSection == idTable[button] }"
-            >{{ button }}</a
-        >
+        <div id="headerWrapper">
+            <div class="bubble" :style="bubbleStyle"></div>
+            <a
+                :href="'#' + idTable[button]"
+                v-for="(button, index) in allButton[language]"
+                :key="index"
+                :ref="el => { if (el) linkElements[index] = el }"
+                :class="{ active: currentSection == idTable[button] }"
+                >{{ button }}</a>
+        </div>
+        <button id="ukButton" @click="language == 'French' ? language = 'English' : language = 'French'">
+            <img :src="language == 'French' ? '/img/france.png' : '/img/UK.png'">
+            <p>{{language == 'French' ? 'Français' : 'English'}}</p>
+        </button>
     </header>
 </template>
 
 <script setup>
     import { ref, watch, onMounted, nextTick } from "vue";
 
-    const props = defineProps(["language", "currentSection"]);
+    const props = defineProps(["currentSection","language"]);
+    const emit = defineEmits(['changeLanguage']);
+    const language = ref("French")
+
+    watch(language, (newVal) => {
+        emit('changeLanguage', newVal);
+    })
 
     const allButton = {
         French: ["Accueil", "Études/Expériences", "Compétences", "Projets"],
@@ -60,6 +71,32 @@
 </script>
 
 <style scoped>
+    #ukButton img{
+        width: 1.5vw;
+        height: 1.5vw;
+        border-radius: 50%;
+    }
+    #ukButton p{
+        color: white;
+        margin: 0px;
+        font-size: 20px;
+    }
+    #ukButton{
+        display: flex;
+        flex-direction: row;
+        background: linear-gradient(to right, rgba(0,0,0,.3), rgba(255, 255, 255,.3))!important;
+        background-clip: padding-box!important;
+        border: solid 5px rgba(0, 0, 0, 0.3);
+        border-radius: 2vw;
+        align-items: center;
+        gap: 1vw;
+        padding-top: .25vw;
+        padding-bottom: .25vw;
+        padding-right: 1vw;
+        position: absolute;
+        right: -2vw;
+        backdrop-filter: blur(15px);
+    }
     .bubble {
         position: absolute;
         background-color: rgba(255, 255, 255, 0.2);
@@ -68,8 +105,16 @@
         z-index: -1;
         opacity: 0;
     }
-    img{
-        height: 100%;
+    #headerWrapper{
+        background-color: rgba(0,0,0,.4);
+        backdrop-filter: blur(15px);
+        height: fit-content;
+        border-radius: 40px;
+        padding: 10px;
+        gap : 1vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     header{
         display: flex;
@@ -78,16 +123,9 @@
         position: sticky;
         margin-bottom: 2.5vh;
         top: 4vh;
-        width: fit-content;
         margin-left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(0,0,0,.4);
-        backdrop-filter: blur(15px);
-        height: fit-content;
+        transform: translateX(-50%);     
         z-index: 10;
-        border-radius: 40px;
-        padding: 10px;
-        gap : 1vw;
     }
 
     a{
@@ -101,9 +139,9 @@
         align-self: center;
         padding-left: 1.5vw;
         padding-right: 1.5vw;
-        padding-top: 1vh;
-        padding-bottom: 1vh;
         z-index: 1;
+        padding-top: .5vw;
+        padding-bottom: .5vw;
     }
 
     .active{

@@ -1,5 +1,5 @@
 <template>
-    <div id="wrapper">
+    <div id="contact">
         <div v-for="element in data" class="localWrapper">
             <img :src="'/'+element[1]" :style="element[2] ? 'filter : invert(100%)' : ''">
             <p>{{ element[0] }}</p>
@@ -16,7 +16,7 @@
 </script>
 
 <style scoped>
-    #wrapper{
+    #contact{
         gap: 10vw;
         margin-left: 50vw;
         transform: translateX(-50%);

@@ -1,17 +1,19 @@
 <template>
     <div id="compétences">
-         <h1>Mes Compétences</h1>
+         <h1>{{ title }}</h1>
         <div id="globalWrapper">
-            <div v-for="categorie in Object.keys(skills)" class="globalWrapper">
+            <div v-for="categorie in Object.keys(skills)" class="globalWrapper" ref="categoryRefs">
                 <div style="display: flex;flex-direction: row;align-items: center;gap: 1vw;">
-                    <p class="categorieTitle">{{ categorie }}</p>
+                    <p class="categorieTitle">{{ translateCategory(categorie) }}</p>
                     <div class="titleDecoration"></div>
                 </div>  
                 <div class="categorieWrapper">
                     <div class="elementDecoration"></div>
-                    <div v-for="element in skills[categorie]" class="elementWrapper">
-                        <img :src="'/img/tech/'+element+'.png'">
-                        <p>{{ element }}</p>
+                    <div class="elementsContainer">
+                        <div v-for="(element, index) in skills[categorie]" :key="element" class="elementWrapper">
+                            <img :src="'/img/tech/'+element+'.png'">
+                            <p>{{ element }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -20,12 +22,95 @@
     </div>
 </template>
 <script setup>
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+
+const props = defineProps(["language"]);
+
+const translations = {
+    French: {
+        title: "Mes Compétences",
+        categories: {
+            "Langages": "Langages",
+            "Backend": "Backend",
+            "Frontend": "Frontend",
+            "Programmation": "Programmation"
+        }
+    },
+    English: {
+        title: "My Skills",
+        categories: {
+            "Langages": "Languages",
+            "Backend": "Backend",
+            "Frontend": "Frontend",
+            "Programmation": "Programming"
+        }
+    }
+};
+
+const title = computed(() => translations[props.language]?.title || translations["French"].title);
+
+const translateCategory = (category) => {
+    return translations[props.language]?.categories[category] || category;
+};
+
 const skills = {
     "Langages":["Javascript","Python","Kotlin","Java","SQL","Golang","PHP"],
     "Backend" : ["NodeJS","MongoDB","Laravel","Docker","SpringBoot","Jenkins"],
     "Frontend" : ["VueJS","React"],
     "Programmation" : ["MVC","Design Pattern","OOP","Numpy"]
-}
+};
+
+const categoryRefs = ref([]);
+const observers = [];
+
+onMounted(() => {
+    categoryRefs.value.forEach(el => {
+        if (!el) return;
+        
+        const list = el.querySelector('.elementsContainer');
+        if (!list) return;
+        const children = Array.from(list.children);
+
+        // Set initial state for animations
+        children.forEach(child => {
+            child.style.transition = 'none';
+            child.style.opacity = 0;
+            child.style.transform = 'translateX(-100px)';
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    children.forEach((child, index) => {
+                        const delay = index * 100;
+                        setTimeout(() => {
+                            child.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                            child.style.opacity = 1;
+                            child.style.transform = 'translateX(0)';
+                        }, delay);
+                    });
+                } else {
+                    children.forEach(child => {
+                        child.style.transition = 'none';
+                        child.style.opacity = 0;
+                        child.style.transform = 'translateX(-100px)';
+                    });
+                }
+            });
+        }, { threshold: 0.2 }); // Trigger when 20% of the element is visible
+
+        observer.observe(el);
+        observers.push(observer);
+    });
+});
+
+onBeforeUnmount(() => {
+    observers.forEach(observer => {
+        if (observer) {
+            observer.disconnect();
+        }
+    });
+});
 </script>
 <style scoped>
     #circle1{
@@ -95,6 +180,10 @@ const skills = {
         border-radius: 10vw;
     }
     .categorieWrapper{
+        width: fit-content;
+        position: relative;
+    }
+    .elementsContainer {
         display: flex;
         flex-direction: row;
         width: fit-content;

@@ -13,26 +13,54 @@
 </template>
 
 <script setup>
-    let data = {
-        "Polytech Nantes" : {
-            "date" : "sept 2023 - juin 2028",
-            "description" : "Étudiant en cycle ingénieur en informatique",
-            "name" : "Polytech Nantes",
-            "image" : "polytech.ico"
+    import { computed } from 'vue';
+
+    const props = defineProps(["language"]);
+
+    const translations = {
+        "French": {
+            "Polytech Nantes": {
+                "date": "sept 2023 - juin 2028",
+                "description": "Étudiant en cycle ingénieur en informatique",
+                "name": "Polytech Nantes",
+                "image": "polytech.ico"
+            },
+            "IUT de Nantes": {
+                "date": "sept 2023 - juin 2025",
+                "description": "BUT Informatique parcours Réalisation d’applications - Parcours élève ingénieur Polytech (PEIP D) - Rang 10/86",
+                "name": "IUT de Nantes",
+                "image": "IUT.png"
+            },
+            "Le Likès Quimper": {
+                "date": "sept 2020 - juin 2023",
+                "description": "Baccalauréat Science Technologique de l'Ingénieurie et du Développement Durable - Mention Bien 15,5/20",
+                "name": "Le Likès Quimper",
+                "image": "likes.png"
+            }
         },
-        "IUT de Nantes" : {
-            "date" : "sept 2023 - juin 2025",
-            "description" : "BUT Informatique parcours Réalisation d’applications - Parcours élève ingénieur Polytech (PEIP D)",
-            "name" : "IUT de Nantes",
-            "image" : "IUT.png"
-        },
-        "Le Likès Quimper" : {
-            "date" : "sept 2020 - juin 2023",
-            "description" : "Baccalauréat Science Technologique de l'Ingénieurie et du Développement Durable - Mention Bien 15,5/20",
-            "name" : "Le Likès Quimper",
-            "image" : "likes.png"
+        "English": {
+            "Polytech Nantes": {
+                "date": "Sept 2023 - June 2028",
+                "description": "Computer Science Engineering Student",
+                "name": "Polytech Nantes",
+                "image": "polytech.ico"
+            },
+            "IUT de Nantes": {
+                "date": "Sept 2023 - June 2025",
+                "description": "BUT Computer Science, Application Development track - Polytech Engineering Student Track (PEIP D) - Rank 10/86",
+                "name": "IUT de Nantes",
+                "image": "IUT.png"
+            },
+            "Le Likès Quimper": {
+                "date": "Sept 2020 - June 2023",
+                "description": "Baccalauréat in Engineering Sciences and Sustainable Development - Honors 15.5/20",
+                "name": "Le Likès Quimper",
+                "image": "likes.png"
+            }
         }
-    }
+    };
+
+    const data = computed(() => translations[props.language] || translations["French"]);
 </script>
 
 <style scoped>

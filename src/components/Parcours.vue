@@ -1,8 +1,8 @@
 <template>
     <div id="studyExperiences">
         <h1>Mon parcours</h1>
-        <Formation></Formation>
-        <Experience></Experience>
+        <Formation :language="props.language"></Formation>
+        <Experience :language="props.language"></Experience>
         <div id="circle5" class="circle"></div>
     </div>
 </template>
@@ -10,6 +10,8 @@
 <script setup>
 import Formation from './Formation.vue';
 import Experience from './Experience.vue';
+
+const props = defineProps(["language"]);
 
 </script>
 

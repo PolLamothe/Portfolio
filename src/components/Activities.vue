@@ -19,27 +19,62 @@
 </template>
 
 <script setup>
-    import { ref } from "vue"
+    import { ref, computed } from "vue"
 
-    const emit = defineEmits(['language'])
+    const props = defineProps(["language"]);
 
-    const cards = ref({
-        "1":{
-            icon : "developer",
-            name : "Développeur",
-            presentation : "Je crée des applications modernes et efficaces, en explorant différentes technologies pour transformer des idées en solutions utiles et soignées."
+    const content = {
+        English: {
+            "1": {
+                name: "Developer",
+                presentation: "I create modern and efficient applications, exploring different technologies to turn ideas into useful and polished solutions."
+            },
+            "2": {
+                name: "Student",
+                presentation: "As an engineering student, I am developing a rigorous approach to computer science and learning to design reliable and innovative solutions."
+            },
+            "3": {
+                name: "Artificial Intelligence",
+                presentation: "Passionate about AI, I experiment with models, neural networks, and computer vision projects to understand and create intelligent systems."
+            }
         },
-        "2":{
-            icon : "diploma",
-            style : {"filter" : "invert(100%)"},
-            name : "Étudiant",
-            presentation : "Étudiant en cycle ingénieur, je développe une approche rigoureuse de l’informatique et j’apprends à concevoir des solutions fiables et innovantes."
-        },
-        "3":{
-            icon : "data_dashboard",
-            style : {"filter" : "invert(100%)"},
-            name : "Intelligence Artificielle",
-            presentation : "Passionné d’IA, j’expérimente avec des modèles, réseaux de neurones et projets de vision pour comprendre et créer des systèmes intelligents."
+        French: {
+            "1": {
+                name: "Développeur",
+                presentation: "Je crée des applications modernes et efficaces, en explorant différentes technologies pour transformer des idées en solutions utiles et soignées."
+            },
+            "2": {
+                name: "Étudiant",
+                presentation: "Étudiant en cycle ingénieur, je développe une approche rigoureuse de l’informatique et j’apprends à concevoir des solutions fiables et innovantes."
+            },
+            "3": {
+                name: "Intelligence Artificielle",
+                presentation: "Passionné d’IA, j’expérimente avec des modèles, réseaux de neurones et projets de vision pour comprendre et créer des systèmes intelligents."
+            }
+        }
+    }
+
+    const cards = computed(() => {
+        const lang = props.language && content[props.language] ? props.language : "English";
+        const texts = content[lang];
+        return {
+            "1":{
+                icon : "developer",
+                name : texts["1"].name,
+                presentation : texts["1"].presentation
+            },
+            "2":{
+                icon : "diploma",
+                style : {"filter" : "invert(100%)"},
+                name : texts["2"].name,
+                presentation : texts["2"].presentation
+            },
+            "3":{
+                icon : "data_dashboard",
+                style : {"filter" : "invert(100%)"},
+                name : texts["3"].name,
+                presentation : texts["3"].presentation
+            }
         }
     })
 </script>
