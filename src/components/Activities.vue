@@ -111,7 +111,7 @@
         align-items: center;
         padding-bottom: 1vh;
         border-radius: 1vw;
-        grid-row: 1/5;
+        grid-row: 1/6;
         grid-column: 1;
         height: 100%;
         width: 100%;
