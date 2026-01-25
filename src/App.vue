@@ -30,11 +30,12 @@
     import Compétences from "./components/Compétences.vue"
     import Projects from "./components/Projects.vue"
     import Contact from "./components/Contact.vue"
+    import AOS from 'aos';
+    import 'aos/dist/aos.css';
 
     const emit = defineEmits(['language'])
     
     const languageValue = ref("French")
-    AOS.init();
 
     const currentSection = ref('accueil');
     const landingSection = ref(null);
@@ -65,6 +66,7 @@
     };
 
     onMounted(() => {
+        AOS.init();
         window.addEventListener('scroll', handleScroll);
     });
 

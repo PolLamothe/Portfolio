@@ -1,7 +1,7 @@
 <template>
     <div id="wrapper">
         <img src="/img/school/studentIcon.svg" id="icon">
-        <div v-for="item in data" class="itemWrapper">
+        <div v-for="(item, key, index) in data" class="itemWrapper" data-aos="fade-up" :data-aos-delay="index * 200">
             <p class="date">{{item.date}}</p>
             <div style="display: flex; flex-direction: row">
                 <p class="name">{{item.name}}</p>
@@ -86,6 +86,13 @@
         border-left: solid 2px white;
         padding-left: 1vw;
         margin-top: 1.5vw;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        padding: 1vw;
+        border-radius: 0.5vw;
+    }
+    .itemWrapper:hover {
+        transform: translateX(10px);
+        background-color: rgba(255, 255, 255, 0.1);
     }
     .itemWrapper img{
         width: 3vw;

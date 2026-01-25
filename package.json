@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@splidejs/vue-splide": "^0.6.12",
+    "aos": "^2.3.4",
     "axios": "^1.7.5",
     "js-cookie": "^3.0.5",
     "splide": "^0.0.1-security",

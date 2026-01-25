@@ -4,16 +4,16 @@
 
         </div>
         <template v-for="(card,index) in Object.keys(cards)" :id="'card'+card" class="card">
-            <div class="card":id="'card'+card" :style="{'grid-column': index+1}">
+            <div class="card":id="'card'+card" :style="{'grid-column': index+1}" data-aos="fade-up" :data-aos-delay="index * 200">
 
             </div>
-            <img :src="'/svg/'+cards[card].icon+'.svg'" :style="[{'grid-column': index+1}, cards[card].style]">
-            <div class="activitesNameWrapper" :style="{'grid-column': index+1}">
+            <img :src="'/svg/'+cards[card].icon+'.svg'" :style="[{'grid-column': index+1}, cards[card].style]" data-aos="fade-up" :data-aos-delay="index * 200">
+            <div class="activitesNameWrapper" :style="{'grid-column': index+1}" data-aos="fade-up" :data-aos-delay="index * 200">
                 <div class="activitesNameDeco"></div>
                 <p class="activitesName">{{ cards[card].name }}</p>
                 <div class="activitesNameDeco"></div>
             </div>
-            <p class="activitiesPresentation" :style="{'grid-column': index+1}">{{ cards[card].presentation }}</p>
+            <p class="activitiesPresentation" :style="{'grid-column': index+1}" data-aos="fade-up" :data-aos-delay="index * 200">{{ cards[card].presentation }}</p>
         </template>
     </div>
 </template>
@@ -151,6 +151,11 @@
         height: 100%;
         width: 100%;
         z-index: -1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
     #card3{
         background-color: #FF6E7B;

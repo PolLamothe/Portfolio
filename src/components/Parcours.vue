@@ -1,9 +1,9 @@
 <template>
-    <div id="studyExperiences">
+    <div id="studyExperiences" data-aos="fade-left">
         <h1>Mon parcours</h1>
         <Formation :language="props.language"></Formation>
         <Experience :language="props.language"></Experience>
-        <div id="circle5" class="circle"></div>
+        <div id="circle5" class="circle" ></div>
     </div>
 </template>
 
@@ -24,6 +24,12 @@ const props = defineProps(["language"]);
         top: 50%;
         left: 10vw;
         rotate: 30deg;
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(30deg); }
+        50% { transform: translateY(-20px) rotate(35deg); }
+        100% { transform: translateY(0px) rotate(30deg); }
     }
     .circle{
         position: absolute;

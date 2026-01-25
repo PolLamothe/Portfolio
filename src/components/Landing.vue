@@ -1,6 +1,6 @@
 <template>
     <div id="accueil">
-        <div id="textWrapper" class="slideLeftAnimation">
+        <div id="textWrapper" data-aos="fade-right">
             <h1 id="prenom">POL</h1>
             <h1 id="nom">LAMOTHE</h1>
             <p>{{ texts[language].description }}</p>
@@ -48,18 +48,6 @@
 </script>
 
 <style scoped>
-    @keyframes SlideLeftAnimation {
-        from{
-            transform: translateX(-100vw);
-        }
-        to{
-            transform: translateX(0px);
-        }
-    }
-    .slideLeftAnimation{
-        animation-name: SlideLeftAnimation;
-        animation-duration: 1s;
-    }
     @font-face { 
         font-family: 'HelveticaNeue';
         src: url('/font/helvetica-neue-5/HelveticaNeueUltraLight.otf') format('opentype');
@@ -77,15 +65,22 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
     #circle4{
         height: 100vh;
         width: 100vh;
         z-index: -1;
         background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 255, 255, 0.23) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
         margin-top: 90vh;
+        animation: float 8s ease-in-out infinite;
     }
     #buttonWrapper button:hover{
         background-color: rgba(255,255,255,.1)!important;
+        transform: scale(1.05);
     }
     #buttonWrapper button{
         color: white;
@@ -154,12 +149,14 @@
         top: 5vh;
         right: 0px;
         rotate: -70deg;
+        animation: float 6s ease-in-out infinite 1s;
     }
     #circle1{
         height: 4vw;
         width: 4vw;
         top: 0px;
         rotate: -60deg;
+        animation: float 5s ease-in-out infinite;
     }
     #linkWrapper button p{
         position: absolute;
@@ -185,6 +182,11 @@
         border-radius: 4vw;
         min-height: 4vh;
         min-width: 12vw;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    #linkWrapper button:hover{
+        transform: scale(1.05);
+        background-color: rgba(255, 255, 255, 0.4);
     }
     #linkWrapper{
         display: flex;
