@@ -114,3 +114,26 @@
         color: #5A303E;
     }
 </style>
+
+<style scoped>
+    @media screen and (max-width: 700px) {
+        .itemWrapper{
+            padding-left: 5vw;
+            margin-top: 3vw;
+        }
+        .itemWrapper img{
+            width: 20vw;
+            border-radius: 3vw;
+        }
+        #wrapper{
+            width: 80vw;
+            padding: 5vw;
+            height: fit-content;
+            border-radius: 5vw;
+        }
+        #icon{
+            width: 10vw;
+            padding: 1vw;
+        }
+    }
+</style>

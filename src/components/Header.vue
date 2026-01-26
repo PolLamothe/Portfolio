@@ -93,8 +93,7 @@
         padding-top: .25vw;
         padding-bottom: .25vw;
         padding-right: 1vw;
-        position: absolute;
-        right: -2vw;
+        margin-left: 2vw;
         backdrop-filter: blur(15px);
     }
     .bubble {
@@ -147,10 +146,25 @@
     .active{
         color: white;
     }
+</style>
 
+<style scoped>
     @media screen and (max-width: 700px) {
-        header{
+        #headerWrapper{
             display: none;
+        }
+        #ukButton img{
+            width: 10vw;
+            height: 10vw;
+            border-radius: 50%;
+        }
+        #ukButton{
+            border-radius: 10vw;
+            gap: 2vw;
+            padding-top: .5vw;
+            padding-bottom: .5vw;
+            padding-right: 2vw;
+            margin-left: 4vw;
         }
     }
 </style>

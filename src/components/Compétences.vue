@@ -112,12 +112,13 @@ onBeforeUnmount(() => {
     });
 });
 </script>
+
 <style scoped>
     #circle1{
         position: absolute;
         border-radius: 50%;
         display: inline-block;
-        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 255, 255, 0.23) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
+        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 82, 111, 0.5) 0%, rgba(255, 82, 111, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
         width: 50vw;
         height: 50vw;
         top: 50%;
@@ -189,5 +190,46 @@ onBeforeUnmount(() => {
         width: fit-content;
         gap: .5vw;
         position: relative;
+    }
+</style>
+
+<style scoped>
+    @media screen and (max-width: 700px) {
+        .categorieWrapper{
+            margin-top: 10vw;
+            margin-bottom: 10vw;
+            width: 100%;
+        }
+        .elementWrapper img{
+            width: 10vw;
+            height: 10vw;
+        }
+        .elementWrapper{
+            width: 40%;
+        }
+        .elementDecoration{
+            padding-top: 5vw;
+            padding-bottom: 5vw;
+            height: 100%;
+            top: 50%;
+            width: 110%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .elementsContainer{
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            gap: 3vw;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .globalWrapper{
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            width: 80vw;
+        }
     }
 </style>

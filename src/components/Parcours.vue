@@ -1,6 +1,6 @@
 <template>
     <div id="studyExperiences" data-aos="fade-left">
-        <h1>Mon parcours</h1>
+        <h1>{{ props.language == 'French' ? 'Études/Expériences' : 'Education/Experiences'}}</h1>
         <Formation :language="props.language"></Formation>
         <Experience :language="props.language"></Experience>
         <div id="circle5" class="circle" ></div>
@@ -20,7 +20,7 @@ const props = defineProps(["language"]);
         height: 100vh;
         width: 100vh;
         z-index: -1;
-        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 255, 255, 0.23) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
+        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 82, 111, 0.5) 0%, rgba(255, 82, 111, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
         top: 50%;
         left: 10vw;
         rotate: 30deg;
@@ -58,5 +58,19 @@ const props = defineProps(["language"]);
         border-top-right-radius: 2vw;
         margin-top: 10vw;
         gap: 5vw;
+    }
+</style>
+
+<style scoped>
+    @media screen and (max-width: 700px) {
+        #studyExperiences{
+            flex-direction: column;
+            width: 100vw;
+            padding: 0px;
+            padding-top: 20vw;
+            padding-bottom: 10vw;
+            height: fit-content;
+            border-radius: 0px;
+        }
     }
 </style>

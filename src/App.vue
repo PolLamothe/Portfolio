@@ -17,7 +17,7 @@
     <div ref="projectsSection">
         <Projects :language="languageValue"></Projects>
     </div>
-    <Contact></Contact>
+    <Contact :language="languageValue"></Contact>
 </template>
 
 <script setup>

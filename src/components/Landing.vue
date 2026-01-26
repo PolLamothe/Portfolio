@@ -67,14 +67,14 @@
     }
     @keyframes float {
         0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
+        50% { transform: translateY(-.5vw); }
         100% { transform: translateY(0px); }
     }
     #circle4{
         height: 100vh;
         width: 100vh;
         z-index: -1;
-        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 255, 255, 0.23) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;    
+        background: radial-gradient(62.94% 62.94% at 18.75% 47.07%, rgba(255, 82, 111, 0.5) 0%, rgba(255, 82, 111, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
         margin-top: 90vh;
         animation: float 8s ease-in-out infinite;
     }
@@ -224,4 +224,82 @@
         font-size: 20px;
         text-align: justify;
     }
+</style>
+
+<style scoped>
+    @media screen and (max-width: 700px) {
+        #linkWrapper button img{
+            height: 10vw;
+        }
+        #linkWrapper button{
+            width: 50vw;
+            height: 10vw;
+            border-radius: 5vw;
+        }
+        #linkWrapper{
+            padding: 4vw;
+            border-radius: 4vw;
+            gap: 3vw;
+        }
+        #rightWrapper{
+            left: 0px;
+            top: 0px;
+            margin-top: -15vh;
+        }
+        #circle1{
+            height: 20vw;
+            width: 20vw;
+            top: -35vw;
+        }
+        #circle2{
+            height: 20vw;
+            width: 20vw;
+            top: 0px;
+        }
+        .circle{
+            z-index: -1;
+        }
+        #prenom{
+            font-size: 50px;
+        }
+        #nom{
+            font-size: 50px;
+        }
+        #textWrapper{
+            background-color: rgba(0,0,0,.5);
+            padding: 5vw;
+            border-radius: 5vw;
+            backdrop-filter: blur(10px);
+            float: right;
+            width: 80vw;
+        }
+        #textWrapper p{
+            font-weight: lighter;
+            width: 90%;
+        }
+        #buttonWrapper{
+            gap: 8vw;
+            border-radius: 7vw;
+            padding: 2vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        #buttonWrapper button{
+            font-size:20px;
+            padding: 3vw 6vw 3vw 6vw;
+            border-radius: 6vw;
+        }
+        #buttonContact::before {
+            border-radius: 6vw;
+        }
+        #accueil{
+            flex-direction: column;
+            margin-top: 12vw;
+        }
+    }
+     @media screen and (max-width: 375px) {
+        #nom{
+            font-size: 40px;
+        }
+     }
 </style>

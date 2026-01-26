@@ -1,13 +1,14 @@
 <template>
     <div id="projects">
         <div class="titleWrapper">
-            <button @click="go('<')" style="padding-right: .7vw;"><img src="/img/arrow.svg" style="transform: rotate(180deg);"></button>
+            <button @click="go('<')" :style="{'padding-right' : isMobile ? '4vw' : '.7vw'}"><img src="/img/arrow.svg" style="transform: rotate(180deg);"></button>
             <h1>{{ currentContent.title }}</h1>
-            <button @click="go('>')" style="padding-left: .7vw;"><img src="/img/arrow.svg"></button>
+            <button @click="go('>')" :style="{'padding-left' : isMobile ? '4vw' : '.7vw'}"><img src="/img/arrow.svg"></button>
         </div>
-        <Splide id="slider" ref="splide" data-splide='{"fixedWidth":"fit-content","gap":"5vw","arrows": false}' :key="key">
+        <Splide id="slider" ref="splide" data-splide='{"gap":"5vw","arrows": false, "type": "loop"}' :key="key">
                 <SplideSlide class="splideElement" v-for="project in currentProjects">
                     <p class="projectName">{{ project.name }}</p>
+                    <img v-if="isMobile" :src="'/img/project/'+project.img+'.png'">
                     <p class="projectDescription">{{ project.description }}</p>
                     <div class="secondWrapper">
                         <div class="stackWrapper">
@@ -15,7 +16,7 @@
                         </div>
                         <div class="imageWrapper">
                             <a :href="project.link" target="_blank"><button>{{ currentContent.button }}</button></a>
-                            <img :src="'/img/project/'+project.img+'.png'">
+                            <img v-if="!isMobile" :src="'/img/project/'+project.img+'.png'">
                         </div>
                     </div>
                 </SplideSlide>
@@ -25,7 +26,7 @@
 
 <script setup>
     import '@splidejs/splide/dist/css/splide.min.css';
-    import { ref, computed } from 'vue';
+    import { ref, computed, onMounted, onUnmounted } from 'vue';
 
     const props = defineProps(["language"]);
 
@@ -36,6 +37,20 @@
             splide.value.go(direction);
         }
     };
+
+    const isMobile = ref(window.innerWidth <= 700);
+
+    const checkWidth = () => {
+        isMobile.value = window.innerWidth <= 700;
+    };
+
+    onMounted(() => {
+        window.addEventListener('resize', checkWidth);
+    });
+
+    onUnmounted(() => {
+        window.removeEventListener('resize', checkWidth);
+    });
 
     const content = {
         French: {
@@ -237,6 +252,7 @@
         display: flex;
         flex-direction: row;
         gap: 5vw;
+        width: fit-content;
     }
     .stackWrapper p{
         color: white;
@@ -257,17 +273,18 @@
         background-color: rgba(0,0,0,.4);
         padding: 2vw;
         border-radius: 1vw;
-        height: fit-content;
-        width: fit-content;
+        width: 50vw!important;
     }
     .projectDescription{
         color: gray;
         font-size: 18px;
+        width: 100%;
     }
     .projectName{
         color: white;
         margin-top: 0px;
         font-size: 24px;
+        width: fit-content;
     }
     h1{
          color: #FFE2AA;
@@ -284,5 +301,41 @@
         flex-direction: column;
         align-items: center;
         margin-top: 3vw;
+    }
+</style>
+
+<style scoped>
+    @media screen and (max-width: 700px) {
+        .stackWrapper p{
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 2vw;
+        }
+        .stackWrapper{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 3vw;
+        }
+        .splideElement img{
+            width: 100%;
+        }
+        .splideElement{
+            border-radius: 5vw;
+            padding: 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90vw!important;
+        }
+        #slider{
+            width: 90vw;
+        }
+        .titleWrapper button {
+            padding: 3vw;
+        }
+        .titleWrapper button img{
+            width: 8vw;
+        }
     }
 </style>

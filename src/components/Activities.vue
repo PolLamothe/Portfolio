@@ -4,24 +4,39 @@
 
         </div>
         <template v-for="(card,index) in Object.keys(cards)" :id="'card'+card" class="card">
-            <div class="card":id="'card'+card" :style="{'grid-column': index+1}" data-aos="fade-up" :data-aos-delay="index * 200">
+            <div class="card":id="'card'+card" :style="{'grid-column': isMobile ? 1 : index+1, 'grid-row': isMobile ? (index*5+1)+'/'+(index*5+5) : '1/6'}" data-aos="fade-up" :data-aos-delay="index * 200">
 
             </div>
-            <img :src="'/svg/'+cards[card].icon+'.svg'" :style="[{'grid-column': index+1}, cards[card].style]" data-aos="fade-up" :data-aos-delay="index * 200">
-            <div class="activitesNameWrapper" :style="{'grid-column': index+1}" data-aos="fade-up" :data-aos-delay="index * 200">
+            <img :src="'/svg/'+cards[card].icon+'.svg'" :style="[{'grid-column': isMobile ? 1 : index+1, 'grid-row': isMobile ? index*5+2 : '1'}, cards[card].style]" data-aos="fade-up" :data-aos-delay="index * 200">
+            <div class="activitesNameWrapper" :style="{'grid-column': isMobile ? 1 : index+1, 'grid-row': isMobile ? index*5+3 : '2'}" data-aos="fade-up" :data-aos-delay="index * 200">
                 <div class="activitesNameDeco"></div>
                 <p class="activitesName">{{ cards[card].name }}</p>
                 <div class="activitesNameDeco"></div>
             </div>
-            <p class="activitiesPresentation" :style="{'grid-column': index+1}" data-aos="fade-up" :data-aos-delay="index * 200">{{ cards[card].presentation }}</p>
+            <p class="activitiesPresentation" :style="{'grid-column': isMobile ? 1 : index+1,'grid-row': isMobile ? index*5+4 : '3'}" data-aos="fade-up" :data-aos-delay="index * 200">{{ cards[card].presentation }}</p>
+            <div v-if="isMobile" class="mobile-spacer" :style="{'grid-row': (index*5+5), 'grid-column': 1}"></div>
         </template>
     </div>
 </template>
 
 <script setup>
-    import { ref, computed } from "vue"
+    import { ref, computed, onMounted, onUnmounted } from "vue"
 
     const props = defineProps(["language"]);
+
+    const isMobile = ref(window.innerWidth <= 700);
+
+    const checkWidth = () => {
+        isMobile.value = window.innerWidth <= 700;
+    };
+
+    onMounted(() => {
+        window.addEventListener('resize', checkWidth);
+    });
+
+    onUnmounted(() => {
+        window.removeEventListener('resize', checkWidth);
+    });
 
     const content = {
         English: {
@@ -165,5 +180,30 @@
     }
     #card1{
         background: rgba(255, 140, 108, 0.75);
+    }
+</style>
+
+<style scoped>
+    @media screen and (max-width: 700px) {
+        .card{
+            padding-left: 5vw;
+            padding-right: 5vw;
+            border-radius: 8vw;
+        }
+        .activitiesPresentation{
+            width: 80vw;
+        }
+        #activitiesWrapper{
+            grid-template-columns: 1fr;
+        }   
+        #activitesDeco{
+            display: none;
+        }
+        #activitiesWrapper img{
+            width: 10vw;
+        }
+        .mobile-spacer{
+            height: 5vh;
+        }
     }
 </style>
