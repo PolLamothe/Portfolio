@@ -153,7 +153,7 @@
         position: relative;
         height: fit-content;
         place-items: center;
-        grid-template-columns: repeat(3, minmax(0, 20vw));
+        grid-template-columns: repeat(3, minmax(0, 25vw));
     }
     .card{
         display: flex;
