@@ -195,6 +195,9 @@ onBeforeUnmount(() => {
 
 <style scoped>
     @media screen and (max-width: 700px) {
+        h1{
+            font-size: 30px;
+        }
         .categorieWrapper{
             margin-top: 10vw;
             margin-bottom: 10vw;

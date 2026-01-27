@@ -1,6 +1,11 @@
 <template>
     <div id="studyExperiences" data-aos="fade-left">
-        <h1>{{ props.language == 'French' ? 'Études/Expériences' : 'Education/Experiences'}}</h1>
+        <h1>
+            <span>{{ props.language == 'French' ? 'Études' : 'Education'}}</span>
+            <span class="slash">/</span>
+            <span class="break"></span>
+            <span>{{ props.language == 'French' ? 'Expériences' : 'Experiences'}}</span>
+        </h1>
         <Formation :language="props.language"></Formation>
         <Experience :language="props.language"></Experience>
         <div id="circle5" class="circle" ></div>
@@ -59,6 +64,12 @@ const props = defineProps(["language"]);
         margin-top: 10vw;
         gap: 5vw;
     }
+    .slash {
+        display: inline;
+    }
+    .break {
+        display: none;
+    }
 </style>
 
 <style scoped>
@@ -71,6 +82,19 @@ const props = defineProps(["language"]);
             padding-bottom: 10vw;
             height: fit-content;
             border-radius: 0px;
+            padding-top: 5vw;
+        }
+        h1{
+            font-size: 30px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        .slash {
+            display: none;
+        }
+        .break {
+            display: block;
         }
     }
 </style>
