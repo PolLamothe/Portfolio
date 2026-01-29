@@ -167,10 +167,27 @@
         width: 100%;
         z-index: -1;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
     }
     .card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+        transform: skewX(-25deg);
+        transition: none;
+    }
+    .card:hover::after {
+        left: 150%;
+        transition: left 0.7s ease-in-out;
     }
     #card3{
         background-color: #FF6E7B;

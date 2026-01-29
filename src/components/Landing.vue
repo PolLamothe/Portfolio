@@ -3,7 +3,7 @@
         <div id="textWrapper" data-aos="fade-right">
             <h1 id="prenom">POL</h1>
             <h1 id="nom">LAMOTHE</h1>
-            <p>{{ texts[language].description }}</p>
+            <p class="description">{{ displayedDescription }}<span class="cursor"></span></p>
             <div id="buttonWrapper">
                 <a href="./CV.pdf" target="_blank"><button id="buttonCV">{{ texts[language].cv }}</button></a>
                 <a href="#contact"><button id="buttonContact">{{ texts[language].contact }}</button></a>
@@ -25,6 +25,8 @@
 </template>
 
 <script setup>
+    import { ref, computed, watch, onMounted } from "vue";
+
     const props = defineProps(["currentSection","language"]);
     
     const linkButtons = [["Linkedin","https://www.linkedin.com/in/pol-lamothe/"],["Github","https://github.com/PolLamothe"],["Leetcode","https://leetcode.com/u/PolLamothe/"]]
@@ -41,6 +43,30 @@
             contact: "Contact"
         }
     }
+
+    const displayedDescription = ref("");
+    const fullDescription = computed(() => texts[props.language].description);
+    let typingInterval;
+
+    const startTyping = () => {
+        clearInterval(typingInterval);
+        displayedDescription.value = "";
+        let i = 0;
+        const text = fullDescription.value;
+        
+        typingInterval = setInterval(() => {
+            if (i < text.length) {
+                displayedDescription.value += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 30); // Vitesse de frappe (ms)
+    };
+
+    watch(() => props.language, startTyping);
+
+    onMounted(startTyping);
 
     const handleClick = (element) => {
         window.open(element[1])
@@ -219,10 +245,24 @@
         margin-top: 0px;
         width: max-content;
     }
-    p{
+    .description{
         color : lightgray;
         font-size: 20px;
         text-align: justify;
+        min-height: 4.5em; /* Réserve l'espace pour éviter le saut de contenu */
+    }
+    .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        background-color: #FFE2AA;
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: blink 1s infinite;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
     }
 </style>
 

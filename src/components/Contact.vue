@@ -14,7 +14,6 @@
     const props = defineProps(["language"]);
 
     const data = [
-        ["06 29 00 24 56","img/phone.png",true],
         ["lamothepol@gmail.com","svg/mail.svg",true],
         ["Pol Lamothe","img/social/Linkedin.png",false,"https://www.linkedin.com/in/pol-lamothe/"]
     ]
