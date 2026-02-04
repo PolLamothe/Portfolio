@@ -1,5 +1,6 @@
 <template>
     <header>
+        <img src="/img/logo_beige_avec_nom.png" id="logo" alt="Logo">
         <div id="headerWrapper">
             <div class="bubble" :style="bubbleStyle"></div>
             <a
@@ -11,8 +12,8 @@
                 >{{ button }}</a>
         </div>
         <button id="ukButton" @click="language == 'French' ? language = 'English' : language = 'French'">
-            <img :src="language == 'French' ? '/img/france.png' : '/img/UK.png'">
-            <p>{{language == 'French' ? 'Français' : 'English'}}</p>
+            <img :src="language == 'French' ? '/img/UK.png' : '/img/france.png'">
+            <p>{{language == 'French' ? 'English' : 'Français'}}</p>
         </button>
     </header>
 </template>
@@ -75,6 +76,10 @@
         width: 1.5vw;
         height: 1.5vw;
         border-radius: 50%;
+    }
+    #logo{
+        height: 5vw;
+        margin-right: 2vw;
     }
     #ukButton p{
         color: white;
@@ -151,6 +156,11 @@
 <style scoped>
     @media screen and (max-width: 700px) {
         #headerWrapper{
+            display: none;
+        }
+        #logo{
+            height: 10vw;
+            margin-right: 4vw;
             display: none;
         }
         #ukButton img{
