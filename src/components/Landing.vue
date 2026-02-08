@@ -144,6 +144,8 @@
         gap: 1vw;
         border-radius: 2vw;
         padding: .25vw;
+        position: relative;
+        z-index: 5;
     }
     #circle3{
         width: 15vw;
@@ -312,6 +314,7 @@
             backdrop-filter: blur(10px);
             float: right;
             width: 80vw;
+            z-index: 10;
         }
         #textWrapper p{
             font-weight: lighter;
