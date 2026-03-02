@@ -77,6 +77,13 @@
                 link : "https://pollamothe.fr/IA"
             },
             {
+                name : "PolyRide",
+                img : "PolyRide",
+                description : "Un site de covoiturage entre étudiant réalisé dans le cadre de mes études à Polytech Nantes",
+                stack : ["NodeJS","ReactJS","Scrum","MongoDB"],
+                link : "https://pollamothe.fr/polyride/"
+            },
+            {
                 name : "Simulateur de collisions",
                 img : "PhysicSimulator",
                 description : "Un similateur de collisions codé en Javascript",
