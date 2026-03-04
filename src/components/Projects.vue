@@ -7,7 +7,10 @@
         </div>
         <Splide id="slider" ref="splide" data-splide='{"gap":"5vw","arrows": false, "type": "loop"}' :key="key">
                 <SplideSlide class="splideElement" v-for="project in currentProjects">
-                    <p class="projectName">{{ project.name }}</p>
+                    <div class="nameWrapper">
+                        <p class="projectName">{{ project.name }}</p>
+                        <p class="projectDate">{{ formatDate(project.startDate, project.endDate) }}</p>
+                    </div>
                     <img v-if="isMobile" :src="'/img/project/'+project.img+'.png'">
                     <p class="projectDescription">{{ project.description }}</p>
                     <div class="secondWrapper">
@@ -67,6 +70,25 @@
         return content[props.language] || content.French;
     });
 
+    const formatDate = (start, end) => {
+        if (!start || !end) return "";
+        const options = { month: 'short', year: 'numeric' };
+        const locale = props.language === 'French' ? 'fr-FR' : 'en-US';
+        
+        const startStr = start.toLocaleDateString(locale, options);
+        
+        // Check if end is "now" (same as current date approximately)
+        const now = new Date();
+        const isNow = end.getFullYear() === now.getFullYear() && end.getMonth() === now.getMonth();
+        
+        const endStr = isNow 
+            ? (props.language === 'French' ? 'Aujourd\'hui' : 'Present')
+            : end.toLocaleDateString(locale, options);
+
+        if (startStr === endStr && !isNow) return startStr;
+        return `${startStr} - ${endStr}`;
+    };
+
     const projectsData = {
         French: [
             {
@@ -74,70 +96,90 @@
                 img : "IADetecteurDeNombre",
                 description : "Un projet de création d'lA from scratch avec diverses implémentations dans du machine learning",
                 stack : ["Python","IA","Math"],
-                link : "https://pollamothe.fr/IA"
+                link : "https://pollamothe.fr/IA",
+                startDate : new Date(2024,8),
+                endDate : new Date()
             },
             {
                 name : "PolyRide",
                 img : "PolyRide",
                 description : "Un site de covoiturage entre étudiant réalisé dans le cadre de mes études à Polytech Nantes",
                 stack : ["NodeJS","ReactJS","Scrum","MongoDB"],
-                link : "https://pollamothe.fr/polyride/"
+                link : "https://pollamothe.fr/polyride/",
+                startDate : new Date(2025,10),
+                endDate : new Date(2025,10)
             },
             {
                 name : "Laurelin",
                 img : "Laurelin",
                 description : "Un site de e-commerce pour une marque fictive",
                 stack : ["PHP/Laravel","HTML/CSS","JS/VueJS","SQL","Équipe"],
-                link : "https://pollamothe.fr/Laurelin"
+                link : "https://pollamothe.fr/Laurelin",
+                startDate : new Date(2024,11),
+                endDate : new Date(2025,0)
             },
             {
                 name : "Simulateur de collisions",
                 img : "PhysicSimulator",
                 description : "Un similateur de collisions codé en Javascript",
                 stack : ["JS","HTML/CSS","Math"],
-                link : "https://pollamothe.github.io/Collision-Simulator/"
+                link : "https://pollamothe.github.io/Collision-Simulator/",
+                startDate : new Date(2025,8),
+                endDate : new Date(2025,8)
             },
             {
                 name : "Villa Loch Crenn",
                 img : "LochCrenn",
                 description : "Un site web vitrine pour la location saisonnière d’une maison",
                 stack : ["HTML/CSS","JS","PHP"],
-                link : "https://www.villalochcrenn.fr"
+                link : "https://www.villalochcrenn.fr",
+                startDate : new Date(2022,11),
+                endDate : new Date(2023,2)
             },
             {
                 name : "Instinct-If",
                 img : "InstinctIf",
                 description : "Un site de mini jeux",
                 stack : ["HTML/CSS","JS"],
-                link : "https://pollamothe.github.io/Instinct-If/"
+                link : "https://pollamothe.github.io/Instinct-If/",
+                startDate : new Date(2024,1),
+                endDate : new Date(2024,2)
             },
             {
                 name : "Note If",
                 img : "NoteIf",
                 description : "Une extension pour navigateur web permettant aux étudiants de Nantes d’être avertis de publications de notes",
                 stack : ["HTML/CSS","NodeJS","MongoDB","Équipe"],
-                link : "https://github.com/PolLamothe/NoteIf"
+                link : "https://github.com/PolLamothe/NoteIf",
+                startDate : new Date(2024,0),
+                endDate : new Date(2024,1)
             },
             {
                 name : "Projet Quadtree",
                 img : "Quadtree",
                 description : "Un jeu vidéo codé en Golang utilisant la bibliothèque Ebiten",
                 stack : ["Golang","Réseaux"],
-                link : "https://github.com/PolLamothe/Quadtree"
+                link : "https://github.com/PolLamothe/Quadtree",
+                startDate : new Date(2023,9),
+                endDate : new Date(2024,0),
             },
             {
                 name : "Air-PC",
                 img : "AIRPC",
                 description : "Un site web vitrine victif de vente d'ordinateur",
                 stack : ["HTML/CSS"],
-                link : "https://pollamothe.github.io/AIR-PC/"
+                link : "https://pollamothe.github.io/AIR-PC/",
+                startDate : new Date(2023,9),
+                endDate : new Date(2023,9),
             },
             {
                 name : "PolyUno",
                 img : "PolyUno",
                 description : "Un jeu Uno fonctionnant en réseau de façon décentralisé",
                 stack : ["Python","Réseaux","Équipe"],
-                link : "https://github.com/PolLamothe/PolyUno"
+                link : "https://github.com/PolLamothe/PolyUno",
+                startDate : new Date(2024,4),
+                endDate : new Date(2024,5),
             }
         ],
         English: [
@@ -146,63 +188,90 @@
                 img : "IADetecteurDeNombre",
                 description : "An AI creation project from scratch with various machine learning implementations",
                 stack : ["Python","AI","Math"],
-                link : "https://pollamothe.fr/IA"
+                link : "https://pollamothe.fr/IA",
+                startDate : new Date(2024,8),
+                endDate : new Date()
             },
             {
-                name : "Collision Simulator",
-                img : "PhysicSimulator",
-                description : "A collision simulator coded in Javascript",
-                stack : ["JS","HTML/CSS","Math"],
-                link : "https://pollamothe.github.io/Collision-Simulator/"
+                name : "PolyRide",
+                img : "PolyRide",
+                description : "A carpooling website for students created as part of my studies at Polytech Nantes",
+                stack : ["NodeJS","ReactJS","Scrum","MongoDB"],
+                link : "https://pollamothe.fr/polyride/",
+                startDate : new Date(2025,10),
+                endDate : new Date(2025,10)
             },
             {
                 name : "Laurelin",
                 img : "Laurelin",
                 description : "An e-commerce site for a fictional brand",
                 stack : ["PHP/Laravel","HTML/CSS","JS/VueJS","SQL","Team"],
-                link : "https://github.com/PolLamothe/Laurelin"
+                link : "https://github.com/PolLamothe/Laurelin",
+                startDate : new Date(2024,11),
+                endDate : new Date(2025,0)
+            },
+            {
+                name : "Collision Simulator",
+                img : "PhysicSimulator",
+                description : "A collision simulator coded in Javascript",
+                stack : ["JS","HTML/CSS","Math"],
+                link : "https://pollamothe.github.io/Collision-Simulator/",
+                startDate : new Date(2025,8),
+                endDate : new Date(2025,8)
             },
             {
                 name : "Villa Loch Crenn",
                 img : "LochCrenn",
                 description : "A showcase website for a seasonal house rental",
                 stack : ["HTML/CSS","JS","PHP"],
-                link : "https://www.villalochcrenn.fr"
+                link : "https://www.villalochcrenn.fr",
+                startDate : new Date(2022,11),
+                endDate : new Date(2023,2)
             },
             {
                 name : "Instinct-If",
                 img : "InstinctIf",
                 description : "A mini-games website",
                 stack : ["HTML/CSS","JS"],
-                link : "https://pollamothe.github.io/Instinct-If/"
+                link : "https://pollamothe.github.io/Instinct-If/",
+                startDate : new Date(2024,1),
+                endDate : new Date(2024,2)
             },
             {
                 name : "Note If",
                 img : "NoteIf",
                 description : "A web browser extension allowing Nantes students to be notified of grade publications",
                 stack : ["HTML/CSS","NodeJS","MongoDB","Team"],
-                link : "https://github.com/PolLamothe/NoteIf"
+                link : "https://github.com/PolLamothe/NoteIf",
+                startDate : new Date(2024,0),
+                endDate : new Date(2024,1)
             },
             {
                 name : "Quadtree Project",
                 img : "Quadtree",
                 description : "A video game coded in Golang using the Ebiten library",
                 stack : ["Golang","Network"],
-                link : "https://github.com/PolLamothe/Quadtree"
+                link : "https://github.com/PolLamothe/Quadtree",
+                startDate : new Date(2023,9),
+                endDate : new Date(2024,0)
             },
             {
                 name : "Air-PC",
                 img : "AIRPC",
                 description : "A fictional showcase website for computer sales",
                 stack : ["HTML/CSS"],
-                link : "https://pollamothe.github.io/AIR-PC/"
+                link : "https://pollamothe.github.io/AIR-PC/",
+                startDate : new Date(2023,9),
+                endDate : new Date(2023,9)
             },
             {
                 name : "PolyUno",
                 img : "PolyUno",
                 description : "A Uno game running on a decentralized network",
                 stack : ["Python","Network","Team"],
-                link : "https://github.com/PolLamothe/PolyUno"
+                link : "https://github.com/PolLamothe/PolyUno",
+                startDate : new Date(2024,4),
+                endDate : new Date(2024,5)
             }
         ]
     };
@@ -290,8 +359,19 @@
     .projectName{
         color: white;
         margin-top: 0px;
+        margin-bottom: 0px;
         font-size: 24px;
         width: fit-content;
+    }
+    .projectDate {
+        color: #FF8C6C;
+        font-size: 14px;
+        margin: 0;
+    }
+    .nameWrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
     }
     h1{
          color: #FFE2AA;
