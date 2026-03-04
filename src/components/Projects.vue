@@ -84,18 +84,18 @@
                 link : "https://pollamothe.fr/polyride/"
             },
             {
+                name : "Laurelin",
+                img : "Laurelin",
+                description : "Un site de e-commerce pour une marque fictive",
+                stack : ["PHP/Laravel","HTML/CSS","JS/VueJS","SQL","Équipe"],
+                link : "https://pollamothe.fr/Laurelin"
+            },
+            {
                 name : "Simulateur de collisions",
                 img : "PhysicSimulator",
                 description : "Un similateur de collisions codé en Javascript",
                 stack : ["JS","HTML/CSS","Math"],
                 link : "https://pollamothe.github.io/Collision-Simulator/"
-            },
-            {
-                name : "Laurelin",
-                img : "Laurelin",
-                description : "Un site de e-commerce pour une marque fictive",
-                stack : ["PHP/Laravel","HTML/CSS","JS/VueJS","SQL","Équipe"],
-                link : "https://github.com/PolLamothe/Laurelin"
             },
             {
                 name : "Villa Loch Crenn",
