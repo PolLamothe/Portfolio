@@ -54,9 +54,9 @@ const translateCategory = (category) => {
 };
 
 const skills = {
-    "Langages":["Javascript","Python","Kotlin","Java","SQL","Golang","PHP"],
+    "Langages":["Javascript","Python","Kotlin","Java","SQL","Golang","C","PHP"],
     "Backend" : ["NodeJS","MongoDB","Laravel","Docker","SpringBoot","Jenkins"],
-    "Frontend" : ["VueJS","React"],
+    "Frontend" : ["VueJS","React","JavaFX"],
     "Programmation" : ["MVC","Design Pattern","OOP","Numpy"]
 };
 
