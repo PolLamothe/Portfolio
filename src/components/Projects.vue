@@ -128,6 +128,15 @@
                 endDate : new Date(2025,8)
             },
             {
+                name : "Kiwi Movie",
+                img : "KiwiMovie",
+                description : "Une application mobile Android permettant de visualiser l'API TMDB",
+                stack : ["Kotlin"],
+                link : "https://github.com/PolLamothe/KiwiMovie",
+                startDate : new Date(2025,2),
+                endDate : new Date(2025,4)
+            },
+            {
                 name : "Villa Loch Crenn",
                 img : "LochCrenn",
                 description : "Un site web vitrine pour la location saisonnière d’une maison",
